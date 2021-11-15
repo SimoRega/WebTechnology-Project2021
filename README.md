@@ -2,3 +2,5 @@
 A Web Technology project for an University class
 
 Brainstorming here https://jamboard.google.com/d/1fQnj-gqQFPebqATBPPRtZtDNJBvpV6JWRnBhynRplQI/edit?usp=sharing
+
+WhiteBoard https://wbd.ms/share/v2/aHR0cHM6Ly93aGl0ZWJvYXJkLm1pY3Jvc29mdC5jb20vYXBpL3YxLjAvd2hpdGVib2FyZHMvcmVkZWVtLzFhODBmZmExODdmNTQyZmZhMTAyMjQ5MTE1NWIyNDkxX2U5OTY0N2RjLTFiMDgtNDU0YS1iZjhjLTY5OTE4MWIzODlhYl84ZmM1OTMxMi1mNjFjLTQ2MmMtODU2NS02OThhMGYyMmMxZjY=
