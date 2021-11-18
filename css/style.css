@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(24, 24, 24);
+    /* background-color: rgb(24, 24, 24);*/
 }
 
 /* --- HEADER --- */
@@ -114,28 +114,19 @@ header nav div .nav_link:hover {
     border-radius: 15px;
 }
 
-.overlay img {
-    position: relative;
-    z-index: -1;
+.text_shadow {
+    background: rgba(0, 0, 0, 0.61);
+    border-radius: 30px;
 }
 
-.overlay {
-    position: relative;
-    z-index: -1;
+#custom-cards .col a div {
+    transition: width 1s;
 }
 
-.card_brand>.bg-primary {
-    position: relative;
-    z-index: 2;
+#custom-cards .col a div:hover {
+    width: 100.5%;
 }
 
-.card_brand {
-    margin-top: -22%;
-}
-
-.card_brand .card {
-    box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.658);
-}
 
 /* --- FOOTER --- */
 footer {

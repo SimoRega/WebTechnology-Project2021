@@ -1,9 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
     <head>
-
+        <link href="../css/login-style.css" rel="stylesheet" type="text/css" >
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+        <title>Login Romagna Camper</title>
     </head>
     <body>
-        
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="#">
+                    <h1>Crea il tuo Account</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="bi bi-google"></i></a>
+                        <a href="#" class="social"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                    <input type="text" placeholder="Nome" />
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>Iscriviti</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="#">
+                    <h1>Bentornato!</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="bi bi-google"></i></a>
+                        <a href="#" class="social"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <a href="#">Dimenticato le credenziali?</a>
+                    <button>Accedi</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Ciao, Bentornato!</h1>
+                        <p>Per restare connessi e salvare i propri dati effettua l'Accesso</p>
+                        <button class="ghost" id="signIn">Accedi</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Ciao, nuovo qui?</h1>
+                        <p>Goditi a pieno le potenzialità del nostro sito iscrivendoti !</p>
+                        <button class="ghost" id="signUp">Registrati</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../js/login-script.js"></script>
     </body>
 </html>
