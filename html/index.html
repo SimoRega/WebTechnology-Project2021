@@ -66,15 +66,46 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-          <div class="offcanvas-header">
-            <div class="d-flex flex-column justify-content-evenly">
-              <a class="navbar-brand nav_link" href="#">MODELLI</a>
-              <a class="navbar-brand nav_link" href="#">MARCHE</a>
-              <a class="navbar-brand nav_link" href="#">NEGOZIO</a>
-              <a class="navbar-brand nav_link" href="../html/chisiamo.html">CHI SIAMO</a>
-              <div class="d-flex flex-column">
-                <a class="navbar-brand nav_login" href="../html/login.html">PROFILO</a>
-                <a class="navbar-brand nav_login" href="../html/login.html">LOGIN</a>
+          <div class="offcanvas-header m-auto" style="width: 100%; height: 100%;">
+            <div class="d-flex flex-column flex-shrink-0 text-white " style="width: 100%; height: 100%;" >
+              <div class="accordion accordion-flush " id="accordionFlushExample">
+
+                <a class="navbar-brand nav_link rounded-3 bg-secondary bg-opacity-75 w-100 my-1 btn" href="#">HOME</a>
+
+                <a class="rounded-3  bg-secondary bg-opacity-75 w-100 navbar-brand nav_login dropdown-toggle my-1" href="#"type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  MODELLI
+                </a>
+                <div id="flush-collapseOne" class="accordion-collapse collapse my-1" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <a class="navbar-brand nav_link rounded-3 bg-secondary bg-opacity-25 ms-4" href="#" >VISUALIZZA TIPOLOGIE</a>
+                  <a class="navbar-brand nav_link rounded-3 bg-secondary bg-opacity-25 ms-4" href="#" >VISUALIZZA MARCHE</a>
+                  <a class="navbar-brand nav_link rounded-3 bg-secondary bg-opacity-25 ms-4" href="#" >VISUALIZZA TUTTI I CAMPER</a>
+                </div>
+
+                <a class="rounded-3  bg-secondary bg-opacity-75 w-100 navbar-brand nav_login dropdown-toggle my-1" href="#"type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseOne">
+                  NEGOZIO
+                </a>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse my-1 " aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <a class="navbar-brand nav_link rounded-3 bg-secondary bg-opacity-25 ms-4" href="#" >FRIGO VIAGGIO</a>
+                  <a class="navbar-brand nav_link rounded-3 bg-secondary bg-opacity-25 ms-4" href="#" >TENDE CAMPER</a>
+                  <a class="navbar-brand nav_link rounded-3 bg-secondary bg-opacity-25 ms-4" href="#" >KIT CAMPERGGIO</a>
+                  <a class="navbar-brand nav_link rounded-3 bg-secondary bg-opacity-25 ms-4" href="#" >VISUALIZZA TUTTO</a>
+                </div>
+
+                <a class="navbar-brand nav_link rounded-3 bg-secondary bg-opacity-75 w-100 my-1 btn" href="#">CHI SIAMO</a>
+
+              </div>  
+              <div class="dropdown dropup navbar-brand bg-danger " >
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle "  id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                  
+                  <strong>PROFILO</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                  <li><a class="dropdown-item" href="#">New project...</a></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
               </div>
             </div>
           </div>
@@ -91,7 +122,7 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="../res/4.jpg" class="d-block w-100" alt="...">
+            <img src="../res/1.jpg" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
             <img src="../res/2.jpg" class="d-block w-100" alt="...">
@@ -158,23 +189,22 @@
       </div>
 
       <!-- Cards -->
-      <div class="container">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="container-fluid m-auto overlay opacity-50">
+        <img src="../res/overlay.jpg" alt="sfondo marche camper" class="img-fluid rounded w-80 ">
+      </div>
+
+      <div class="container card_brand">
+        <div class="container text-center bg-dark bg-opacity-50 py-4 mb-2">
+          <h3 class="text-danger ">SCOPRI LE NOSTRE MARCHE</h3>
+          
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4"> 
           <div class="col">
             <div class="card">
               <img src="../res/knaus.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">KNAUS</h5>
-                <p class="card-text">KNAUS è diventato un marchio che è sinonimo di alta qualità, design moderno e soluzioni innovative come nessun altro nel settore del caravanning.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="../res/knaus.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">KNAUS</h5>
-                <p class="card-text">KNAUS è diventato un marchio che è sinonimo di alta qualità, design moderno e soluzioni innovative come nessun altro nel settore del caravanning.</p>
+                <p class="card-text">KNAUS è un marchio di design moderno e soluzioni innovative come nessun altro nel settore del caravanning.</p>
               </div>
             </div>
           </div>
@@ -198,8 +228,7 @@
           </div>          
         </div>
       </div>
-
-      <!-- Paragraph -->
+      
       <!-- To Top Button -->
       <button onclick="topFunction()" id="myBtn" title="Go to top">
         <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-arrow-up-square" viewBox="0 0 16 16">
