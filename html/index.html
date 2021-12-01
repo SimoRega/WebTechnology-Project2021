@@ -17,43 +17,94 @@
     <title>Camper Romagna</title>
   </head>
   <body>
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" id="myNav">
             <div class="container-fluid navigation">
                 <div class="d-flex flex-wrap align-items-center justify-content-around">
-                    <a href="#" class="">
+                    <a href="#" class="navbar-brand">
                         <img src="../res/icon.png" alt="logo">
                     </a>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav m-auto d-flex flex-wrap align-items-center justify-content-evenly">
-                            <li class="nav-item"><a class="nav-link" href="">HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" href="">MODELLI</a></li>
-                            <li class="nav-item"><a class="nav-link" href="">NEGOZIO</a></li>
-                            <li class="nav-item"><a class="nav-link" href="">CHI SIAMO</a></li>
+                        <ul class="navbar-nav  d-flex flex-wrap align-items-center justify-content-evenly">
+                            <li class="nav-item"><a class="nav-link fw-bold" href="">HOME</a></li>
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle fw-bold" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">MODELLI</a>
+                              <ul class="dropdown-menu mx-0 border-0 shadow" style="width: 220px;" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item " href="#">VISUALIZZA MARCHE</a></li>
+                                <li><a class="dropdown-item" href="#">VISUALIZZA TIPOLOGIE</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">TUTTI I MODELLI</a></li>
+                              </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle fw-bold" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">NEGOZIO</a>
+                              <ul class="dropdown-menu mx-0 border-0 shadow" style="width: 220px;" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item " href="#">VISUALIZZA ACCESSORI</a></li>
+                                <li><a class="dropdown-item" href="#">VISUALIZZA KIT</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">VISUALIZZA TUTTO</a></li>
+                              </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link fw-bold" href="">CHI SIAMO</a></li>
                         </ul>
                     </div>
 
-                    <div class="text-end">
-                        <button type="button" class="btn btn-outline-light me-2">Login</button>
-                        <button class="navbar-toggler btn btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+                    <div class="text-end row" >
+                        <div class="dropdown col">
+                          <a class=" btn btn-outline-danger me-2 fw-bold dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">LOGIN</a>
+                          <ul class="dropdown-menu shadow">
+                            <li>
+                              <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                              Documents
+                            </a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                              Photos
+                            </a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                              Movies
+                            </a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                              Music
+                            </a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                              Games
+                            </a>
+                          </li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                              Trash
+                            </a>
+                          </li>
+                          </ul>
+                        </div>
+                        <button class="navbar-toggler btn btn-outline-light col" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                      </button>
                     </div> 
-                    
-                </div>
+                </div> 
             </div>
         </nav>
     </header>
     <main>
         <!-- PRESENTAZIONE HOME -->
-        <div class="container ">
-            <div class="row ">
-                <div class="d-flex flex-column align-self-center col-lg-4 col-md-5 pt-3 pt-md-4 pt-lg-5 ">
-                    <h1 class="display-4 text-light pb-2 mb-4 me-md-n5">TROVA IL CAMPER PERFETTO PER TE</h1>
+        <div class="container-fluid">
+            <div class="row " style="margin: 0% 10%;">
+                <div class="col-lg-5 col-md-5 pt-3 pt-md-4 pt-lg-5 d-flex flex-column align-self-center ">
+                    <h1 class="display-4 text-light ">TROVA IL CAMPER PERFETTO PER TE</h1>
                     <p class="fs-lg text-light opacity-70">Finder is a leading digital marketplace for the automotive industry that connects car shoppers with sellers.</p>
                 </div>
-                <div class="col-lg-8 col-md-7 pt-3 pt-md-5 ">
+                <div class="col-lg-7 col-md-7 pt-3 pt-md-5 " >
                     <img class="d-block mt-4 ms-auto" src="../res/camper_png.png" alt="" style="max-width: 100%;
                     height: auto;
                     vertical-align: middle;">

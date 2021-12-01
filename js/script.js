@@ -8,14 +8,14 @@ function navBarScroll(){
 
     var lastPos=0;
     $(window).scroll(function(){
-        if($(window).scrollTop()<lastPos && $(window).scrollTop()>500){
+        if($(window).scrollTop()<lastPos && $(window).scrollTop()>400){
             var myStyle={
                 'background-color':'transparent',
                 'visibility':'hidden'
             }
             $("#myNav").css(myStyle);
         }else{
-            if($(window).scrollTop()>500 ){
+            if($(window).scrollTop()>400 ){
                 var myStyle={
                     'background-color': bgColor,
                     'transition':  'all 0.6s ease',

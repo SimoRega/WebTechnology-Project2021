@@ -1,11 +1,17 @@
 :root {
-    --main-bg-color: rgb(75, 0, 0);
+    --main-bg-color: rgb(14, 0, 0);
+    --secondary-bg-color: rgb(231, 129, 122);
+    --margin-side-noCollapse: 10%;
+    --margin-side-collapse: 0%;
+    --font-color-nonActive: rgba(255, 255, 255, 0.8)e;
 }
 
 body {
     background-color: var(--main-bg-color);
     background-image: url(../res/hero-bg.png);
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    object-fit: contain;
     background-blend-mode: lighten;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -23,9 +29,27 @@ nav .d-flex {
     width: 100%;
 }
 
-nav .collapse {
-    max-width: 60%;
+nav .navbar-brand {
+    margin-left: var(--margin-side-noCollapse);
+}
 
+nav .text-end {
+    margin-right: var(--margin-side-noCollapse);
+}
+
+
+nav .dropdown-menu {
+    background-color: var(--main-bg-color);
+}
+
+nav .dropdown-menu a,
+nav .dropdown-menu .dropdown-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+nav .dropdown-menu a:hover {
+    color: rgb(0, 0, 0);
+    background-color: var(--secondary-bg-color);
 }
 
 
@@ -58,4 +82,17 @@ nav .collapse {
 
 .white {
     color: rgb(233, 228, 210);
+}
+
+/* ============== */
+/* === MOBILE === */
+/* ============== */
+@media screen and (max-width: 991px) {
+    nav .navbar-brand {
+        margin-left: var(--margin-side-collapse);
+    }
+
+    nav .text-end {
+        margin-right: var(--margin-side-collapse);
+    }
 }
