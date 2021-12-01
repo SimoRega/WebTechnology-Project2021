@@ -16,3 +16,25 @@ header {
 nav .d-flex {
     width: 100%;
 }
+
+
+
+
+
+/* SHOP */
+.prod{
+    background-color: rgba(238, 216, 216, 0.397);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10%;
+}
+.product-details{
+    margin: 5%;
+}
+
+.product-details h5{
+    color: rgb(233, 228, 210);
+}
+.price h5{
+    color: rgb(0, 0, 0);
+}
