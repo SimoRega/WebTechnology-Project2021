@@ -38,3 +38,14 @@ nav .d-flex {
 .price h5{
     color: rgb(0, 0, 0);
 }
+
+
+
+.user-card{
+    background-color: rgba(238, 216, 216, 0.397);
+    border-radius: 5px;
+}
+
+.white{
+    color: rgb(233, 228, 210);
+}
