@@ -17,7 +17,6 @@
     <title>Camper Romagna</title>
   </head>
   <body>
-
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" id="myNav">
             <div class="container-fluid navigation">
@@ -57,36 +56,24 @@
                           <ul class="dropdown-menu shadow">
                             <li>
                               <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                              Documents
+                              PROFILO
                             </a>
                           </li>
                           <li>
                             <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                              Photos
+                              CARRELLO
                             </a>
                           </li>
                           <li>
                             <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                              Movies
+                              ORDINI
                             </a>
                           </li>
                           <li>
                             <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                              Music
+                              LOGIN
                             </a>
                           </li>
-                          <li>
-                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                              Games
-                            </a>
-                          </li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li>
-                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                              Trash
-                            </a>
-                          </li>
-                          </ul>
                         </div>
                         <button class="navbar-toggler btn btn-outline-light col" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                           <span class="navbar-toggler-icon"></span>
@@ -112,290 +99,207 @@
             </div>
         </div>
 
+        <!-- BARRA RICERCA VELOCE -->
+        <div class="container mt-4 mt-sm-3 mt-lg-n3 p-3 mb-md-4 barra_ricerca ">
+          <form class="form-group d-block">
+            <div class="row g-0 ms-lg-n2 align-items-center">
+              <div class="col-lg-3 ">
+                <div class="input-group border-end-lg"><span class="input-group-text  ps-2 ps-sm-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                  <input class="form-control" type="text" name="keywords" placeholder="Ricerca Veloce">
+                </div>
+              </div>
+              <hr class="hr-light d-lg-none my-2">
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
+                  <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-list me-2"></i><span class="dropdown-toggle-label">MARCA</span></button>
+                  <input type="hidden" name="make">
+                  <ul class="dropdown-menu dropdown-menu-dark" style="">
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Acura</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">BMW</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Citroen</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Lexus</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Mercedes-Benz</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Nissan</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Toyota</span></a></li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="hr-light d-md-none my-2">
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
+                  <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-car fs-lg me-2"></i><span class="dropdown-toggle-label">TIPOLOGIA</span></button>
+                  <input type="hidden" name="type">
+                  <ul class="dropdown-menu dropdown-menu-dark" style="">
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Compact</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Crossover</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Coupe</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Family MPV</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Pickup</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Sedan</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">SUV</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Wagon</span></a></li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="hr-light d-sm-none my-2">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="dropdown" data-bs-toggle="select">
+                  <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-map-pin me-2"></i><span class="dropdown-toggle-label">CITTÀ</span></button>
+                  <input type="hidden" name="location">
+                  <ul class="dropdown-menu dropdown-menu-dark" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(0px, -44px);" data-popper-placement="top-start">
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Dallas</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Chicago</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Houston</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Las Vegas</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Los Angeles</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">New York</span></a></li>
+                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">San Francisco</span></a></li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="hr-light d-lg-none my-2">
+              <div class="col-lg-2">     
+                <button class="btn w-100" type="submit">CERCA</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+
         <!-- TIPOLOGIE CAMPER -->
-
+        <section class="container pb-5 mb-md-4 tipologie">
+          <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2 ">
+            <h2 class="h3 text-light mb-2 mb-sm-0">Tipologie Camper</h2><a class="btn btn-link  fw-normal px-0" href="car-finder-catalog-grid.html">Guarda tutti →</a>
+          </div>
+          <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-2 g-md-4">
+            <!-- Item-->
+            <div class="col">
+              <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Campervan_Side_white.png" width="180" alt="Furgonato"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html">Furgonato</a></div>
+            </div>
+            <!-- Item-->
+            <div class="col">
+              <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Over-Cab_Side_white.png" width="180" alt="Mansardato"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html">Mansardato</a></div>
+            </div>
+            <!-- Item-->
+            <div class="col">
+              <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Low-Profile_Side_white.png" width="180" alt="Profilato"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html">Profilato</a></div>
+            </div>
+            <!-- Item-->
+            <div class="col">
+              <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Motorhome_Side_white.png" width="180" alt="Motorhome"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html">Motorhome</a></div>
+            </div>
+          </div>
+        </section>
+        
         <!-- MARCHE CAMPER -->
-
+        <section class="container pb-5 mb-md-4 marche">
+          <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2 ">
+            <h2 class="h3 text-light mb-2 mb-sm-0">Marche Camper</h2><a class="btn btn-link  fw-normal px-0" href="car-finder-catalog-grid.html">Guarda tutti →</a>
+          </div>
+          <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-2 g-md-4">
+            <!-- Item-->
+            <div class="col">
+              <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Campervan_Side_white.png" width="180" alt="Furgonato"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html">Furgonato</a></div>
+            </div>
+            <!-- Item-->
+            <div class="col">
+              <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Over-Cab_Side_white.png" width="180" alt="Mansardato"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html">Mansardato</a></div>
+            </div>
+            <!-- Item-->
+            <div class="col">
+              <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Low-Profile_Side_white.png" width="180" alt="Profilato"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html">Profilato</a></div>
+            </div>
+            <!-- Item-->
+            <div class="col">
+              <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Motorhome_Side_white.png" width="180" alt="Motorhome"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html">Motorhome</a></div>
+            </div>
+          </div>
+        </section>
         <!-- PREVIEW ULTIMI CAMPER AGGIUNTI -->
+        <section class="container mb-md-4 ultimi_arrivi">
+          <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2 ">
+            <h2 class="h3 text-light mb-2 mb-sm-0">Ultimi Arrivi</h2><a class="btn btn-link  fw-normal px-0" href="car-finder-catalog-grid.html">Guarda tutti →</a>
+          </div>
+          <div class="album py-5 preview_modelli">
+            <div class="container">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
 
+              <div class="col">
+                <div class="card">
+                  <a href="#">
+                    <div class="container-fluid">
+                      <img class="img-fluid" src="../res/malibu_camper.jpg" alt="">
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">marca nome camper modello</p>
+                      <p class="card-text">costo</p>
+                      <div class="d-flex justify-content-between align-items-between">
+                        <small class="text-muted">roma</small>
+                        <small class="text-muted">9 mins</small>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="card">
+                  <a href="#">
+
+                    <div class="container-fluid">
+                      <img class="img-fluid" src="../res/malibu_camper.jpg" alt="">
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">marca nome camper modello</p>
+                      <p class="card-text">costo</p>
+                      <div class="d-flex justify-content-between align-items-between">
+                        <small class="text-muted">roma</small>
+                        <small class="text-muted">9 mins</small>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="card">
+                  <a href="#">
+
+                    <div class="container-fluid">
+                      <img class="img-fluid" src="../res/malibu_camper.jpg" alt="">
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">marca nome camper modello</p>
+                      <p class="card-text">costo</p>
+                      <div class="d-flex justify-content-between align-items-between">
+                        <small class="text-muted">roma</small>
+                        <small class="text-muted">9 mins</small>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          </div>
+        </section>
         <!-- PREVIEW FEATURES & BENEFICI -->
-
+        
         <!-- PREVIEW NEGOZIO -->
-        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">Free</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>10 users included</li>
-                    <li>2 GB of storage</li>
-                    <li>Email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">Pro</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>20 users included</li>
-                    <li>10 GB of storage</li>
-                    <li>Priority email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                <div class="card-header py-3 text-white bg-primary border-primary">
-                  <h4 class="my-0 fw-normal">Enterprise</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>30 users included</li>
-                    <li>15 GB of storage</li>
-                    <li>Phone and email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">Free</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>10 users included</li>
-                    <li>2 GB of storage</li>
-                    <li>Email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">Pro</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>20 users included</li>
-                    <li>10 GB of storage</li>
-                    <li>Priority email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                <div class="card-header py-3 text-white bg-primary border-primary">
-                  <h4 class="my-0 fw-normal">Enterprise</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>30 users included</li>
-                    <li>15 GB of storage</li>
-                    <li>Phone and email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">Free</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>10 users included</li>
-                    <li>2 GB of storage</li>
-                    <li>Email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">Pro</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>20 users included</li>
-                    <li>10 GB of storage</li>
-                    <li>Priority email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                <div class="card-header py-3 text-white bg-primary border-primary">
-                  <h4 class="my-0 fw-normal">Enterprise</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>30 users included</li>
-                    <li>15 GB of storage</li>
-                    <li>Phone and email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">Free</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>10 users included</li>
-                    <li>2 GB of storage</li>
-                    <li>Email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">Pro</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>20 users included</li>
-                    <li>10 GB of storage</li>
-                    <li>Priority email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                <div class="card-header py-3 text-white bg-primary border-primary">
-                  <h4 class="my-0 fw-normal">Enterprise</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>30 users included</li>
-                    <li>15 GB of storage</li>
-                    <li>Phone and email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">Free</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>10 users included</li>
-                    <li>2 GB of storage</li>
-                    <li>Email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">Pro</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>20 users included</li>
-                    <li>10 GB of storage</li>
-                    <li>Priority email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                <div class="card-header py-3 text-white bg-primary border-primary">
-                  <h4 class="my-0 fw-normal">Enterprise</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>30 users included</li>
-                    <li>15 GB of storage</li>
-                    <li>Phone and email support</li>
-                    <li>Help center access</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
-                </div>
-              </div>
-            </div>
-          </div>
+        
 
-    </main>
-    <footer>
-
-    </footer>
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="../js/script.js" type="text/javascript"></script>
-  </body>
+      </main>
+      <footer>
+        
+      </footer>
+      <!-- Optional JavaScript; choose one of the two! -->
+      
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script src="../js/script.js" type="text/javascript"></script>
+    </body>
 </html>

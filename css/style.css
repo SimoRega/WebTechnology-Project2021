@@ -1,9 +1,12 @@
 :root {
     --main-bg-color: rgb(14, 0, 0);
-    --secondary-bg-color: rgb(231, 129, 122);
+    --secondary-bg-color: rgb(32, 20, 20);
+    --secondary-color: rgb(231, 129, 122);
+    --secondary-color-Opacity: rgba(231, 129, 122, 0.658);
     --margin-side-noCollapse: 10%;
     --margin-side-collapse: 0%;
-    --font-color-nonActive: rgba(255, 255, 255, 0.8)e;
+    --font-color-nonActive: rgba(255, 255, 255, 0.8);
+    --font-color-Active: rgba(255, 255, 255);
 }
 
 body {
@@ -49,9 +52,55 @@ nav .dropdown-menu .dropdown-divider {
 
 nav .dropdown-menu a:hover {
     color: rgb(0, 0, 0);
-    background-color: var(--secondary-bg-color);
+    background-color: var(--secondary-color);
 }
 
+/* HOME */
+
+.barra_ricerca {
+    background-color: var(--secondary-color-Opacity);
+    border: 2px solid;
+    border-color: var(--secondary-color);
+    border-radius: 20px;
+}
+
+.barra_ricerca .form-control,
+.barra_ricerca .input-group,
+.barra_ricerca span {
+    background-color: transparent;
+    border: 0px;
+}
+
+.barra_ricerca ::placeholder,
+.barra_ricerca form button,
+.barra_ricerca svg {
+    text-decoration: none;
+    color: var(--font-color-Active);
+}
+
+.barra_ricerca button[type=submit] {
+    background-color: var(--secondary-color) !important;
+}
+
+
+.tipologie a.btn-link,
+.marche a.btn-link,
+.ultimi_arrivi a.btn-link {
+    background-color: transparent;
+    color: var(--font-color-Active);
+}
+
+.tipologie .col a,
+.marche .col a,
+.ultimi_arrivi .col a {
+    color: var(--font-color-nonActive);
+    text-decoration: none;
+}
+
+.preview_modelli .card {
+    background-color: var(--secondary-bg-color);
+    color: var(--font-color-nonActive);
+}
 
 /* SHOP */
 .prod {
