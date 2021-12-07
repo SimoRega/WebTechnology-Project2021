@@ -1,8 +1,8 @@
 :root {
     --main-bg-color: rgb(14, 0, 0);
-    --secondary-bg-color: rgb(32, 20, 20);
-    --secondary-color: rgb(231, 129, 122);
-    --secondary-color-Opacity: rgba(231, 129, 122, 0.658);
+    --secondary-bg-color: rgb(40, 36, 56);
+    --secondary-color-light: rgb(167, 119, 114);
+    --secondary-color-dark: rgb(38, 8, 5);
     --margin-side-noCollapse: 10%;
     --margin-side-collapse: 0%;
     --font-color-nonActive: rgba(255, 255, 255, 0.8);
@@ -11,12 +11,17 @@
 
 body {
     background-color: var(--main-bg-color);
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+body main section:first-of-type {
     background-image: url(../res/hero-bg.png);
     background-size: contain;
     background-repeat: no-repeat;
     object-fit: contain;
     background-blend-mode: lighten;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 header {
@@ -52,15 +57,52 @@ nav .dropdown-menu .dropdown-divider {
 
 nav .dropdown-menu a:hover {
     color: rgb(0, 0, 0);
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color-light);
 }
+
+/* FOOTER */
+footer {
+    background-color: var(--secondary-bg-color);
+
+}
+
+footer a,
+footer span,
+footer p {
+    color: var(--font-color-nonActive) !important;
+}
+
+footer .input-group input,
+footer .input-group svg,
+footer .input-group span {
+    background-color: transparent;
+    border: 0px;
+}
+
+footer .input-group input[type=text]::placeholder {
+    color: var(--font-color-Active);
+}
+
+footer h3 {
+    color: var(--secondary-color-light);
+}
+
+footer .footer_icon svg {
+    color: var(--secondary-color-light);
+}
+
+footer .form-group button {
+    background-color: var(--secondary-color-light);
+}
+
+
 
 /* HOME */
 
 .barra_ricerca {
-    background-color: var(--secondary-color-Opacity);
+    background-color: var(--secondary-color-dark);
     border: 2px solid;
-    border-color: var(--secondary-color);
+    border-color: var(--secondary-color-light);
     border-radius: 20px;
 }
 
@@ -79,13 +121,14 @@ nav .dropdown-menu a:hover {
 }
 
 .barra_ricerca button[type=submit] {
-    background-color: var(--secondary-color) !important;
+    background-color: var(--secondary-color-light) !important;
 }
 
 
 .tipologie a.btn-link,
 .marche a.btn-link,
-.ultimi_arrivi a.btn-link {
+.ultimi_arrivi a.btn-link,
+.preview_chisiamo a.btn-link {
     background-color: transparent;
     color: var(--font-color-Active);
 }
@@ -101,6 +144,16 @@ nav .dropdown-menu a:hover {
     background-color: var(--secondary-bg-color);
     color: var(--font-color-nonActive);
 }
+
+.preview_negozio {
+    margin-left: var(--margin-side-noCollapse);
+    margin-right: var(--margin-side-noCollapse);
+}
+
+.preview_negozio .card {
+    background-color: var(--secondary-bg-color);
+}
+
 
 /* SHOP */
 .prod {
@@ -143,5 +196,9 @@ nav .dropdown-menu a:hover {
 
     nav .text-end {
         margin-right: var(--margin-side-collapse);
+    }
+
+    body main section:first-of-type {
+        background-size: 760px 325px;
     }
 }
