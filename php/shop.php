@@ -2,9 +2,9 @@
 require_once("bootstrap.php");
 
 $templateParams["title"] = "CamperRomagna - Home";
-$templateParams["template"] = "index-template.php";
+$templateParams["template"] = "lista-articoli.php";
 
-$templateParams["pageName"] = "base.php";
+$templateParams["accessori"] = $dbh->getAccessori();
 
 
 require("./templates/base.php");
