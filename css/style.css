@@ -9,6 +9,7 @@
     --font-color-Active: rgba(255, 255, 255);
 }
 
+
 body {
     background-color: var(--main-bg-color);
 
@@ -97,7 +98,10 @@ footer .form-group button {
 
 
 
-/* HOME */
+/* ============== */
+/* === HOME === */
+/* ============== */
+
 
 .barra_ricerca {
     background-color: var(--secondary-color-dark);
@@ -155,7 +159,9 @@ footer .form-group button {
 }
 
 
-/* SHOP */
+/* ============== */
+/* === SHOP === */
+/* ============== */
 .prod {
     background-color: rgba(238, 216, 216, 0.397);
     border-radius: 5px;
@@ -185,6 +191,32 @@ footer .form-group button {
 .white {
     color: rgb(233, 228, 210);
 }
+
+
+/* ================ */
+/* === CARRELLO === */
+/* ================ */
+
+#listaArticoli,
+#totale {
+    display: inline-block;
+}
+
+#totale {
+    width: 30%;
+    float: right;
+}
+
+#listaArticoli {
+    width: 60%;
+    margin-left: var(--margin-side-noCollapse);
+}
+
+
+
+
+
+
 
 /* ============== */
 /* === MOBILE === */
