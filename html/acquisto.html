@@ -85,49 +85,109 @@
         </nav>
     </header>
     <main>
-        <section id="listaArticoli" class=" container rounded-3 bg-light p-2 text-dark bg-opacity-50">
-            <h3 class="ps-3">I miei articoli</h3>
+        <section id="listaArticoli" class=" container rounded-3 bg-light p-2 mt-5 text-dark ">
+            <h3 class="ps-3">Il mio Ordine</h3>
             <div class="container ">
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action " aria-current="true">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Nome Articolo / Camper</h5>
-                        <p>Totale: <span class="fw-bold">€ 521</span></p>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true"> 
+                    <div class="d-flex w-100 justify-content-between align-items-center flex-wrap">
+                      <h5 class="mb-1">1) Indirizzo di Consegna</h5>
+                      <div class="d-flex flex-column">
+                        <p>Nome Cognome</p>
+                        <p>Via Caso num</p>
+                        <p>Città in cui spedire</p>                       
                       </div>
-                      <div class="d-flex w-100 justify-content-end align-items-center">
-                        <span class="pe-3">Quantità :</span>
-                        <button type="button" class="btn btn-primary btn-sm">-</button>
-                        <span class="ps-1 pe-1">2</span>
-                        <button type="button" class="btn btn-primary btn-sm">+</button>
+                      <div class="d-flex flex-column">
+                        <button type="button" class="btn btn-primary btn-sm mb-2">Modifica</button>
+                        <button type="button" class="btn btn-primary btn-sm">Aggiungi</button>
                       </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action " aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Nome Articolo / Camper</h5>
-                          <p>Totale: <span class="fw-bold">€ 521</span></p>
-                        </div>
-                        <div class="d-flex w-100 justify-content-end align-items-center">
-                          <span class="pe-3">Quantità :</span>
-                          <button type="button" class="btn btn-primary btn-sm">-</button>
-                          <span class="ps-1 pe-1">2</span>
-                          <button type="button" class="btn btn-primary btn-sm">+</button>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action " aria-current="true">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Nome Articolo / Camper</h5>
-                        <p>Totale: <span class="fw-bold">€ 521</span></p>
                     </div>
-                    <div class="d-flex w-100 justify-content-end align-items-center">
-                        <span class="pe-3">Quantità :</span>
-                        <button type="button" class="btn btn-primary btn-sm">-</button>
-                        <span class="ps-1 pe-1">2</span>
-                        <button type="button" class="btn btn-primary btn-sm">+</button>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true"> 
+                    <div class="d-flex w-100 justify-content-between align-items-center flex-wrap">
+                      <h5 class="mb-1">2) Modalità di Pagamento</h5>
+                      <div class="d-flex flex-column">
+                        <p>Numero Carta</p>
+                        <p>Proprietario carta</p>                    
+                      </div>
+                      <div class="d-flex flex-column">
+                        <button type="button" class="btn btn-primary btn-sm mb-2">Modifica</button>
+                        <button type="button" class="btn btn-primary btn-sm">Aggiungi</button>
+                      </div>
                     </div>
-                    </a>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true"> 
+                    <h5 class="mb-3">3)Articoli e Spedizione</h5>
+                    <div class="d-flex w-100 flex-column justify-content-between align-items-center flex-wrap">
+                      <div class="list-group container-fluid">
+                        <div class="list-group-item">
+                          <div class="d-flex w-100 justify-content-between align-items-center flex-wrap">
+                            <img src="../res/icon.png" class="img-thumbnail" alt="...">
+                            <h5 class="mb-1">Nome Articolo / Camper</h5>
+                              <div class="d-flex justify-content-end flex-column align-items-start">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    Spedizione Domani
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    Spedizione tra 5 giorni
+                                  </label>
+                                </div>
+                              </div>
+                          </div>                          
+                        </div>
+
+                        <div class="list-group-item">
+                          <div class="d-flex w-100 justify-content-between align-items-center flex-wrap">
+                            <img src="../res/icon.png" class="img-thumbnail" alt="...">
+                            <h5 class="mb-1">Nome Articolo / Camper</h5>
+                              <div class="d-flex justify-content-end flex-column align-items-start">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    Spedizione Domani
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    Spedizione tra 5 giorni
+                                  </label>
+                                </div>
+                              </div>
+                          </div>                          
+                        </div>
+
+                        <div class="list-group-item">
+                          <div class="d-flex w-100 justify-content-between align-items-center flex-wrap">
+                            <img src="../res/icon.png" class="img-thumbnail" alt="...">
+                            <h5 class="mb-1">Nome Articolo / Camper</h5>
+                              <div class="d-flex justify-content-end flex-column align-items-start">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    Spedizione Domani
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    Spedizione tra 5 giorni
+                                  </label>
+                                </div>
+                              </div>
+                          </div>                          
+                        </div>
+                      </div>
+                    </div>
+                  </a>
                 </div>
             </div>
-        </section><aside id="totale">
+        </section><aside id="totale" class="mt-5">
             <div class="container">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body d-flex flex-column mb-3">
