@@ -181,6 +181,18 @@ footer .form-group button {
     color: rgb(0, 0, 0);
 }
 
+.filter {
+    background-color: rgba(114, 114, 114, 0.767);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 15%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 94%;
+   
+}
 
 
 .user-card {
