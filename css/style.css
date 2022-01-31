@@ -205,17 +205,33 @@ footer .form-group button {
 #totale {
     width: 30%;
     float: right;
+    margin-right: var(--margin-side-noCollapse);
 }
 
 #listaArticoli {
-    width: 60%;
+    width: 50%;
     margin-left: var(--margin-side-noCollapse);
 }
 
+/* ================ */
+/* === ACQUISTO === */
+/* ================ */
 
+#infoAcquisto,
+#totaleAcquisto {
+    display: inline-block;
+}
 
+#totaleAcquisto {
+    width: 30%;
+    float: right;
+    margin-right: var(--margin-side-noCollapse);
+}
 
-
+#infoAcquisto {
+    width: 50%;
+    margin-left: var(--margin-side-noCollapse);
+}
 
 
 /* ============== */
@@ -232,5 +248,40 @@ footer .form-group button {
 
     body main section:first-of-type {
         background-size: 760px 325px;
+    }
+
+    #listaArticoli,
+    #totale {
+        float: none;
+        display:inline-block;
+    }
+    
+    #listaArticoli{
+        width:80%;
+        margin: 0 10%;
+        position: absolute;
+        z-index: -1;
+    }
+
+    #totale{
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+    }
+
+    #infoAcquisto,
+    #totaleAcquisto {
+        float: none;
+        display:inline-block;
+    }
+    
+    #infoAcquisto{
+        width:80%;
+        margin: 0 10%;
+    }
+
+    #totaleAcquisto{
+        width: 96%;
+        margin: 0 2%;
     }
 }

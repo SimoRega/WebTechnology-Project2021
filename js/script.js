@@ -36,3 +36,4 @@ function navBarScroll(){
         lastPos=$(window).scrollTop();
     });
 }
+
