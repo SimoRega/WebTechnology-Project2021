@@ -17,13 +17,6 @@ body {
 
 }
 
-body main section:first-of-type {
-    background-image: url(../res/hero-bg.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    object-fit: contain;
-    background-blend-mode: lighten;
-}
 
 header {
     background-color: var(--main-bg-color);
@@ -102,6 +95,13 @@ footer .form-group button {
 /* === HOME === */
 /* ============== */
 
+#homePage section:first-of-type {
+    background-image: url(../res/hero-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    background-blend-mode: lighten;
+}
 
 .barra_ricerca {
     background-color: var(--secondary-color-dark);
@@ -233,6 +233,24 @@ footer .form-group button {
     margin-left: var(--margin-side-noCollapse);
 }
 
+/* ===================== */
+/* === CONFIGURATORE === */
+/* ===================== */
+
+#configuraModello{
+    margin-left: var(--margin-side-noCollapse);
+    width: 20%; 
+}
+
+#configuraImgModello img{
+    width: 40%;
+    max-width: 500px;
+}
+
+#configuraPrezzoModello{
+    margin-right: var(--margin-side-noCollapse);
+    width: 20%;
+}
 
 /* ============== */
 /* === MOBILE === */
