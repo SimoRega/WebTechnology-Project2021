@@ -214,7 +214,19 @@ footer .form-group button {
 
 
 
-
+/* camper */
+#galleriacampersingolo, #infogeneralicamper {
+    display: inline-block;
+  
+  }
+  
+  #galleriacampersingolo {
+    width: 50%;
+  }
+  
+  #infogeneralicamper {
+    width: 40%;
+  }
 
 
 
