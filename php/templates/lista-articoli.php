@@ -44,13 +44,15 @@
                             <img class="img-fluid " src="<?php echo UPLOAD_DIR.$accessorio["img"]; ?>" alt="">
                         </a>
                             <div class="product-details">
-                                <h5 class="fw-bold"><?php echo $accessorio["nome"]; ?></h5>
+                                <a href="item.php?id=<?php echo $accessorio["idAccessorio"]; ?>" style="text-decoration: none;">
+                                    <h5  class="fw-bold" ><?php echo $accessorio["nome"]; ?></h5>
+                                </a>
 
                                 <div class="price">
                                     <h5 class="fw-bold"><?php echo $accessorio["prezzo"]; ?>€</h5>
                                 </div>
 
-                                <a href="#" class="btn btn-primary btn-lg " tabindex="-1" role="button"
+                                <a href="item.php?id=<?php echo $accessorio["idAccessorio"]; ?>" class="btn btn-primary btn-lg " tabindex="-1" role="button"
                                     aria-disabled="true">Compra</a>
 
 
