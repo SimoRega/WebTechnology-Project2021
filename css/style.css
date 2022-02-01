@@ -234,6 +234,9 @@ footer .form-group button {
     display: inline-block;
 }
 
+
+
+
 #totaleAcquisto {
     width: 30%;
     float: right;
@@ -245,6 +248,21 @@ footer .form-group button {
     margin-left: var(--margin-side-noCollapse);
 }
 
+/* ===================== */
+/* === CAMPER SINGOLO === */
+/* ===================== */
+#galleriacampersingolo, #infogeneralicamper {
+    display: inline-block;
+  
+  }
+  
+  #galleriacampersingolo {
+    width: 50%;
+  }
+  
+  #infogeneralicamper {
+    width: 40%;
+  }
 /* ===================== */
 /* === CONFIGURATORE === */
 /* ===================== */
