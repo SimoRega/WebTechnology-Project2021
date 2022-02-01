@@ -13,10 +13,11 @@ function inizializeConfiguratore(){
 
     $("#0").show();
     $( "#stepConfigurazione li" ).eq( currentPage ).addClass("text-danger");
+    $("button[name=invia]").addClass("disabled");
 }
 
 $("button[name=avanti]").click(function(){
-    if(currentPage+1<totPag){
+    if(currentPage+1!==totPag){
         $("#"+currentPage).hide();
         currentPage++;
         $("#"+currentPage).show();
@@ -25,7 +26,9 @@ $("button[name=avanti]").click(function(){
         $( "#stepConfigurazione li" ).removeClass("text-danger");
         $( "#stepConfigurazione li" ).eq( currentPage ).addClass("text-danger");
     }else{
+        $("button[name=invia]").removeClass("disabled");
         $(this).addClass("disabled");
+    
     }
 });
 
@@ -38,6 +41,7 @@ $("button[name=indietro]").click(function(){
 
         $( "#stepConfigurazione li" ).removeClass("text-danger");
         $( "#stepConfigurazione li" ).eq( currentPage ).addClass("text-danger");
+        $("button[name=invia]").addClass("disabled");
     }else{
         $(this).addClass("disabled");
     }
