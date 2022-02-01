@@ -35,9 +35,9 @@
                 <?php 
                     if(isset($_POST["min"]) && isset($_POST["max"])){
                         if(isset($_POST["disponibile"])){
-                            $templateParams["accessori"] = $dbh->getDisponibleAccessoriWithParam($_POST["min"],$_POST["max"]);
+                            $templateParams["accessori"] = $dbh->getAccessoriWithParam(true,$_POST["min"],$_POST["max"]);
                         }else{
-                            $templateParams["accessori"] = $dbh->getAccessoriWithParam($_POST["min"],$_POST["max"]);
+                            $templateParams["accessori"] = $dbh->getAccessoriWithParam(false,$_POST["min"],$_POST["max"]);
                         }
                     }
                 
@@ -48,7 +48,7 @@
                     <div class="col-lg-4 col-md-6 ">
                         <div class="single-product prod">
                         <a href="item.php?id=<?php echo $accessorio["idAccessorio"]; ?>">
-                            <img class="img-fluid " src="<?php echo UPLOAD_DIR.$accessorio["img"]; ?>" alt="">
+                            <img class="img-fluid " width="100%" src="<?php echo UPLOAD_DIR.$accessorio["img"]; ?>" alt="">
                         </a>
                             <div class="product-details">
                                 <a href="item.php?id=<?php echo $accessorio["idAccessorio"]; ?>" style="text-decoration: none;">
