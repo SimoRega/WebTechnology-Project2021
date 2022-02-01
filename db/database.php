@@ -23,11 +23,18 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
-        public function getAccessoriWithParam($onlyDisp,$min,$max){
-
-
-
+        public function getAccessoriWithParam($min,$max){
             $stmt = $this->db->prepare("SELECT * FROM accessori WHERE prezzo > ? AND prezzo < ?");
+            $stmt->bind_param('ii',$min,$max);
+
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getDisponibleAccessoriWithParam($min,$max){
+            $stmt = $this->db->prepare("SELECT * FROM accessori WHERE prezzo > ? AND prezzo < ? AND qnt > 0" );
             $stmt->bind_param('ii',$min,$max);
 
             $stmt->execute();
