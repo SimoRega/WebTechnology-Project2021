@@ -17,13 +17,6 @@ body {
 
 }
 
-body main section:first-of-type {
-    background-image: url(../res/hero-bg.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    object-fit: contain;
-    background-blend-mode: lighten;
-}
 
 header {
     background-color: var(--main-bg-color);
@@ -102,6 +95,13 @@ footer .form-group button {
 /* === HOME === */
 /* ============== */
 
+#homePage section:first-of-type {
+    background-image: url(../res/hero-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    background-blend-mode: lighten;
+}
 
 .barra_ricerca {
     background-color: var(--secondary-color-dark);
@@ -181,6 +181,18 @@ footer .form-group button {
     color: rgb(0, 0, 0);
 }
 
+.filter {
+    background-color: rgba(114, 114, 114, 0.767);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 15%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 94%;
+   
+}
 
 
 .user-card {
@@ -205,16 +217,40 @@ footer .form-group button {
 #totale {
     width: 30%;
     float: right;
+    margin-right: var(--margin-side-noCollapse);
 }
 
 #listaArticoli {
-    width: 60%;
+    width: 50%;
     margin-left: var(--margin-side-noCollapse);
+}
+
+/* ================ */
+/* === ACQUISTO === */
+/* ================ */
+
+#infoAcquisto,
+#totaleAcquisto {
+    display: inline-block;
 }
 
 
 
-/* camper */
+
+#totaleAcquisto {
+    width: 30%;
+    float: right;
+    margin-right: var(--margin-side-noCollapse);
+}
+
+#infoAcquisto {
+    width: 50%;
+    margin-left: var(--margin-side-noCollapse);
+}
+
+/* ===================== */
+/* === CAMPER SINGOLO === */
+/* ===================== */
 #galleriacampersingolo, #infogeneralicamper {
     display: inline-block;
   
@@ -227,8 +263,24 @@ footer .form-group button {
   #infogeneralicamper {
     width: 40%;
   }
+/* ===================== */
+/* === CONFIGURATORE === */
+/* ===================== */
 
+#configuraModello{
+    margin-left: var(--margin-side-noCollapse);
+    width: 20%; 
+}
 
+#configuraImgModello img{
+    width: 40%;
+    max-width: 500px;
+}
+
+#configuraPrezzoModello{
+    margin-right: var(--margin-side-noCollapse);
+    width: 20%;
+}
 
 /* ============== */
 /* === MOBILE === */
@@ -244,5 +296,40 @@ footer .form-group button {
 
     body main section:first-of-type {
         background-size: 760px 325px;
+    }
+
+    #listaArticoli,
+    #totale {
+        float: none;
+        display:inline-block;
+    }
+    
+    #listaArticoli{
+        width:80%;
+        margin: 0 10%;
+        position: absolute;
+        z-index: -1;
+    }
+
+    #totale{
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+    }
+
+    #infoAcquisto,
+    #totaleAcquisto {
+        float: none;
+        display:inline-block;
+    }
+    
+    #infoAcquisto{
+        width:80%;
+        margin: 0 10%;
+    }
+
+    #totaleAcquisto{
+        width: 96%;
+        margin: 0 2%;
     }
 }
