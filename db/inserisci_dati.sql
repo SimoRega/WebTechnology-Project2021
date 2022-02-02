@@ -20,3 +20,8 @@ INSERT INTO accessori (idAccessorio,nome,prezzo,descrizione,img,qnt) VALUES
 
 INSERT INTO accessori (idAccessorio,nome,prezzo,descrizione,img,qnt) VALUES
 (7,'Frigorifero ultra', 850,'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dol','frigo.png',14);
+
+
+
+INSERT INTO utente(email, nome, cognome,password, isadmin) VALUES
+("a@a.com","federico","raffoni","a",false);
