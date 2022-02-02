@@ -21,20 +21,18 @@
         <nav class="navbar navbar-expand-lg navbar-dark" id="myNav">
             <div class="container-fluid navigation">
                 <div class="d-flex flex-wrap align-items-center justify-content-around">
-                    <a href="#" class="navbar-brand">
+                    <a href="./index.php" class="navbar-brand">
                         <img src="../res/icon.png" alt="logo">
                     </a>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav  d-flex flex-wrap align-items-center justify-content-evenly">
-                            <li class="nav-item"><a class="nav-link fw-bold" href="">HOME</a></li>
+                            <li class="nav-item"><a class="nav-link fw-bold" href="./index.php">HOME</a></li>
                             <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle fw-bold" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">MODELLI</a>
+                              <a class="nav-link dropdown-toggle fw-bold" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">SHOP</a>
                               <ul class="dropdown-menu mx-0 border-0 shadow" style="width: 220px;" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item " href="#">VISUALIZZA MARCHE</a></li>
-                                <li><a class="dropdown-item" href="#">VISUALIZZA TIPOLOGIE</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">TUTTI I MODELLI</a></li>
+                                <li><a class="dropdown-item " href="./shop.php?tipo=accessori">SHOP ACCESSORI</a></li>
+                                <li><a class="dropdown-item" href="./shop.php?tipo=camper">SHOP CAMPER</a></li>
                               </ul>
                             </li>
                             <li class="nav-item dropdown">
