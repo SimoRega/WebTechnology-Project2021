@@ -6,17 +6,20 @@
             <div class="row">
                 <div class="col-lg-12 col-md-6  filter " >
                     <form action="shop.php" style="color:white" method="POST">
-                        <input type="checkbox" id="disponibile" name="disponibile" value="IsDisponibile">
+                        <input <?php if(isset($_POST["disponibile"])){echo "checked='checked'";} ?> type="checkbox" id="disponibile" name="disponibile" value="true">
                         <label for="disponibile"> Solo disponibili</label><br><br>
 
                         <label for="minPrice">Prezzo minimo</label>
-                        <input type="range" name="min" id="rangeMin" value="0" min="0" max="1000" oninput="this.nextElementSibling.value = this.value">
-                        <output>0</output>
+                        <input type="range" name="min" id="rangeMin" value="<?php if(isset($_POST["min"])){echo $_POST["min"];}else{echo "0";}?>" min="0" max="1000" oninput="this.nextElementSibling.value = this.value">
+                        <output >
+                            <?php if(isset($_POST["min"])){echo $_POST["min"];}else{echo "0";}?>
+                        </output><br>
 
                         <label for="minPrice">Prezzo massimo</label>
-                        <input type="range" name="max" id="rangeMax" value="1000" min="0" max="1000" oninput="this.nextElementSibling.value = this.value">
-                        <output>1000</output>
-
+                        <input type="range" name="max" id="rangeMax" value="<?php if(isset($_POST["max"])){echo $_POST["max"];}else{echo "1000";}?>" min="0" max="1000" oninput="this.nextElementSibling.value = this.value">
+                        <output >
+                            <?php if(isset($_POST["max"])){echo $_POST["max"];}else{echo "1000";}?>
+                        </output><br>
                         <input type="submit"  value="Applica filtri">
 
 
@@ -31,7 +34,11 @@
             <div class="row">
                 <?php 
                     if(isset($_POST["min"]) && isset($_POST["max"])){
-                        $templateParams["accessori"] = $dbh->getAccessoriWithParam(true,$_POST["min"],$_POST["max"]);
+                        if(isset($_POST["disponibile"])){
+                            $templateParams["accessori"] = $dbh->getAccessoriWithParam(true,$_POST["min"],$_POST["max"]);
+                        }else{
+                            $templateParams["accessori"] = $dbh->getAccessoriWithParam(false,$_POST["min"],$_POST["max"]);
+                        }
                     }
                 
                 ?>
@@ -41,7 +48,7 @@
                     <div class="col-lg-4 col-md-6 ">
                         <div class="single-product prod">
                         <a href="item.php?id=<?php echo $accessorio["idAccessorio"]; ?>">
-                            <img class="img-fluid " src="<?php echo UPLOAD_DIR.$accessorio["img"]; ?>" alt="">
+                            <img class="img-fluid " width="100%" src="<?php echo UPLOAD_DIR.$accessorio["img"]; ?>" alt="">
                         </a>
                             <div class="product-details">
                                 <a href="item.php?id=<?php echo $accessorio["idAccessorio"]; ?>" style="text-decoration: none;">
@@ -52,9 +59,14 @@
                                     <h5 class="fw-bold"><?php echo $accessorio["prezzo"]; ?>€</h5>
                                 </div>
 
-                                <a href="item.php?id=<?php echo $accessorio["idAccessorio"]; ?>" class="btn btn-primary btn-lg " tabindex="-1" role="button"
-                                    aria-disabled="true">Compra</a>
-
+                                <?php
+                                    if($accessorio["qnt"] <= 0):?>
+                                            <a href="item.php?id=<?php echo $accessorio["idAccessorio"]; ?>" class="btn btn-secondary btn-lg " tabindex="-1" role="button"
+                                            aria-disabled="true">Non disponibile</a>
+                                    <?php else: ?>
+                                        <a href="item.php?id=<?php echo $accessorio["idAccessorio"]; ?>" class="btn btn-primary btn-lg " tabindex="-1" role="button"
+                                            aria-disabled="true">Compra</a>
+                                    <?php endif; ?>
 
                             </div>
                         </div>
@@ -67,15 +79,3 @@
     </div>
 </div>  
 
-<script>
-    $(document).ready(function(){ 
-        $('#range').val(0); 
-
-        /** mousemove */ 
-        $('#range').mousemove(function(){ 
-            $('#valBox').html($(this).val()); 
-    }); 
-    /** mousemove */ });
-
-
-</script>

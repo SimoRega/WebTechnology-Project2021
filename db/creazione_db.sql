@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS `camper`.`accessori` (
   `prezzo` FLOAT(24) NOT NULL,
   `descrizione` MEDIUMTEXT NOT NULL,
   `img` VARCHAR(100) NOT NULL,
+  `qnt` INT NOT NULL ,
   PRIMARY KEY (`idAccessorio`))
 ENGINE = InnoDB;
 
