@@ -1,7 +1,6 @@
 <?php
 require_once("bootstrap.php");
 
-function phpAlert($msg) {     echo '<script type="text/javascript">alert("' . $msg . '")</script>'; }
 
 $templateParams["title"] = "CamperRomagna - Login";
 $templateParams["template"] = "login-form.php";
@@ -18,12 +17,8 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 }
 
 
-phpAlert(isUserLoggedIn());
-if(isUserLoggedIn() == "true"){
-
-    $templateParams["titolo"] = "Blog TW - Admin";
-    $templateParams["template"] = "login-home.php";
-    require("./templates/base.php");
+if(isUserLoggedIn()){
+    header('Location: account.php');
 }
 else{
     $templateParams["titolo"] = "Blog TW - Login";

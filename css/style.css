@@ -361,3 +361,15 @@ footer .form-group button {
         margin: auto;
     }
 }
+
+/* ACCOUNT */
+
+.accTab{
+    background-color: rgba(114, 114, 114, 1);
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 94%;
+}
