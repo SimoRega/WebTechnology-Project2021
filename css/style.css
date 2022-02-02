@@ -332,4 +332,18 @@ footer .form-group button {
         width: 96%;
         margin: 0 2%;
     }
+    #configuraModello{
+        margin: auto;
+        width: 80%; 
+    }
+    
+    #configuraImgModello {
+        margin: auto;
+        width: 80%;
+    }
+    
+    #configuraPrezzoModello{
+        margin: auto;
+        width: 80%;
+    }
 }
