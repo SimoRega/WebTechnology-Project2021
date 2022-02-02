@@ -1,0 +1,1 @@
+<p> <?php echo $_SESSION["nome"] ?> </p>
