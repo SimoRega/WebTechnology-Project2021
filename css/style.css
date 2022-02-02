@@ -251,17 +251,23 @@ footer .form-group button {
 /* ===================== */
 /* === CAMPER SINGOLO === */
 /* ===================== */
-#galleriacampersingolo, #infogeneralicamper {
-    display: inline-block;
-  
-  }
-  
-  #galleriacampersingolo {
+
+#galleriacampersingolo img{
+
+    max-height: 500px;
+}
+#galleriacampersingolo {
     width: 50%;
+
   }
   
   #infogeneralicamper {
     width: 40%;
+  
+  }
+
+  #infospecifichecamper{
+      width: 95%;
   }
 /* ===================== */
 /* === CONFIGURATORE === */
@@ -285,6 +291,23 @@ footer .form-group button {
 /* ============== */
 /* === MOBILE === */
 /* ============== */
+@media screen and (max-width: 1251px) {
+    #configuraModello{
+        margin: auto;
+        width: 80%; 
+    }
+    
+    #configuraImgModello {
+        margin: auto;
+        width: 80%;
+    }
+    
+    #configuraPrezzoModello{
+        margin: auto;
+        width: 80%;
+    }
+}
+
 @media screen and (max-width: 991px) {
     nav .navbar-brand {
         margin-left: var(--margin-side-collapse);
@@ -332,18 +355,9 @@ footer .form-group button {
         width: 96%;
         margin: 0 2%;
     }
-    #configuraModello{
-        margin: auto;
-        width: 80%; 
-    }
     
-    #configuraImgModello {
+    #galleriacampersingolo,#infogeneralicamper,#infospecifichecamper{
+        width: 90%;
         margin: auto;
-        width: 80%;
-    }
-    
-    #configuraPrezzoModello{
-        margin: auto;
-        width: 80%;
     }
 }
