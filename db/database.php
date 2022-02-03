@@ -10,18 +10,33 @@
             }
         }
 
-
-
         public function getAccessori(){
-
-
-
             $stmt = $this->db->prepare("SELECT * FROM accessori");
             $stmt->execute();
             $result = $stmt->get_result();
 
             return $result->fetch_all(MYSQLI_ASSOC);
         }
+
+        public function getProdotti($tipo){
+            $stmt=null;
+            switch($tipo){
+                case "camper":
+                    $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE tipo='furgonato' OR tipo='profilato' OR tipo='mansardato' OR tipo='motorhome';");
+                    break;
+                case "accessori":
+                    $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE tipo='tavolo' OR tipo='sedia' OR tipo='frigorifero';");
+                    break;
+                default:
+                    $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE tipo= ?;");
+                    $stmt->bind_param('s',$tipo);
+            }
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
 
         public function getAccessoriWithParam($onlyDisp,$min,$max){
             if($onlyDisp){
@@ -37,7 +52,6 @@
 
             return $result->fetch_all(MYSQLI_ASSOC);
         }
-
 
 
         public function getItem($id){
