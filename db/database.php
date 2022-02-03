@@ -83,5 +83,12 @@
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-        
+
+    public function updatePass($email,$pass){
+        $query = "UPDATE UTENTE SET password = ? WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$pass, $email);
+        $stmt->execute();
     }
+        
+}
