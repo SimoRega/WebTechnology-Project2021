@@ -253,18 +253,22 @@ footer .form-group button {
 /* ===================== */
 
 #galleriacampersingolo img{
-
-    max-height: 500px;
+    max-width: 800px;
+    height: auto;
 }
-#galleriacampersingolo {
-    width: 50%;
+#galleriacampersingolo{
+    overflow: hidden;
+    width: 40%;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
 
-  }
+
   
-  #infogeneralicamper {
+#infogeneralicamper {
     width: 40%;
   
-  }
+}
 
   #infospecifichecamper{
       width: 95%;

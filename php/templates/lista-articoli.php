@@ -43,15 +43,22 @@
                 
                 ?>
                 <?php foreach($templateParams["accessori"] as $accessorio): ?>
+                    <?php if($tipo=="camper"){
 
+                        $redirect="camper.php?id=";
+
+                    }else{
+                        $redirect="item.php?id=";
+                    }
+                    ?>
                     <!-- devo mettere in un parametro il redirect di ogni singolo prodotto camper/accessorio -->
                     <div class="col-lg-4 col-md-6 ">
                         <div class="single-product prod">
-                            <a href="camper.php?id=<?php echo $accessorio["idProdotto"]; ?>">
+                            <a href="<?php echo $redirect.$accessorio["idProdotto"]; ?>">
                                 <img class="img-fluid "  src="<?php echo '../upload/'.$accessorio["img"]; ?>" alt="" >
                             </a>
                             <div class="product-details">
-                                <a href="item.php?id=<?php echo $accessorio["idProdotto"]; ?>" style="text-decoration: none;">
+                                <a href="<?php echo $redirect.$accessorio["idProdotto"]; ?>" style="text-decoration: none;">
                                     <h5  class="fw-bold" ><?php echo $accessorio["nome"]; ?></h5>
                                 </a>
 
@@ -61,10 +68,10 @@
 
                                 <?php
                                     if($accessorio["qnt"] <= 0):?>
-                                            <a href="item.php?id=<?php echo $accessorio["idProdotto"]; ?>" class="btn btn-secondary btn-lg " tabindex="-1" role="button"
+                                            <a href="<?php echo $redirect.$accessorio["idProdotto"]; ?>" class="btn btn-secondary btn-lg " tabindex="-1" role="button"
                                             aria-disabled="true">Non disponibile</a>
                                     <?php else: ?>
-                                        <a href="item.php?id=<?php echo $accessorio["idProdotto"]; ?>" class="btn btn-primary btn-lg " tabindex="-1" role="button"
+                                        <a href="<?php echo $redirect.$accessorio["idProdotto"]; ?>" class="btn btn-primary btn-lg " tabindex="-1" role="button"
                                             aria-disabled="true">Compra</a>
                                     <?php endif; ?>
 
