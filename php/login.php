@@ -21,9 +21,10 @@ if(isUserLoggedIn()){
     header('Location: account.php');
 }
 else{
-    $templateParams["titolo"] = "Blog TW - Login";
-    $templateParams["template"] = "templates/login-form.php";
-    require("templates/login-form.php");
+    $templateParams["titolo"] = "Login";
+    $templateParams["template"] = "login-page.php";
 }
+
+require("./templates/base.php");
 
 ?>

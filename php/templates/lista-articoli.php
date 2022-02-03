@@ -55,7 +55,7 @@
                     <div class="col-lg-4 col-md-6 ">
                         <div class="single-product prod">
                             <a href="<?php echo $redirect.$accessorio["idProdotto"]; ?>">
-                                <img class="img-fluid "  src="<?php echo '../upload/'.$accessorio["img"]; ?>" alt="" >
+                                <img class="img-fluid "  src="<?php echo UPLOAD_DIR.$accessorio["img"]; ?>" alt="" >
                             </a>
                             <div class="product-details">
                                 <a href="<?php echo $redirect.$accessorio["idProdotto"]; ?>" style="text-decoration: none;">
