@@ -44,10 +44,10 @@
                 ?>
                 <?php foreach($templateParams["accessori"] as $accessorio): ?>
 
-
+                    <!-- devo mettere in un parametro il redirect di ogni singolo prodotto camper/accessorio -->
                     <div class="col-lg-4 col-md-6 ">
                         <div class="single-product prod">
-                            <a href="item.php?id=<?php echo $accessorio["idProdotto"]; ?>">
+                            <a href="camper.php?id=<?php echo $accessorio["idProdotto"]; ?>">
                                 <img class="img-fluid "  src="<?php echo '../upload/'.$accessorio["img"]; ?>" alt="" >
                             </a>
                             <div class="product-details">
