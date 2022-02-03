@@ -14,7 +14,7 @@
 <div class="container px-4 px-lg-5 my-5">
     <div class="row gx-4 gx-lg-5 align-items-center white">
         <div class="col-md-6 bg-light rounded-3">
-            <img class="card-img-top mb-5 mb-md-0" src="<?php echo '../upload/'.$item["img"]; ?>" alt="...">
+            <img class="card-img-top mb-5 mb-md-0" src="<?php echo UPLOAD_DIR.$item["img"]; ?>" alt="...">
         </div>
         <div class="col-md-6">
 

@@ -4,7 +4,7 @@ $(document).ready(navBarScroll());
 //Funzione per la transizione della navbar
 function navBarScroll(){
     var bodyStyle= window.getComputedStyle(document.body);
-    var bgColor=bodyStyle.getPropertyValue('--main-bg-color')
+    var bgColor=bodyStyle.getPropertyValue('--main-bg-color');
 
     var lastPos=0;
     $(window).scroll(function(){
@@ -37,8 +37,10 @@ function navBarScroll(){
     });
 }
 
-$('#list-tab a').on('click', function (e) {
+
+
+$('#list-tab .d-flex a').on('click', function (e) {
     e.preventDefault()
     $(this).tab('show')
-  })
+  });
 

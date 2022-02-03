@@ -90,5 +90,23 @@
         $stmt->bind_param('ss',$pass, $email);
         $stmt->execute();
     }
+
+    public function checkIsAdmin($email){
+        $query = "SELECT * FROM UTENTE WHERE  email = ? AND isAdmin=1";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return count($result->fetch_all(MYSQLI_ASSOC)) > 0;
+    }
+
+    public function addProduct($nome,$marca,$prezzo,$descr,$img,$qnt,$tipo){
+        $query = "INSERT INTO PRODOTTO (idProdotto,nome,marca,prezzo,descrizione,img,qnt,tipo) VALUES (idProdotto,?,?,?,?,?,?,?);";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssissis',$nome,$marca,$prezzo,$descr,$img,$qnt,$tipo);
+        $stmt->execute();
+    }
+    
         
 }

@@ -22,10 +22,21 @@
 
                     <div class="col-12 mt-3 ">
                         <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#notifiche" role="tab" aria-controls="notifiche">Notifiche</a>
-                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#ordini" role="tab" aria-controls="ordini">I miei ordini</a>
-                        <a class="list-group-item list-group-item-action" id="list-password-list" data-toggle="list" href="#change-password" role="tab" aria-controls="password">Cambia password</a>
-                        <a class="list-group-item list-group-item-action" id="list-logout-list" data-toggle="list" href="#logout" role="tab" aria-controls="logout">Logout</a>
+
+
+                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#notifiche" role="tab" aria-controls="notifiche">Notifiche</a>
+                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#ordini" role="tab" aria-controls="ordini">I miei ordini</a>
+                            <a class="list-group-item list-group-item-action" id="list-password-list" data-toggle="list" href="#change-password" role="tab" aria-controls="password">Cambia password</a>
+                            <a class="list-group-item list-group-item-action" id="list-logout-list" data-toggle="list" href="#logout" role="tab" aria-controls="logout">Logout</a>
+                            
+                            
+                            <?php if($dbh->checkIsAdmin($_SESSION["email"])):?>
+
+                            <a class="list-group-item list-group-item-action" id="list-prodotti-list" data-toggle="list" href="#prodotti" role="tab" aria-controls="prodotti">Aggiungi prodotti</a>
+                            
+                            <?php endif; ?>
+                        
+
                         </div>
                     </div>
                 
@@ -72,6 +83,33 @@
                         </form>
                     </div>
 
+                    <div class="tab-pane fade" id="prodotti" role="tabpanel" aria-labelledby="list-prodotti-list">
+                        <form action="" enctype="multipart/form-data" method="POST">
+
+                            <label for="side-photo">Inserisci l'immagine del prodotto</label>
+                            <input type="file" id="photo" name="img" class="form-control m-2 text-dark" required>
+
+                            <label for="side-photo">Titolo</label>
+                            <input type="text" id="nome-articolo" name="nome" class="form-control m-2 text-dark" required>
+
+                            <label for="side-photo">Marca</label>
+                            <input type="text" id="marca" name="marca" class="form-control m-2 text-dark" required>
+
+                            <label for="side-photo">Prezzo</label>
+                            <input type="numeric" id="price" name="prezzo" class="form-control m-2 text-dark" required>
+
+                            <label for="side-photo">Inserisci una categoria</label>
+                            <input type="text" id="category" name="tipo" class="form-control m-2 text-dark" required>
+
+                            <label for="side-photo">Inserisci una descrizione</label>
+                            <input type="text" id="desc" name="descr" class="form-control m-2 text-dark" required>
+                            
+                            <label for="side-photo">Inserisci la quantità in magazzino</label>
+                            <input type="numeric" id="qnt" name="qnt" class="form-control m-2 text-dark" required>
+
+                            <input type="submit"  value="Aggiungi prodotto">
+                        </form>
+                    </div>
                     
     
                 </div>
