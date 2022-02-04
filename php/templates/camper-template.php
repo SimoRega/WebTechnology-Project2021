@@ -7,6 +7,7 @@
 
     $idProdotto = $_GET['id'];
     $item = $dbh->getProdottoSingolo($idProdotto)[0];
+    $specifiche = $dbh->getSpecifiche($idProdotto)[0];
 ?>
 
 <div class="d-flex justify-content-around flex-wrap ">
@@ -18,10 +19,10 @@
     <h2 class="px-5"><?php echo $item["nome"]; ?></h2>
     <small class="px-5 pb-3" ><?php echo $item["marca"]; ?></small>
     <p class="px-5"><?php echo $item["descrizione"]; ?></p>
-    <p class="px-5">4 Posti 4 Letti</p>
+    <p class="px-5"><?php echo $specifiche['postiViaggio']?> Posti, <?php echo $specifiche['postiLetto']?> Letti</p>
     <p class="px-5">Prezzo a partire da : <span class="fw-bold fs-3"><?php echo $item["prezzo"]; ?></span></p>
     
-    <button type="button" class="btn btn-dark">Configura</button>
+    <a role="button" type="button" class="btn btn-dark" href="./configuratore.php">Configura</a>
     </div>
 </section>
 <section id="galleriacampersingolo" class='rounded-3 bg-light p-2 mt-5 text-dark'>
@@ -61,6 +62,34 @@
     <h4 class="py-3">Specifiche del Camper</h4>
     
     <div class="accordion accordion-flush w-100" id="accordionFlushExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+            Info generali
+            </button>
+        </h2>
+        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+            <ul>
+                <li >
+                Telaio: <?php echo $specifiche['telaio']?>
+                </li>
+                <li>
+                Posti viaggio: <?php echo $specifiche['postiViaggio']?>
+                </li>
+                <li>
+                Posti letto: <?php echo $specifiche['postiLetto']?>
+                </li>
+                <li>
+                Massa a vuoto: <?php echo $specifiche['massaVuoto']?>
+                </li>
+                <li>
+                Massa a pieno carico: <?php echo $specifiche['massaPieno']?>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </div>
         <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -92,13 +121,13 @@
         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body"><ul>
             <li >
-                Lunghezza: 345 
+                Lunghezza: <?php echo $specifiche['lunghezza']?>cm
             </li>
             <li>
-                Larghezza: 354
+                Larghezza: <?php echo $specifiche['larghezza']?>cm
             </li>
             <li>
-                ALtezza: 456
+                ALtezza: <?php echo $specifiche['altezza']?>cm
             </li>
             </ul></div>
         </div>
@@ -106,19 +135,25 @@
         <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingThree">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-            Peso
+            Optional
             </button>
         </h2>
         <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body"><ul>
             <li >
-                Massa di circolazione: 3200 t 
+                Cerchi in lega <?php if($specifiche['cerchiLega']){ 
+                    echo '<span class="text-success">- di serie</span>';
+                } ?>
             </li>
             <li>
-                Massa pieno carico: 3500t
+                Luci a led <?php if($specifiche['luciLed']){ 
+                    echo '<span class="text-success">- di serie</span>';
+                } ?>
             </li>
             <li>
-                Massa trainabile: 500t
+                Assistenza alla guida <?php if($specifiche['adas']){ 
+                    echo '<span class="text-success">- di serie</span>';
+                } ?>
             </li>
             </ul></div>
         </div>

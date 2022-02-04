@@ -115,5 +115,15 @@
         $stmt->execute();
     }
     
+
+    public function getSpecifiche($idProdotto){
+        $stmt=null;
+        $stmt = $this->db->prepare("SELECT * FROM SPECIFICHE_CAMPER WHERE idProdotto=?;");
+        $stmt->bind_param('i',$idProdotto);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
         
 }
