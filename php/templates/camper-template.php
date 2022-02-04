@@ -35,13 +35,13 @@
         </div>
         <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="<?php echo $item["img"]; ?>" class="d-block w-100 img-fluid" alt="...">
+            <img src="<?php echo UPLOAD_DIR.$item["img"]; ?>" class="d-block w-100 img-fluid" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="<?php echo $item["img"]; ?>" class="d-block w-100 img-fluid" alt="...">  
+            <img src="<?php echo UPLOAD_DIR.$item["img"]; ?>" class="d-block w-100 img-fluid" alt="...">  
         </div>
         <div class="carousel-item">
-            <img src="<?php echo $item["img"]; ?>" class="d-block w-100 img-fluid" alt="...">  
+            <img src="<?php echo UPLOAD_DIR.$item["img"]; ?>" class="d-block w-100 img-fluid" alt="...">  
         </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
