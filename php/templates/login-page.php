@@ -2,8 +2,8 @@
 
     <div class="row">
         <div class="col-8">
-            <div class="tab-content m-3  mb-5" id="nav-tabContent">
-                <div class="tab-pane fade show active "  id="login" role="tabpanel" aria-labelledby="list-home-list">
+            <div class="tab-content m-3  mb-5  list-group list-tab" id="nav-tabContent">
+                <div class="tab-pane fadeIn fade show active "  id="login" role="tabpanel" aria-labelledby="list-home-list">
                     <form action="login.php" method="POST">
                     <h2>Login</h2>
 
@@ -18,15 +18,15 @@
                     <button class="w-100 btn btn-lg btn-primary " type="submit">Login</button>
 
 
-                    <div class="list-group" id="list-tab" role="tablist">
-                        <p>Non hai un account? <a href="#registrati">Registrati</a> </p>
+                    <div class=" ">
+                            <p>Non hai un account? <a class=""  data-bs-toggle="list" role="tab" href="#registrati">Registrati</a> </p>
                     </div>
 
 
                     </form>
                 </div>
 
-                <div class="tab-pane fade " id="registrati" role="tabpanel" aria-labelledby="list-profile-list">
+                <div class="tab-pane  " id="registrati" role="tabpanel" aria-labelledby="list-profile-list">
                     <form action="login.php" method="POST">
                         <h2>Registrati</h2>
 
@@ -52,14 +52,14 @@
                         </div>
                         <button class="w-100 btn btn-lg btn-primary " type="submit">Registrati</button>
 
-                        <div class="list-group" id="list-tab" role="tablist">
-                            <p>Hai già un account? <a href="#login">Login</a> </p>
+                       
+                        <div class=" ">
+                            <p>Hai già un account? <a class=""  href="login.php" >Login</a> </p>                        
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-
 </div>

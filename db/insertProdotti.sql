@@ -20,8 +20,8 @@ INSERT INTO PRODOTTO (idProdotto,nome,marca,prezzo,descrizione,img,qnt,tipo) VAL
 
 
 INSERT INTO UTENTE(email, nome, cognome,password, isadmin) VALUES
-("a@a.com","federico","raffoni","a",false);
+("a@a.com","federico","raffoni","0cc175b9c0f1b6a831c399e269772661",false);
 
 
 INSERT INTO UTENTE(email, nome, cognome,password, isadmin) VALUES
-("b@b.com","adminFiero","Gigaadmin","a",true);
+("b@b.com","adminFiero","Gigaadmin","0cc175b9c0f1b6a831c399e269772661",true);
