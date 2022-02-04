@@ -17,3 +17,11 @@ INSERT INTO PRODOTTO (idProdotto,nome,marca,prezzo,descrizione,img,qnt,tipo) VAL
 INSERT INTO PRODOTTO (idProdotto,nome,marca,prezzo,descrizione,img,qnt,tipo) VALUES (idProdotto,'SUN I','Knaus',130000,'Il nostro liner di lusso si presenta in perfetta forma fin nei minimi dettagli. Percorrendo lunghi tratti sulle autostrade del nord o tortuose strade di campagna nei paesi mediterranei, con la sua maschera anteriore e gli esterni dinamici il SUN I colpisce per l’aspetto lussuoso e l’eleganza sportiva. Il SUN I non convince solo per il suo aspetto imponente, ma anche per la particolarità dei suoi dettagli interni, come il doppio pavimento riscaldato in stile yacht o le pregiate finiture in pelle. Salite, e innamoratevi a prima vista.  ','knaus-suni.png',10,'motorhome');
 INSERT INTO PRODOTTO (idProdotto,nome,marca,prezzo,descrizione,img,qnt,tipo) VALUES (idProdotto,'Twin Sport','Adria',64000,'I nostri modelli Twin Sports attireranno i più avventurosi, grazie ai posti letto aggiuntivi, al soggiorno e allo spazio di stivaggio. Realizzato sul nuovo Fiat Ducato, con tetto a soffietto dal design esclusivo e vano notte. Perfetto per gli sportivi con attrezzatura outdoor e anche per le famiglie con bambini.','adria_twin.png',10,'furgonato');
 INSERT INTO PRODOTTO (idProdotto,nome,marca,prezzo,descrizione,img,qnt,tipo) VALUES (idProdotto,'Coral XL','Adria',75000,'La gamma Coral XL definisce il punto di riferimento per i camper mansardati eleganti e pratici. Linee eleganti e interni spaziosi e pratici fino a 6 posti omologati, che li rendono perfetti per famiglie numerose e gruppi di amici.','adria_coral_xl.png',10,'mansardato');
+
+
+INSERT INTO UTENTE(email, nome, cognome,password, isadmin) VALUES
+("a@a.com","federico","raffoni","a",false);
+
+
+INSERT INTO UTENTE(email, nome, cognome,password, isadmin) VALUES
+("b@b.com","adminFiero","Gigaadmin","a",true);

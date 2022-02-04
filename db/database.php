@@ -77,7 +77,7 @@
 	public function checkLogin($email, $password){
         $query = "SELECT * FROM UTENTE WHERE  email = ? AND password = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$email, $password);
+        $stmt->bind_param('ss',$email, md5($password));
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -87,7 +87,7 @@
     public function updatePass($email,$pass){
         $query = "UPDATE UTENTE SET password = ? WHERE email = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$pass, $email);
+        $stmt->bind_param('ss',md5($pass), $email);
         $stmt->execute();
     }
 
@@ -105,6 +105,13 @@
         $query = "INSERT INTO PRODOTTO (idProdotto,nome,marca,prezzo,descrizione,img,qnt,tipo) VALUES (idProdotto,?,?,?,?,?,?,?);";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ssissis',$nome,$marca,$prezzo,$descr,$img,$qnt,$tipo);
+        $stmt->execute();
+    }
+
+    public function registerUser($email,$nome,$cognome,$password){
+        $query = "INSERT INTO UTENTE (email,nome,cognome,password,isAdmin) VALUES (?,?,?,?,false);";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssss',$email,$nome,$cognome,md5($password));
         $stmt->execute();
     }
     
