@@ -30,6 +30,13 @@ if(isset($_POST["oldPass"]) && isset($_POST["newpass1"]) && isset($_POST["newpas
     }
 }
 
+if(isset($_FILES["propic"])){
+    $uploadImg = uploadImage("./upload/", $_FILES["propic"]);
+    if($uploadImg[0]){
+        $dbh->changePropic($uploadImg[1], $_SESSION["email"]);
+    }
+}
+
 if(isset($_POST["marca"])){
 
     $uploadImg = uploadImage("./upload/", $_FILES["img"]);

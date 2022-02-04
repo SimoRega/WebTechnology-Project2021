@@ -125,5 +125,22 @@
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function changePropic($img,$email){
+        $query = "UPDATE UTENTE SET propic = ? WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$img, $email);
+        $stmt->execute();
+    }
+
+    public function getPropic($email){
+        $stmt=null;
+        $stmt = $this->db->prepare("SELECT propic FROM UTENTE WHERE email=?;");
+        $stmt->bind_param('s',$email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
         
 }

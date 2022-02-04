@@ -44,6 +44,7 @@ create table if not exists UTENTE(
 	nome VARCHAR(50) NOT NULL,
 	cognome VARCHAR(50) NOT NULL,
 	password VARCHAR(128) NOT NULL,
+	propic VARCHAR(100) NOT NULL,
 	isAdmin BOOLEAN,
 	PRIMARY KEY(email)
 );

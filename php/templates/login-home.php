@@ -8,7 +8,8 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center"> 
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+
+                                <img src="<?php echo UPLOAD_DIR.$dbh->getPropic($_SESSION["email"])[0]["propic"]?>" alt="Propic" class="rounded-circle" width="150">
                                 <div class="mt-3">
                                     <h3 class="text-secondary mb-1"><?php echo $_SESSION["nome"]?></h3>
 
@@ -25,7 +26,7 @@
                                 <div class="list-group" id="list-tab" role="tablist">
                                 <a class="list-group-item list-group-item-action active" id="list-notifiche-list" data-bs-toggle="list" href="#list-notifiche" role="tab" aria-controls="list-notifiche">Notifiche</a>
                                 <a class="list-group-item list-group-item-action" id="list-ordini-list" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini">Ordini</a>
-                                <a class="list-group-item list-group-item-action" id="list-password-list" data-bs-toggle="list" href="#list-password" role="tab" aria-controls="list-password">Cambia password</a>
+                                <a class="list-group-item list-group-item-action" id="list-password-list" data-bs-toggle="list" href="#list-password" role="tab" aria-controls="list-password">Modifica profilo</a>
                                 <?php if($dbh->checkIsAdmin($_SESSION["email"])):?>
                                     <a class="list-group-item list-group-item-action" id="list-product-list" data-bs-toggle="list" href="#list-product" role="tab" aria-controls="list-product">Aggiungi prodotti</a>
                                     <?php endif; ?>
@@ -54,6 +55,20 @@
 
                     <div class="tab-pane fade" id="list-password" role="tabpanel" aria-labelledby="list-password-list">
                         <div class=" form-container ">
+                            <form action="account.php" enctype="multipart/form-data" method="POST">
+
+                                <h2>Modifica immagine di profilo</h2>
+                                <label for="side-photo">Carica l'immagine</label>
+                                <input type="file" id="propic" name="propic" class="form-control text-dark" required><br>
+
+                                <input type="submit" class=" btn btn-light"  value="Carica immagine">
+
+                            </form>
+                        </div>
+                        <br>
+
+
+                        <div class=" form-container ">
                             <form action="account.php" method="POST">
                                 <h2>Modifica password</h2>
                                 <label for="oldPass"> Inserisci la password corrente</label><br>
@@ -63,7 +78,7 @@
                                 <label for="pass2"> Ripeti la password</label><br>
                                 <input type="password"  name="newpass2"/><br><br>
 
-                                <input type="submit"  value="Cambia password">
+                                <input type="submit" class=" btn btn-light"  value="Cambia password">
 
                             </form>
                         </div>

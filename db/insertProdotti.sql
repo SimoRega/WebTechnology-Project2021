@@ -22,7 +22,7 @@ INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiL
 INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiLetto,lunghezza,larghezza,altezza,massaVuoto,massaPieno,cerchiLega,luciLed,adas) VALUES (idSpecifica,11,"Fiat Ducato 35 Light",5,"4+1",725,233,314,3015,3500,true,false,false);
 INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiLetto,lunghezza,larghezza,altezza,massaVuoto,massaPieno,cerchiLega,luciLed,adas) VALUES (idSpecifica,12,"Fiat Ducato 45 heavy",4,"2+2",789,230,219,3810,4500,true,true,true);
 
-INSERT INTO UTENTE(email, nome, cognome,password, isadmin) VALUES
-("a@a.com","federico","raffoni","0cc175b9c0f1b6a831c399e269772661",false);
-INSERT INTO UTENTE(email, nome, cognome,password, isadmin) VALUES
-("b@b.com","adminFiero","Gigaadmin","0cc175b9c0f1b6a831c399e269772661",true);
+INSERT INTO UTENTE(email, nome, cognome,password,propic, isadmin) VALUES
+("a@a.com","federico","raffoni","0cc175b9c0f1b6a831c399e269772661","defaultPropic.jpg",false);
+INSERT INTO UTENTE(email, nome, cognome,password,propic,  isadmin) VALUES
+("b@b.com","adminFiero","Gigaadmin","0cc175b9c0f1b6a831c399e269772661","defaultPropic.jpg",true);
