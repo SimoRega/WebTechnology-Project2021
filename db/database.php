@@ -47,13 +47,26 @@
         }
 
 
-        public function getAccessoriWithParam($onlyDisp,$min,$max){
-            if($onlyDisp){
-                $stmt = $this->db->prepare("SELECT * FROM accessori WHERE prezzo > ? AND prezzo < ? AND qnt > 0" );
-            }else {
-                $stmt = $this->db->prepare("SELECT * FROM accessori WHERE prezzo > ? AND prezzo < ?");
+        public function getAccessoriWithParam($tipo,$onlyDisp,$min,$max){
 
+            switch($tipo){
+                case "camper":
+                    if($onlyDisp){
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE (tipo='furgonato' OR tipo='profilato' OR tipo='mansardato' OR tipo='motorhome') AND (prezzo > ? AND prezzo <= ? AND qnt > 0)");
+                    }else{
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE (tipo='furgonato' OR tipo='profilato' OR tipo='mansardato' OR tipo='motorhome') AND (prezzo > ? AND prezzo <= ?)");
+                    }
+                        break;
+                case "accessori":
+                    if($onlyDisp){
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE (tipo='tavolo' OR tipo='sedia' OR tipo='frigorifero') AND (prezzo > ? AND prezzo <= ? AND qnt > 0)");
+                    }else {
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE (tipo='tavolo' OR tipo='sedia' OR tipo='frigorifero') AND (prezzo > ? AND prezzo <= ?)");
+                    }
+                    break;
             }
+
+
             $stmt->bind_param('ii',$min,$max);
 
             $stmt->execute();
@@ -109,7 +122,7 @@
     }
 
     public function registerUser($email,$nome,$cognome,$password){
-        $query = "INSERT INTO UTENTE (email,nome,cognome,password,isAdmin) VALUES (?,?,?,?,false);";
+        $query = "INSERT INTO UTENTE (email,nome,cognome,password,propic,isAdmin) VALUES (?,?,?,?,'a.jpg',false);";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ssss',$email,$nome,$cognome,md5($password));
         $stmt->execute();

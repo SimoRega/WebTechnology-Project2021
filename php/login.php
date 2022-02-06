@@ -20,7 +20,10 @@ if(isset($_POST["email"]) && isset($_POST["nome"]) && isset($_POST["cognome"]) &
     if($_POST["password1"] != $_POST["password2"]){
         echo "<script type='text/javascript'>alert('Le password non coincidono');</script>";
     }else{
+
         $dbh->registerUser($_POST["email"],$_POST["nome"],$_POST["cognome"],$_POST["password1"]);
+        echo "<script type='text/javascript'>alert('2');</script>";
+
         $login_result = $dbh->checkLogin($_POST["email"], $_POST["password1"]);
         registerLoggedUser($login_result[0]);
     }

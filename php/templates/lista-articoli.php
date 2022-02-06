@@ -2,23 +2,31 @@
     <div class="row">
         <div class="col-lg-2">
 
+            <?php 
+                $prezzoMax = 100;
+                foreach($templateParams["accessori"] as $accessorio){
+                    if($accessorio["prezzo"]>$prezzoMax){
+                        $prezzoMax=$accessorio["prezzo"];
+                    }
+                }
+            ?>
 
             <div class="row">
                 <div class="col-lg-12 col-md-6  filter " >
-                    <form action="shop.php" style="color:white" method="POST">
+                    <form action="shop.php?tipo=<?php echo $_GET["tipo"] ?>" style="color:white" method="POST">
                         <input <?php if(isset($_POST["disponibile"])){echo "checked='checked'";} ?> type="checkbox" id="disponibile" name="disponibile" value="true">
                         <label for="disponibile"> Solo disponibili</label><br><br>
 
                         <label for="minPrice">Prezzo minimo</label>
-                        <input type="range" name="min" id="rangeMin" value="<?php if(isset($_POST["min"])){echo $_POST["min"];}else{echo "0";}?>" min="0" max="1000" oninput="this.nextElementSibling.value = this.value">
+                        <input type="range" name="min" id="rangeMin" value="<?php if(isset($_POST["min"])){echo $_POST["min"];}else{echo "0";}?>" min="0" max="<?php echo $prezzoMax  ?>" oninput="this.nextElementSibling.value = this.value">
                         <output >
                             <?php if(isset($_POST["min"])){echo $_POST["min"];}else{echo "0";}?>
                         </output><br>
 
                         <label for="minPrice">Prezzo massimo</label>
-                        <input type="range" name="max" id="rangeMax" value="<?php if(isset($_POST["max"])){echo $_POST["max"];}else{echo "1000";}?>" min="0" max="1000" oninput="this.nextElementSibling.value = this.value">
+                        <input type="range" name="max" id="rangeMax" value="<?php if(isset($_POST["max"])){echo $_POST["max"];}else{echo $prezzoMax ;}?>" min="0" max="<?php echo $prezzoMax  ?>" oninput="this.nextElementSibling.value = this.value">
                         <output >
-                            <?php if(isset($_POST["max"])){echo $_POST["max"];}else{echo "1000";}?>
+                            <?php if(isset($_POST["max"])){echo $_POST["max"];}else{echo $prezzoMax ;}?>
                         </output><br>
                         <input type="submit"  value="Applica filtri">
 
@@ -35,9 +43,10 @@
                 <?php 
                     if(isset($_POST["min"]) && isset($_POST["max"])){
                         if(isset($_POST["disponibile"])){
-                            $templateParams["accessori"] = $dbh->getAccessoriWithParam(true,$_POST["min"],$_POST["max"]);
+                            $templateParams["accessori"] = $dbh->getAccessoriWithParam($_GET["tipo"],true,$_POST["min"],$_POST["max"]);
                         }else{
-                            $templateParams["accessori"] = $dbh->getAccessoriWithParam(false,$_POST["min"],$_POST["max"]);
+                            $templateParams["accessori"] = $dbh->getAccessoriWithParam($_GET["tipo"],false,$_POST["min"],$_POST["max"]);
+
                         }
                     }
                 
