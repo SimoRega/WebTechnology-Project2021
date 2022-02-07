@@ -155,5 +155,21 @@
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-        
+    
+    public function getRandomCamper($qnt){
+        $res = $this->getProdotti("camper");
+        if(count($res)==$qnt){
+            return $res;
+        }
+        return array_slice($res, 0, $qnt);
+    }
+
+    public function getProductByBrand($brandName){
+        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ?;");
+        $stmt->bind_param('s',$brandName);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }

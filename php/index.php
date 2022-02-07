@@ -4,8 +4,7 @@ require_once("bootstrap.php");
 $templateParams["title"] = "CamperRomagna - Home";
 $templateParams["template"] = "index-template.php";
 
-$templateParams["pageName"] = "base.php";
-
+$templateParams["randomCamper"]=$dbh->getRandomCamper(3);
 
 require("./templates/base.php");
 ?>

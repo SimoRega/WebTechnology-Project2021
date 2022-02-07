@@ -51,7 +51,15 @@
                     }
                 
                 ?>
-                <?php foreach($templateParams["accessori"] as $accessorio): ?>
+                <?php 
+                if(!isset($_GET["marca"])){
+                    $tmp=$templateParams["accessori"];
+                }else{
+                    $tmp=$templateParams["prodMarca"];
+                }
+                    
+                foreach($tmp as $accessorio):
+                ?>
                     <?php if($tipo=="camper"){
 
                         $redirect="camper.php?id=";

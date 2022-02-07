@@ -1,174 +1,191 @@
-<main>
-      <!-- Carousel -->
-      <div id="carouselIndicators" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+<main id="homePage">
+  <!-- PRESENTAZIONE HOME -->
+  <section class="bg-top-center bg-repeat-0">
+    <div class="container-fluid">
+        <div class="row " style="margin: 0% 10%;">
+            <div class="col-lg-5 col-md-5 pt-3 pt-md-4 pt-lg-5 d-flex flex-column align-self-center ">
+                <h1 class="display-4 text-light ">TROVA IL CAMPER PERFETTO PER TE</h1>
+                <p class="fs-lg text-light opacity-70">Finder is a leading digital marketplace for the automotive industry that connects car shoppers with sellers.</p>
+            </div>
+            <div class="col-lg-7 col-md-7 pt-3 pt-md-5 " >
+                <img class="d-block mt-4 ms-auto" src="../res/camper_png.png" alt="" style="max-width: 100%;
+                height: auto;
+                vertical-align: middle;">
+            </div>
         </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="../res/1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="../res/4.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="../res/5.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+    </div>
+  </section>
 
-      <!-- Models -->
-      <div class="container rounded-3 bg-light bg-opacity-10 tipologia">
-        <h2 class="pb-2 border-bottom text-center">Scopri le Tipologie</h2>
-        <div class="models d-flex row py-3">
-          <div class="col">
-            <div class="">
-              <a href="">
-                <img src="../res/Laika_Campervan_Side.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <span class="card-title fw-bold text-black">FURGONATI</span>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="">
-              <a href="">
-                <img src="../res/Laika_Low-Profile_Side.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <span class="card-title fw-bold text-black" style="text-align: center;">PROFILATI</span>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="">
-              <a href="">
-                <img src="../res/Laika_Over-Cab_Side.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <span class="card-title fw-bold text-black" style="text-align: center;">MANSARDATI</span>
-                </div>
-              </a>
-            </div>
-          </div> 
-          <div class="col">
-            <div class="">
-              <a href="">
-                <img src="../res/Laika_Motorhome_Side.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <span class="card-title fw-bold text-black" style="text-align: center;">MOTORHOME</span>
-                </div>
-              </a>              
-            </div>
-          </div>  
-        </div>     
-      </div>
-
-      <!-- Paragraph -->
-      <div class="container-fluid artigiani">
-        <div class="row m-auto">
-          <div class="col  d-flex align-items-center ">
-            <img src="../res/artigiano-1.jpg" alt="artigiano" class="artigiano-img ">
-          </div>
-          <div class="col  d-flex align-items-center">
-            <div class="container py-1 text-white rounded-3 artigiano-1">
-              <h3 class="pt-2">Lorem Ipsum</h3>
-              <span class="text-center">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</span>
-            </div>
+  <!-- BARRA RICERCA VELOCE -->
+  <div class="container mt-4 mt-sm-3 mt-lg-n3 p-3 mb-md-4 barra_ricerca ">
+    <form class="form-group d-block">
+      <div class="row g-0 ms-lg-n2 align-items-center">
+        <div class="col-lg-3 ">
+          <div class="input-group border-end-lg"><span class="input-group-text  ps-2 ps-sm-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+            <input class="form-control" type="text" name="keywords" placeholder="Ricerca Veloce">
           </div>
         </div>
+        <hr class="hr-light d-lg-none my-2">
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
+            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-list me-2"></i><span class="dropdown-toggle-label">MARCA</span></button>
+            <input type="hidden" name="make">
+            <ul class="dropdown-menu dropdown-menu-dark" style="">
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Acura</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">BMW</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Citroen</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Lexus</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Mercedes-Benz</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Nissan</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Toyota</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="hr-light d-md-none my-2">
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
+            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-car fs-lg me-2"></i><span class="dropdown-toggle-label">TIPOLOGIA</span></button>
+            <input type="hidden" name="type">
+            <ul class="dropdown-menu dropdown-menu-dark" style="">
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Compact</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Crossover</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Coupe</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Family MPV</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Pickup</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Sedan</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">SUV</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Wagon</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="hr-light d-sm-none my-2">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="dropdown" data-bs-toggle="select">
+            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-map-pin me-2"></i><span class="dropdown-toggle-label">CITTÀ</span></button>
+            <input type="hidden" name="location">
+            <ul class="dropdown-menu dropdown-menu-dark" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(0px, -44px);" data-popper-placement="top-start">
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Dallas</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Chicago</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Houston</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Las Vegas</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Los Angeles</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">New York</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">San Francisco</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="hr-light d-lg-none my-2">
+        <div class="col-lg-2">     
+          <button class="btn w-100" type="submit">CERCA</button>
+        </div>
       </div>
+    </form>
+  </div>
 
-      <!-- Cards -->
-      <div class="container px-4 py-4" id="custom-cards">
-        <h2 class="pb-2 border-bottom text-center">Scopri le nostre Marche</h2>
-    
-        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-3 py-4">
-          <div class="col">
-            <a href="#" style="text-decoration: none;">
-              <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('../res/laika_camper.jpg'); background-repeat: no-repeat; background-size: cover;" >
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-white badge text-wrap text-shadow-5">
-                  <h2 class="py-3 mt-5 mb-4 display-6 lh-1 fw-bold text_shadow">Camper LAIKA</h2>
-                  <ul class="d-flex list-unstyled mt-auto">
-                    <li class="me-auto">
-                      <img src="../res/laika.png" alt="Camper Laika" width="64" height="64" class="rounded-circle border border-white">
-                    </li>
-                    <li class="d-flex align-items-center text_shadow px-1 py-1">
-                      <small>LaikaRomagna  </small>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi me-2 bi-geo-alt" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                      </svg>
-                      <small>(RN)</small>
-                    </li>
-                  </ul>
-                </div>
+
+  <!-- TIPOLOGIE CAMPER -->
+  <section class="container pb-5 mb-md-4 tipologie">
+    <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2 ">
+      <h2 class="h3 text-light mb-2 mb-sm-0">Tipologie Camper</h2><a class="btn btn-link  fw-normal px-0" href="car-finder-catalog-grid.html">Guarda tutti →</a>
+    </div>
+    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-2 g-md-4">
+      <!-- Item-->
+      <div class="col">
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Campervan_Side_white.png" width="180" alt="Furgonato"><a class="nav-link-light stretched-link fw-bold" href="./shop.php?tipo=furgonato">Furgonato</a></div>
+      </div>
+      <!-- Item-->
+      <div class="col">
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Over-Cab_Side_white.png" width="180" alt="Mansardato"><a class="nav-link-light stretched-link fw-bold" href="./shop.php?tipo=mansardato">Mansardato</a></div>
+      </div>
+      <!-- Item-->
+      <div class="col">
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Low-Profile_Side_white.png" width="180" alt="Profilato"><a class="nav-link-light stretched-link fw-bold" href="./shop.php?tipo=profilato">Profilato</a></div>
+      </div>
+      <!-- Item-->
+      <div class="col">
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Motorhome_Side_white.png" width="180" alt="Motorhome"><a class="nav-link-light stretched-link fw-bold" href="./shop.php?tipo=motorhome">Motorhome</a></div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PREVIEW ULTIMI CAMPER AGGIUNTI -->
+  <section class="container mb-md-4 ultimi_arrivi">
+    <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2 ">
+      <h2 class="h3 text-light mb-2 mb-sm-0">Ultimi Arrivi</h2><a class="btn btn-link  fw-normal px-0" href="car-finder-catalog-grid.html">Guarda tutti →</a>
+    </div>
+    <div class="album py-5 preview_modelli">
+      <div class="container">
+      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
+      <?php foreach($templateParams["randomCamper"] as $rndCamper): ?>
+        <div class="col">
+          <div class="card">
+            <a href="camper.php?id=<?php echo $rndCamper["idProdotto"] ?>">
+              <div class="container-fluid">
+                <img class="img-fluid" src="<?php echo UPLOAD_DIR.$rndCamper["img"]; ?>" alt="<?php echo $rndCamper["nome"]; ?>">
+              </div>
+              <div class="card-body">
+                <p class="card-text"><?php echo $rndCamper["marca"]; ?></p>
+                <h5 class="card-title"><?php echo $rndCamper["nome"]; ?></h5>
+                <p class="card-text">costo</p>
+                <div class="d-flex justify-content-between align-items-between">
+                  <small class="text-muted">roma</small>
+                  <small class="text-muted">9 mins</small>
               </div>
             </a>
-          </div>
-    
-          <div class="col">
-            <a href="#" style="text-decoration: none;">
-              <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('../res/knaus_camper.jpg'); background-repeat: no-repeat; background-size: cover;">
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-white badge text-wrap text-shadow-1">
-                  <h2 class="py-3 text_shadow mt-5 mb-4 display-6 lh-1 fw-bold">Camper KNAUS</h2>
-                  <ul class="d-flex list-unstyled mt-auto">
-                    <li class="me-auto">
-                      <img src="../res/knaus.jpg" alt="Camper Knaus" width="64" height="64" class="rounded-circle border border-white">
-                    </li>
-                    <li class="d-flex align-items-center text_shadow px-1 py-1">
-                      <small>KNAUS Riviera</small>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi me-2 bi-geo-alt" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                      </svg>
-                      <small>(RA)</small>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-          </div>
-    
-          <div class="col">
-            <a href="#" style="text-decoration: none;">
-              <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('../res/malibu_camper.jpg'); background-repeat: no-repeat; background-size: cover;">
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-white badge text-wrap text-shadow-1">
-                  <h2 class="py-3 mt-5 mb-4 display-6 lh-1 fw-bold text_shadow">Camper MALIBU</h2>
-                  <ul class="d-flex list-unstyled mt-auto">
-                    <li class="me-auto">
-                      <img src="../res/malibu.png" alt="Camper Knaus" width="64" height="64" class="rounded-circle border border-white">
-                    </li>
-                    <li class="d-flex align-items-center text_shadow px-1 py-1">
-                      <small>MALIBU Bologna</small>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi me-2 bi-geo-alt" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                      </svg>
-                      <small>(BO)</small>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
+      <?php endforeach; ?>
       </div>
-            
-      <!-- To Top Button -->
-      <button onclick="topFunction()" id="myBtn" title="Go to top">
-        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-arrow-up-square" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
-        </svg>
-      </button>
-    </main>
+    </div>
+    </div>
+  </section>
+
+  <!-- MARCHE CAMPER -->
+  <section class="container pb-5 mb-md-4 marche">
+    <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2 ">
+      <h2 class="h3 text-light mb-2 mb-sm-0">Marche Camper</h2><a class="btn btn-link  fw-normal px-0" href="car-finder-catalog-grid.html">Guarda tutti →</a>
+    </div>
+    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-2 g-md-4 align-items-center" >
+      <!-- Item-->
+      <div class="col">
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/laika_logo.png" width="180" alt="Laika"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html"></a></div>
+      </div>
+      <!-- Item-->
+      <div class="col">
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/arca_logo.png" width="180" alt="Arca"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html"></a></div>
+      </div>
+      <!-- Item-->
+      <div class="col">
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/knaus_logo.png" width="180" alt="Knaus"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html"></a></div>
+      </div>
+      <!-- Item-->
+      <div class="col">
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/malibu_logo.jpg" width="180" alt="malibu"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html"></a></div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PREVIEW NEGOZIO -->
+  <div class="tns-item tns-slide-active preview_negozio mb-md-4" id="tns5-item0">
+    <div class="card card-body p-sm-5  h-100">
+      <div class="row align-items-center py-3 py-sm-0">
+        <div class="col-md-4 col-xl-3 mb-4 pb-3 mb-md-0 pb-md-0 text-center text-md-start">
+          <h2 class="text-light">Negozio Accessori</h2>
+          <p class="fs-lg text-light opacity-70 pb-md-4">Choose the best for your car!</p><a class="btn btn-primary" href="car-finder-catalog-grid.html">Vai allo Shop<i class="fi-chevron-right fs-sm ms-2"></i></a>
+        </div>
+        <div class="col-md-8 col-xl-9">
+          <div class="row row-cols-2 row-cols-lg-4 gy-4 gx-3 gx-sm-4"><a class="col text-light text-decoration-none" href="#"><img class="d-block mb-2 mx-auto tns-complete" src="https://finder.createx.studio/img/car-finder/categories/01.png" width="168" alt="Seat Covers">
+              <div class="fw-bold text-center pt-1">Seat Covers</div></a><a class="col text-light text-decoration-none" href="#"><img class="d-block mb-2 mx-auto tns-complete" src="https://finder.createx.studio/img/car-finder/categories/02.png" width="168" alt="Tires">
+              <div class="fw-bold text-center pt-1">Tires</div></a><a class="col text-light text-decoration-none" href="#"><img class="d-block mb-2 mx-auto loaded tns-complete" src="https://finder.createx.studio/img/car-finder/categories/03.png" width="168" alt="Disks">
+              <div class="fw-bold text-center pt-1">Disks</div></a><a class="col text-light text-decoration-none" href="#"><img class="d-block mb-2 mx-auto tns-complete" src="https://finder.createx.studio/img/car-finder/categories/04.png" width="168" alt="Child Seats">
+              <div class="fw-bold text-center pt-1">Child Seats</div></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</main>
