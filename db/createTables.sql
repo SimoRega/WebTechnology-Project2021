@@ -17,8 +17,9 @@ create table if not exists PRODOTTO(
 create table if not exists SPECIFICHE_CAMPER(
 	idSpecifica INT NOT NULL AUTO_INCREMENT,
 	idProdotto INT NOT NULL ,
+	telaio VARCHAR(100) NOT NULL,
 	postiViaggio INT NOT NULL ,
-	postiLetto INT NOT NULL ,
+	postiLetto VARCHAR(10) NOT NULL,
 	lunghezza INT NOT NULL ,
 	larghezza INT NOT NULL ,
 	altezza INT NOT NULL ,
@@ -42,7 +43,8 @@ create table if not exists UTENTE(
 	email VARCHAR(100) NOT NULL,
 	nome VARCHAR(50) NOT NULL,
 	cognome VARCHAR(50) NOT NULL,
-	password VARCHAR(20) NOT NULL,
+	password VARCHAR(128) NOT NULL,
+	propic VARCHAR(100) NOT NULL,
 	isAdmin BOOLEAN,
 	PRIMARY KEY(email)
 );

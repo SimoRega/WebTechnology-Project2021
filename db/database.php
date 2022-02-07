@@ -47,13 +47,26 @@
         }
 
 
-        public function getAccessoriWithParam($onlyDisp,$min,$max){
-            if($onlyDisp){
-                $stmt = $this->db->prepare("SELECT * FROM accessori WHERE prezzo > ? AND prezzo < ? AND qnt > 0" );
-            }else {
-                $stmt = $this->db->prepare("SELECT * FROM accessori WHERE prezzo > ? AND prezzo < ?");
+        public function getAccessoriWithParam($tipo,$onlyDisp,$min,$max){
 
+            switch($tipo){
+                case "camper":
+                    if($onlyDisp){
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE (tipo='furgonato' OR tipo='profilato' OR tipo='mansardato' OR tipo='motorhome') AND (prezzo > ? AND prezzo <= ? AND qnt > 0)");
+                    }else{
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE (tipo='furgonato' OR tipo='profilato' OR tipo='mansardato' OR tipo='motorhome') AND (prezzo > ? AND prezzo <= ?)");
+                    }
+                        break;
+                case "accessori":
+                    if($onlyDisp){
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE (tipo='tavolo' OR tipo='sedia' OR tipo='frigorifero') AND (prezzo > ? AND prezzo <= ? AND qnt > 0)");
+                    }else {
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE (tipo='tavolo' OR tipo='sedia' OR tipo='frigorifero') AND (prezzo > ? AND prezzo <= ?)");
+                    }
+                    break;
             }
+
+
             $stmt->bind_param('ii',$min,$max);
 
             $stmt->execute();
@@ -77,7 +90,7 @@
 	public function checkLogin($email, $password){
         $query = "SELECT * FROM UTENTE WHERE  email = ? AND password = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$email, $password);
+        $stmt->bind_param('ss',$email, md5($password));
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -87,7 +100,7 @@
     public function updatePass($email,$pass){
         $query = "UPDATE UTENTE SET password = ? WHERE email = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$pass, $email);
+        $stmt->bind_param('ss',md5($pass), $email);
         $stmt->execute();
     }
 
@@ -107,6 +120,40 @@
         $stmt->bind_param('ssissis',$nome,$marca,$prezzo,$descr,$img,$qnt,$tipo);
         $stmt->execute();
     }
+
+    public function registerUser($email,$nome,$cognome,$password){
+        $query = "INSERT INTO UTENTE (email,nome,cognome,password,propic,isAdmin) VALUES (?,?,?,?,'a.jpg',false);";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssss',$email,$nome,$cognome,md5($password));
+        $stmt->execute();
+    }
     
+
+    public function getSpecifiche($idProdotto){
+        $stmt=null;
+        $stmt = $this->db->prepare("SELECT * FROM SPECIFICHE_CAMPER WHERE idProdotto=?;");
+        $stmt->bind_param('i',$idProdotto);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function changePropic($img,$email){
+        $query = "UPDATE UTENTE SET propic = ? WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$img, $email);
+        $stmt->execute();
+    }
+
+    public function getPropic($email){
+        $stmt=null;
+        $stmt = $this->db->prepare("SELECT propic FROM UTENTE WHERE email=?;");
+        $stmt->bind_param('s',$email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
         
 }

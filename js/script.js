@@ -39,8 +39,3 @@ function navBarScroll(){
 
 
 
-$('#list-tab .d-flex a').on('click', function (e) {
-    e.preventDefault()
-    $(this).tab('show')
-  });
-
