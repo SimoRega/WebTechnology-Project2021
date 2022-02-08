@@ -9,7 +9,7 @@
                 <?php foreach($item as $i): ?>
                     <a href="item.php?id=<?php echo $i["idProdotto"]?>" class="list-group-item list-group-item-action " aria-current="true"> 
                       <div class="d-flex w-100 justify-content-between align-items-center flex-wrap">
-                        <img src="../res/icon.png" class="img-thumbnail" alt="...">
+                        <img src="<?php echo UPLOAD_DIR.$i["img"]?>" class="img-thumbnail rounded " alt="..." style="max-width:200px;">
                         <div class="d-flex flex-column">
                             <small class="text-muted"><?php echo $i["marca"]?></small>
                             <h5 class="mb-1 pe-1"><?php echo $i["nome"]?></h5>
