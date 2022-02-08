@@ -9,7 +9,6 @@ function calcolaTotale(){
 }
 function prepareQ(){
     $(".quantity").each(function(index){
-        alert("ciao");
         $(this).attr('id',q+'index');
     })
     $("button[name=minus]").each(function(index){

@@ -237,7 +237,9 @@ footer .form-group button {
     display: inline-block;
 }
 
-
+#infoAcquisto button:hover{
+    z-index:3000;
+}
 
 
 #totaleAcquisto {

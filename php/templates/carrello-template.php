@@ -7,7 +7,7 @@
                 <div class="list-group">
 
                 <?php foreach($item as $i): ?>
-                    <a href="item.php?id=<?php echo $i["idProdotto"]?>" class="list-group-item list-group-item-action " aria-current="true"> 
+                    <div href="item.php?id=<?php echo $i["idProdotto"]?>" class="list-group-item list-group-item-action " aria-current="true"> 
                       <div class="d-flex w-100 justify-content-between align-items-center flex-wrap">
                         <img src="<?php echo UPLOAD_DIR.$i["img"]?>" class="img-thumbnail rounded " alt="..." style="max-width:200px;">
                         <div class="d-flex flex-column">
@@ -24,7 +24,7 @@
                           </div>
                         </div>
                       </div>
-                    </a>
+                </div>
                     <?php endforeach; ?>     
                 </div>
             </div>
