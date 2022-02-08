@@ -67,3 +67,12 @@ create table if not exists PRODOTTO_IN_ORDINE(
 	FOREIGN KEY (idProdotto) REFERENCES PRODOTTO(idProdotto)
 );
 
+create table if not exists PRODOTTO_IN_CARRELLO(
+	idUtente INT NOT NULL,
+    idProdotto INT NOT NULL ,
+    qnt int NOT NULL ,
+    PRIMARY KEY (idUtente,idProdotto),
+    FOREIGN KEY (idProdotto) REFERENCES PRODOTTO(idProdotto),
+	FOREIGN KEY (idUtente) REFERENCES UTENTE(email)
+);
+

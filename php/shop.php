@@ -2,7 +2,9 @@
 require_once("bootstrap.php");
 
 $tipo = $_GET["tipo"];
-$marca = $_GET["marca"];
+if(isset($_GET["marca"])){
+    $marca = $_GET["marca"];
+}
 
 $templateParams["title"] = "CamperRomagna - Shop";
 $templateParams["template"] = "lista-articoli.php";
