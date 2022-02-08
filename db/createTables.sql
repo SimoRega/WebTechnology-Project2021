@@ -76,3 +76,10 @@ create table if not exists PRODOTTO_IN_CARRELLO(
 	FOREIGN KEY (idUtente) REFERENCES UTENTE(email)
 );
 
+create table if not exists NOTIFICA(
+	idNotifica INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL ,
+    descrizione VARCHAR(300) NOT NULL ,
+    PRIMARY KEY (idNotifica),
+	FOREIGN KEY (email) REFERENCES UTENTE(email)
+);

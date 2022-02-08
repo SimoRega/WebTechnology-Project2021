@@ -47,9 +47,20 @@
     <div class="col-lg-8 mt-3" >
         <div class="row">
             <div class="col-lg-12 col-md-6  accTab " >
-                <div class="col-8">
-                    <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">notifiche</div>
+                <div class="col-12">
+                    <div class="tab-content " id="nav-tabContent">
+                    <?php $allNotify=$dbh->getNotification($_SESSION["email"])  ?>
+
+                    <div class="tab-pane fade show active text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
+                        <?php foreach($allNotify as $not): ?>
+                            <div class="card m-1">
+                                <h2> <?php echo $not["descrizione"] ?></h2>
+                            </div>
+                        <?php endforeach?>
+                    </div>
+
+
+
                     <div class="tab-pane fade" id="list-ordini" role="tabpanel" aria-labelledby="list-ordini-list">ordini</div>
 
 

@@ -26,3 +26,5 @@ INSERT INTO UTENTE(email, nome, cognome,password,propic, isadmin) VALUES
 ("a@a.com","federico","raffoni","0cc175b9c0f1b6a831c399e269772661","defaultPropic.jpg",false);
 INSERT INTO UTENTE(email, nome, cognome,password,propic,  isadmin) VALUES
 ("b@b.com","adminFiero","Gigaadmin","0cc175b9c0f1b6a831c399e269772661","defaultPropic.jpg",true);
+
+INSERT INTO NOTIFICA(idNotifica,email,descrizione) VALUES (idNotifica,"a@a.com","Grande, domani ti arriva un pacco vuoto");
