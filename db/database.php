@@ -96,113 +96,124 @@
         
 
         	
-	public function checkLogin($email, $password){
-        $query = "SELECT * FROM UTENTE WHERE  email = ? AND password = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$email, md5($password));
-        $stmt->execute();
-        $result = $stmt->get_result();
+        public function checkLogin($email, $password){
+            $query = "SELECT * FROM UTENTE WHERE  email = ? AND password = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss',$email, md5($password));
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function updatePass($email,$pass){
-        $query = "UPDATE UTENTE SET password = ? WHERE email = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',md5($pass), $email);
-        $stmt->execute();
-    }
-
-    public function checkIsAdmin($email){
-        $query = "SELECT * FROM UTENTE WHERE  email = ? AND isAdmin=1";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s',$email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return count($result->fetch_all(MYSQLI_ASSOC)) > 0;
-    }
-
-    public function addProduct($nome,$marca,$prezzo,$descr,$img,$qnt,$tipo){
-        $query = "INSERT INTO PRODOTTO (idProdotto,nome,marca,prezzo,descrizione,img,qnt,tipo) VALUES (idProdotto,?,?,?,?,?,?,?);";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssissis',$nome,$marca,$prezzo,$descr,$img,$qnt,$tipo);
-        $stmt->execute();
-    }
-
-    public function registerUser($email,$nome,$cognome,$password){
-        $query = "INSERT INTO UTENTE (email,nome,cognome,password,propic,isAdmin) VALUES (?,?,?,?,'a.jpg',false);";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssss',$email,$nome,$cognome,md5($password));
-        $stmt->execute();
-    }
-    
-
-    public function getSpecifiche($idProdotto){
-        $stmt=null;
-        $stmt = $this->db->prepare("SELECT * FROM SPECIFICHE_CAMPER WHERE idProdotto=?;");
-        $stmt->bind_param('i',$idProdotto);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function changePropic($img,$email){
-        $query = "UPDATE UTENTE SET propic = ? WHERE email = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$img, $email);
-        $stmt->execute();
-    }
-
-    public function getPropic($email){
-        $stmt=null;
-        $stmt = $this->db->prepare("SELECT propic FROM UTENTE WHERE email=?;");
-        $stmt->bind_param('s',$email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-    
-    public function getRandomCamper($qnt){
-        $res = $this->getProdotti("camper");
-        if(count($res)==$qnt){
-            return $res;
+            return $result->fetch_all(MYSQLI_ASSOC);
         }
-        return array_slice($res, 0, $qnt);
+
+        public function updatePass($email,$pass){
+            $query = "UPDATE UTENTE SET password = ? WHERE email = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss',md5($pass), $email);
+            $stmt->execute();
+        }
+
+        public function checkIsAdmin($email){
+            $query = "SELECT * FROM UTENTE WHERE  email = ? AND isAdmin=1";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s',$email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return count($result->fetch_all(MYSQLI_ASSOC)) > 0;
+        }
+
+        public function addProduct($nome,$marca,$prezzo,$descr,$img,$qnt,$tipo){
+            $query = "INSERT INTO PRODOTTO (idProdotto,nome,marca,prezzo,descrizione,img,qnt,tipo) VALUES (idProdotto,?,?,?,?,?,?,?);";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ssissis',$nome,$marca,$prezzo,$descr,$img,$qnt,$tipo);
+            $stmt->execute();
+        }
+
+        public function registerUser($email,$nome,$cognome,$password){
+            $query = "INSERT INTO UTENTE (email,nome,cognome,password,propic,isAdmin) VALUES (?,?,?,?,'a.jpg',false);";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ssss',$email,$nome,$cognome,md5($password));
+            $stmt->execute();
+        }
+        
+
+        public function getSpecifiche($idProdotto){
+            $stmt=null;
+            $stmt = $this->db->prepare("SELECT * FROM SPECIFICHE_CAMPER WHERE idProdotto=?;");
+            $stmt->bind_param('i',$idProdotto);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function changePropic($img,$email){
+            $query = "UPDATE UTENTE SET propic = ? WHERE email = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss',$img, $email);
+            $stmt->execute();
+        }
+
+        public function getPropic($email){
+            $stmt=null;
+            $stmt = $this->db->prepare("SELECT propic FROM UTENTE WHERE email=?;");
+            $stmt->bind_param('s',$email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+        
+        public function getRandomCamper($qnt){
+            $res = $this->getProdotti("camper");
+            if(count($res)==$qnt){
+                return $res;
+            }
+            return array_slice($res, 0, $qnt);
+        }
+
+        public function getProductByBrand($brandName){
+            $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ?;");
+            $stmt->bind_param('s',$brandName);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function addToCart($u,$id,$q){
+            $query = "INSERT INTO PRODOTTO_IN_CARRELLO (idUtente,idProdotto,qnt) VALUES (?,?,?);";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('sii',$u,$id,$q);
+            $stmt->execute();
+        }
+        public function getCartItems($u){
+            $stmt = $this->db->prepare("SELECT idUtente,PRODOTTO.idProdotto as idProdotto,PRODOTTO_IN_CARRELLO.qnt as qntCart, nome, marca, prezzo,img,PRODOTTO.qnt as qntDisp,tipo FROM PRODOTTO_IN_CARRELLO JOIN PRODOTTO ON PRODOTTO_IN_CARRELLO.idProdotto=PRODOTTO.idProdotto WHERE idUtente= ? ;");
+            $stmt->bind_param('s',$u);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function checkItemInCart($u,$id,$q){
+            $stmt = $this->db->prepare("SELECT * FROM PRODOTTO_IN_CARRELLO WHERE idUtente= ? AND idProdotto=? AND qnt=?;");
+            $stmt->bind_param('sii',$u,$id,$q);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getNotification($email){
+            $stmt = $this->db->prepare("SELECT * FROM NOTIFICA WHERE email= ? ;");
+            $stmt->bind_param('s',$email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
     }
-
-    public function getProductByBrand($brandName){
-        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ?;");
-        $stmt->bind_param('s',$brandName);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function addToCart($u,$id,$q){
-        $query = "INSERT INTO PRODOTTO_IN_CARRELLO (idUtente,idProdotto,qnt) VALUES (?,?,?);";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sii',$u,$id,$q);
-        $stmt->execute();
-    }
-    public function getCartItems($u){
-        $stmt = $this->db->prepare("SELECT idUtente,PRODOTTO.idProdotto as idProdotto,PRODOTTO_IN_CARRELLO.qnt as qntCart, nome, marca, prezzo,img,PRODOTTO.qnt as qntDisp,tipo FROM PRODOTTO_IN_CARRELLO JOIN PRODOTTO ON PRODOTTO_IN_CARRELLO.idProdotto=PRODOTTO.idProdotto WHERE idUtente= ? ;");
-        $stmt->bind_param('s',$u);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function checkItemInCart($u,$id,$q){
-        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO_IN_CARRELLO WHERE idUtente= ? AND idProdotto=? AND qnt=?;");
-        $stmt->bind_param('sii',$u,$id,$q);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-}
+?>
