@@ -1,4 +1,4 @@
-$(window).onLoad(calcolaTotale(),prepareQ());
+$(window).ready(calcolaTotale(),prepareQ());
 function calcolaTotale(){
     var a=0;
     $(".prezzo").each(function(){
@@ -9,7 +9,7 @@ function calcolaTotale(){
 }
 function prepareQ(){
     $(".quantity").each(function(index){
-        $(this).attr('id',q+'index');
+        $(this).attr('id','q'+index);
     })
     $("button[name=minus]").each(function(index){
         $(this).replaceWith('<button type="button" name="minus" class="btn btn-primary btn-sm" onclick="diminuisciQ(q'+index+')">-</button>');

@@ -35,7 +35,7 @@
                         
                       <h5 class="card-title">Totale Provvisorio: </h5>
                       <p class="card-text fw-bold fs-1 prezzoFinale" onload="calcolaTotale();" ></p>
-                      <a href="acquisto.html" class="btn btn-primary">Procedi all'acquisto</a>
+                      <a href="acquisto.php" class="btn btn-primary">Procedi all'acquisto</a>
                     </div>
                   </div>
             </div>
