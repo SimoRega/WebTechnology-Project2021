@@ -9,7 +9,8 @@ function calcolaTotale(){
 }
 function prepareQ(){
     $(".quantity").each(function(index){
-        $(this).replaceWith('<span id=q'+index+' class="ps-1 pe-1 quantity">1</span>')
+        //$(this).replaceWith('<span id=q'+index+' class="ps-1 pe-1 quantity">1</span>')
+        $(this).attr('id',q+'index');
     })
     $("button[name=minus]").each(function(index){
         $(this).replaceWith('<button type="button" name="minus" class="btn btn-primary btn-sm" onclick="diminuisciQ(q'+index+')">-</button>');

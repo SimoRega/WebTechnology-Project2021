@@ -46,6 +46,15 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function getAllInfoCamper($id){
+            $stmt = $this->db->prepare("SELECT * FROM PRODOTTO JOIN SPECIFICHE_CAMPER ON PRODOTTO.idProdotto=SPECIFICHE_CAMPER.idProdotto WHERE SPECIFICHE_CAMPER.idProdotto= ?;");
+            $stmt->bind_param('i',$id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
 
         public function getAccessoriWithParam($tipo,$onlyDisp,$min,$max){
 
@@ -167,6 +176,30 @@
     public function getProductByBrand($brandName){
         $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ?;");
         $stmt->bind_param('s',$brandName);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function addToCart($u,$id,$q){
+        $query = "INSERT INTO PRODOTTO_IN_CARRELLO (idUtente,idProdotto,qnt) VALUES (?,?,?);";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sii',$u,$id,$q);
+        $stmt->execute();
+    }
+    public function getCartItems($u){
+        $stmt = $this->db->prepare("SELECT idUtente,PRODOTTO.idProdotto as idProdotto,PRODOTTO_IN_CARRELLO.qnt as qntCart, nome, marca, prezzo,img,PRODOTTO.qnt as qntDisp,tipo FROM PRODOTTO_IN_CARRELLO JOIN PRODOTTO ON PRODOTTO_IN_CARRELLO.idProdotto=PRODOTTO.idProdotto WHERE idUtente= ? ;");
+        $stmt->bind_param('s',$u);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function checkItemInCart($u,$id,$q){
+        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO_IN_CARRELLO WHERE idUtente= ? AND idProdotto=? AND qnt=?;");
+        $stmt->bind_param('sii',$u,$id,$q);
         $stmt->execute();
         $result = $stmt->get_result();
 

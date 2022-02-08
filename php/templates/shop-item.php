@@ -29,7 +29,7 @@
             <p class=" lead"><?php  echo $item["descrizione"]; ?></p>
             <div class="d-flex">
                 <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem">
-                <a href="carrello.php?id=<?php  echo $item["idProdotto"]; ?>" class=" btn btn-primary btn-lg" type="button">
+                <a href="carrello.php?id=<?php  echo $item["idProdotto"]; ?>&qnt=1" class=" btn btn-primary btn-lg" type="button">
                     Add to cart
                 </a>
             </div>

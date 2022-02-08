@@ -68,7 +68,7 @@ create table if not exists PRODOTTO_IN_ORDINE(
 );
 
 create table if not exists PRODOTTO_IN_CARRELLO(
-	idUtente INT NOT NULL,
+	idUtente VARCHAR(100) NOT NULL,
     idProdotto INT NOT NULL ,
     qnt int NOT NULL ,
     PRIMARY KEY (idUtente,idProdotto),

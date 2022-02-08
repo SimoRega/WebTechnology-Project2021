@@ -35,15 +35,7 @@
                                 <li><a class="dropdown-item" href="./shop.php?tipo=camper">SHOP CAMPER</a></li>
                               </ul>
                             </li>
-                            <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle fw-bold" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">NEGOZIO</a>
-                              <ul class="dropdown-menu mx-0 border-0 shadow" style="width: 220px;" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item " href="#">VISUALIZZA ACCESSORI</a></li>
-                                <li><a class="dropdown-item" href="#">VISUALIZZA KIT</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">VISUALIZZA TUTTO</a></li>
-                              </ul>
-                            </li>
+                            <li class="nav-item"><a class="nav-link fw-bold" href="carrello.php">CARRELLO</a></li>
                             <li class="nav-item"><a class="nav-link fw-bold" href="">CHI SIAMO</a></li>
                         </ul>
                     </div>
@@ -166,5 +158,7 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
       <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
       <script src="../js/script.js" type="text/javascript"></script>
+      <script src="../js/configuratore.js" type="text/javascript"></script>
+      <script src="../js/carrello.js" type="text/javascript"></script>
   </body>
 </html>
