@@ -6,12 +6,16 @@ if(isset($_GET["id"]) && isset($_GET["qnt"])){
     $id=$_GET["id"];
     $qnt=$_GET["qnt"];
     if(isUserLoggedIn()){
-        $checkItem=$dbh->checkItemInCart($_SESSION["email"],$id,$qnt);
+        $checkItem=$dbh->checkItemInCart($_SESSION["email"],$id);
 
-        if(empty($checkItem["idProdotto"])){
+        if(empty($checkItem[0]["idProdotto"])){
             $dbh->addToCart($_SESSION["email"],$id,$qnt);
-        }else if($checkItem["qnt"]!=$qnt){
+        }else if($checkItem[0]["qnt"]!=0){
             #update, aggiungere quantità
+            $q=$qnt+$checkItem[0]["qnt"];
+            $dbh->updateCart($_SESSION["email"],$id,$q);
+        }else if($checkItem[0]["qnt"]==0){
+            $dbh->removeItemCart($_SESSION["email"],$id);
         }
     }else{
         header('Location: login.php');

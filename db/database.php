@@ -113,6 +113,13 @@
             $stmt->execute();
         }
 
+        public function updateCart($email,$id,$q){
+            $query = "UPDATE PRODOTTO_IN_CARRELLO SET qnt = ? WHERE idUtente = ? AND idProdotto=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('isi',$q,$email,$id);
+            $stmt->execute();
+        }
+
         public function checkIsAdmin($email){
             $query = "SELECT * FROM UTENTE WHERE  email = ? AND isAdmin=1";
             $stmt = $this->db->prepare($query);
@@ -197,9 +204,9 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
-        public function checkItemInCart($u,$id,$q){
-            $stmt = $this->db->prepare("SELECT * FROM PRODOTTO_IN_CARRELLO WHERE idUtente= ? AND idProdotto=? AND qnt=?;");
-            $stmt->bind_param('sii',$u,$id,$q);
+        public function checkItemInCart($u,$id){
+            $stmt = $this->db->prepare("SELECT * FROM PRODOTTO_IN_CARRELLO WHERE idUtente= ? AND idProdotto=? ;");
+            $stmt->bind_param('si',$u,$id);
             $stmt->execute();
             $result = $stmt->get_result();
 
@@ -215,5 +222,10 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function removeItemCart($u,$id){
+            $stmt = $this->db->prepare("DELETE FROM PRODOTTO_IN_CARRELLO WHERE idUtente=? AND idProdotto=? ;");
+            $stmt->bind_param('si',$u,$id);
+            $stmt->execute();
+        }
     }
 ?>
