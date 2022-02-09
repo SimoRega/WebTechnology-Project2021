@@ -27,12 +27,13 @@
             </div>
 
             <p class=" lead"><?php  echo $item["descrizione"]; ?></p>
-            <div class="d-flex">
-                <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem">
-                <a href="carrello.php?id=<?php  echo $item["idProdotto"]; ?>&qnt=1" class=" btn btn-primary btn-lg" type="button">
-                    Add to cart
-                </a>
-            </div>
+            <form action="carrello.php" method="GET">
+                <input class="toast" type="text" value=" <?php  echo $item["idProdotto"]; ?>" name="id" >
+                <div class="d-flex">
+                    <input class="form-control text-center me-3" id="inputQuantity" name="qnt" type="num" value="1" style="max-width: 3rem">
+                    <input class=" btn btn-primary btn-lg" type="submit">
+                </div>
+            </form>
         </div>
     </div>
 </div>

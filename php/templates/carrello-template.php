@@ -7,6 +7,7 @@
                 <div class="list-group">
 
                 <?php foreach($item as $i): ?>
+                  <!-- se metti i pulsanti per quantità cambia 'a' in div-->
                     <div href="item.php?id=<?php echo $i["idProdotto"]?>" class="list-group-item list-group-item-action " aria-current="true"> 
                       <div class="d-flex w-100 justify-content-between align-items-center flex-wrap">
                         <img src="<?php echo UPLOAD_DIR.$i["img"]?>" class="img-thumbnail rounded " alt="..." style="max-width:200px;">
@@ -18,17 +19,19 @@
                           <p>Prezzo: € <span class="fw-bold prezzo"><?php echo $i["prezzo"]?></span></p>
                           <div class="d-flex justify-content-end align-items-center">
                             <span class="pe-3">Quantità :</span>
-                            <button type="button" name="minus" class="btn btn-primary btn-sm" onclick="diminuisciQ()">-</button>
+                           <!-- <button type="button" name="minus" class="btn btn-primary btn-sm" onclick="diminuisciQ()">-</button>-->
                             <span class="ps-1 pe-1 quantity"><?php echo $i["qntCart"]?></span>
-                            <button type="button" class="btn btn-primary btn-sm" name="plus" onclick="aumentaQ()">+</button>
+                           <!-- <button type="button" class="btn btn-primary btn-sm" name="plus" onclick="aumentaQ()">+</button>-->
                           </div>
+                          <a class="btn btn-danger" href="carrello.php?id=<?php echo $i["idProdotto"]?>&qnt=0" role="button">Rimuovi</a>
                         </div>
                       </div>
-                </div>
+                    </div>
                     <?php endforeach; ?>     
                 </div>
             </div>
-        </section><aside id="totale" class="mt-5">
+        </section>
+        <aside id="totale" class="mt-5">
             <div class="container-fluid">
                 <div class="card" >
                     <div class="card-body d-flex flex-column mb-3">
