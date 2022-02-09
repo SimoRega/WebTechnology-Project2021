@@ -215,5 +215,12 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function creaOrdine($email){
+            $query = "INSERT INTO `ORDINE`(`idOrdine`, `idUtente`, `dataOrdine`, `isConsegnato`) VALUES (idOrdine,?,now(),false);";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s',$email);
+            $stmt->execute();
+        }
+
     }
 ?>

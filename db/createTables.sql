@@ -52,7 +52,7 @@ create table if not exists UTENTE(
 create table if not exists ORDINE(
 	idOrdine INT NOT NULL AUTO_INCREMENT,
 	idUtente VARCHAR(100) NOT NULL,
-	dataOrdine DATE NOT NULL,
+	dataOrdine DATETIME NOT NULL,
 	isConsegnato BOOLEAN,
 	PRIMARY KEY(idOrdine),
 	FOREIGN KEY (idUtente) REFERENCES UTENTE(email)
