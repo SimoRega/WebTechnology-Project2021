@@ -1,6 +1,8 @@
 <?php
 require_once("bootstrap.php");
 require_once("utils/functions.php");
+$templateParams["title"] = "CamperRomagna - Carrello";
+
 
 if(isset($_GET["id"]) && isset($_GET["qnt"])){
     $id=$_GET["id"];
@@ -10,24 +12,30 @@ if(isset($_GET["id"]) && isset($_GET["qnt"])){
 
         if(empty($checkItem[0]["idProdotto"])){
             $dbh->addToCart($_SESSION["email"],$id,$qnt);
+        }else if($qnt==0){
+            $dbh->removeItemCart($_SESSION["email"],$id);
+            $templateParams["template"] = "carrello-vuoto-template.php";
+            require("./templates/base.php");
+            exit;
         }else if($checkItem[0]["qnt"]!=0){
             #update, aggiungere quantità
             $q=$qnt+$checkItem[0]["qnt"];
             $dbh->updateCart($_SESSION["email"],$id,$q);
-        }else if($checkItem[0]["qnt"]==0){
-            $dbh->removeItemCart($_SESSION["email"],$id);
         }
     }else{
         header('Location: login.php');
         exit;
     }
-}else if(!isUserLoggedIn()){
-    header('Location: login.php');
+}else {
+    if(!isUserLoggedIn()){
+        header('Location: login.php');
+    }else{
+        $templateParams["template"] = "carrello-vuoto-template.php";
+        require("./templates/base.php");
+    }
     exit;
 }
 
-$templateParams["title"] = "CamperRomagna - Carrello";
 $templateParams["template"] = "carrello-template.php";
-
 require("./templates/base.php");
 ?>
