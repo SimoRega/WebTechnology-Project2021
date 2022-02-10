@@ -14,9 +14,12 @@ if(isset($_GET["id"]) && isset($_GET["qnt"])){
             $dbh->addToCart($_SESSION["email"],$id,$qnt);
         }else if($qnt==0){
             $dbh->removeItemCart($_SESSION["email"],$id);
-            $templateParams["template"] = "carrello-vuoto-template.php";
-            require("./templates/base.php");
-            exit;
+            $item= $dbh->getCartItems($_SESSION["email"]);
+            if(empty($item[0]["idProdotto"])){
+                $templateParams["template"] = "carrello-vuoto-template.php";
+                require("./templates/base.php");
+                exit;
+            }
         }else if($checkItem[0]["qnt"]!=0){
             #update, aggiungere quantità
             $q=$qnt+$checkItem[0]["qnt"];
@@ -30,10 +33,13 @@ if(isset($_GET["id"]) && isset($_GET["qnt"])){
     if(!isUserLoggedIn()){
         header('Location: login.php');
     }else{
-        $templateParams["template"] = "carrello-vuoto-template.php";
-        require("./templates/base.php");
+        $item= $dbh->getCartItems($_SESSION["email"]);
+        if(empty($item[0]["idProdotto"])){
+            $templateParams["template"] = "carrello-vuoto-template.php";
+            require("./templates/base.php");
+            exit;
+        }
     }
-    exit;
 }
 
 $templateParams["template"] = "carrello-template.php";
