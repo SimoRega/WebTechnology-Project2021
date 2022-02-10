@@ -234,5 +234,20 @@
             $stmt->bind_param('si',$u,$id);
             $stmt->execute();
         }
+        public function getLastOrderId($email){
+            $stmt = $this->db->prepare("SELECT idOrdine FROM ORDINE WHERE idUtente= ?  ORDER BY dataOrdine desc limit 1");
+            $stmt->bind_param('s',$email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function aggiungiProdInOrdine($idOrdine,$idProdotto,$qnt){
+            $query = "INSERT INTO PRODOTTO_IN_ORDINE (idOrdine,idProdotto,qnt) VALUES (?,?,?);";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('iii',$idOrdine,$idProdotto,$qnt);
+            $stmt->execute();
+        }
     }
 ?>
