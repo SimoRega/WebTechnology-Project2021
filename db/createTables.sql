@@ -78,8 +78,12 @@ create table if not exists PRODOTTO_IN_CARRELLO(
 
 create table if not exists NOTIFICA(
 	idNotifica INT NOT NULL AUTO_INCREMENT,
+	idOrdine INT NOT NULL,
     email VARCHAR(100) NOT NULL ,
     descrizione VARCHAR(300) NOT NULL ,
+	dataNotifica DATETIME NOT NULl,
     PRIMARY KEY (idNotifica),
+	FOREIGN KEY (idOrdine) REFERENCES ORDINE(idOrdine),
 	FOREIGN KEY (email) REFERENCES UTENTE(email)
+
 );

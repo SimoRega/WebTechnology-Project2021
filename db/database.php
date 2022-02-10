@@ -234,6 +234,13 @@
             $stmt->bind_param('si',$u,$id);
             $stmt->execute();
         }
+        
+        public function removeAllCart($email){
+            $stmt = $this->db->prepare("DELETE FROM PRODOTTO_IN_CARRELLO WHERE idUtente=?;");
+            $stmt->bind_param('s',$email);
+            $stmt->execute();
+        }
+
         public function getLastOrderId($email){
             $stmt = $this->db->prepare("SELECT idOrdine FROM ORDINE WHERE idUtente= ?  ORDER BY dataOrdine desc limit 1");
             $stmt->bind_param('s',$email);
@@ -249,5 +256,23 @@
             $stmt->bind_param('iii',$idOrdine,$idProdotto,$qnt);
             $stmt->execute();
         }
+
+        public function creaNotifica($idOrdine,$email,$descr){
+            $query = "INSERT INTO `NOTIFICA`(`idNotifica`,`idOrdine`,  `email`, `descrizione`,dataNotifica) VALUES (idNotifica,?,?,?,now());";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('sss',$idOrdine,$email,$descr);
+            $stmt->execute();
+        }
+
+        public function getAllOrder($email){
+            $stmt = $this->db->prepare("SELECT * FROM ORDINE WHERE idUtente= ?  ORDER BY dataOrdine desc ");
+            $stmt->bind_param('s',$email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+
     }
 ?>

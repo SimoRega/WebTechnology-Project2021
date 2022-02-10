@@ -53,15 +53,29 @@
 
                     <div class="tab-pane fade show active text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
                         <?php foreach($allNotify as $not): ?>
-                            <div class="card m-1">
-                                <h2> <?php echo $not["descrizione"] ?></h2>
+                            <div class="card m-1 text-center">
+                                <p> <?php echo $not["descrizione"] ?></p>
+                                <hr>
+                                <p> <?php echo $not["dataNotifica"] ?></p>
                             </div>
                         <?php endforeach?>
                     </div>
 
 
 
-                    <div class="tab-pane fade" id="list-ordini" role="tabpanel" aria-labelledby="list-ordini-list">ordini</div>
+                    <div class="tab-pane fade" id="list-ordini" role="tabpanel" aria-labelledby="list-ordini-list">
+                        <?php $allOrder=$dbh->getAllOrder($_SESSION["email"])?>
+                        <div class="tab-pane fade show active text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
+                            <?php foreach($allOrder as $not): ?>
+                                <div class="card m-1 text-center">
+                                    <p> <?php echo "Ordine # ".$not["idOrdine"] ?></p>
+                                    <p> <?php echo "Ordine effettuato il: ".$not["dataOrdine"] ?></p>
+                                    <p> <?php if($not["isConsegnato"] ){echo "L'ordine è stato consegnato";}else{echo "L'ordine è ancora in transito";} ?></p>
+
+                                </div>
+                            <?php endforeach?>
+                        </div>
+                    </div>
 
 
                     <div class="tab-pane fade" id="list-password" role="tabpanel" aria-labelledby="list-password-list">
