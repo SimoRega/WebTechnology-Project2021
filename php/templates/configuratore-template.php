@@ -26,25 +26,25 @@
 
             <div class="d-flex flex-wrap">
 
-              <form action="">
+              <form action="carrello.php" method="GET">
                 <div class="container-fluid sceltaConfiguratore" style="width: 60%; min-width:400px;">
                     <div class="list-group mx-0 my-5">
                         <label class="list-group-item d-flex gap-2">
-                        <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios1" value="" checked="">
+                        <input class="form-check-input flex-shrink-0" type="radio" name="color" id="listGroupRadios1" value="red" checked="">
                         <span>
                             Rosso
                             <small class="d-block text-muted">700</small>
                         </span>
                         </label>
                         <label class="list-group-item d-flex gap-2">
-                        <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios2" value="">
+                        <input class="form-check-input flex-shrink-0" type="radio" name="color" id="listGroupRadios2" value="green">
                         <span>
                             Verde
                             <small class="d-block text-muted">700</small>
                         </span>
                         </label>
                         <label class="list-group-item d-flex gap-2">
-                        <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios3" value="">
+                        <input class="form-check-input flex-shrink-0" type="radio" name="color" id="listGroupRadios3" value="blue">
                         <span>
                             Blu
                             <small class="d-block text-muted">700</small>
@@ -55,21 +55,21 @@
                 <div class="container-fluid sceltaConfiguratore" style="width: 60%; min-width:400px;">                  
                     <div class="list-group mx-0 my-5">
                             <label class="list-group-item d-flex gap-2">
-                            <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios1" value="" checked="">
+                            <input class="form-check-input flex-shrink-0" type="radio" name="motor" id="listGroupRadios1" value="120" checked="">
                             <span>
                                 Motore 120 cavalli
                                 <small class="d-block text-muted">700</small>
                             </span>
                             </label>
                             <label class="list-group-item d-flex gap-2">
-                            <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios2" value="">
+                            <input class="form-check-input flex-shrink-0" type="radio" name="motor" id="listGroupRadios2" value="140">
                             <span>
                                 Motore 140 cavalli
                                 <small class="d-block text-muted">700</small>
                             </span>
                             </label>
                             <label class="list-group-item d-flex gap-2">
-                            <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios3" value="">
+                            <input class="form-check-input flex-shrink-0" type="radio" name="motor" id="listGroupRadios3" value="180">
                             <span>
                                 Motore 180 cavalli
                                 <small class="d-block text-muted">700</small>
@@ -80,7 +80,7 @@
                 <div class="container-fluid sceltaConfiguratore" style="width: 60%; min-width:400px;">
                     <div class="list-group mx-0 my-5">
                         <label class="list-group-item d-flex gap-2">
-                        <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios1" value="" checked="">
+                        <input class="form-check-input flex-shrink-0" type="radio" name="package" id="listGroupRadios1" value="comfort" checked="">
                         <span>
                             Pacchetto Comfort
                             <small class="d-block text-muted">Descrizione di cosa c'è nel pacchetto</small>
@@ -88,7 +88,7 @@
                         </span>
                         </label>
                         <label class="list-group-item d-flex gap-2">
-                        <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios2" value="">
+                        <input class="form-check-input flex-shrink-0" type="radio" name="package" id="listGroupRadios2" value="assistenza">
                         <span>
                             Pacchetto Assistenza alla Guida
                             <small class="d-block text-muted">Descrizione di cosa c'è nel pacchetto</small>
@@ -96,7 +96,7 @@
                         </span>
                         </label>
                         <label class="list-group-item d-flex gap-2">
-                        <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios3" value="">
+                        <input class="form-check-input flex-shrink-0" type="radio" name="package" id="listGroupRadios3" value="style">
                         <span>
                             Pacchetto Style
                             <small class="d-block text-muted">Descrizione di cosa c'è nel pacchetto</small>
@@ -105,7 +105,8 @@
                         </label>
                     </div>                    
                 </div>
-                <button type="button" class="btn btn-danger" name="invia" >Invia</button>
+                <a type="button" class="btn btn-danger" name="invia" href="carrello.php?id=<?php echo $templateParams["camper"]["idProdotto"] ?>&qnt=1">Invia</a>
+                <input type="submit" value="inviaaaa">
               </form>
 
 
