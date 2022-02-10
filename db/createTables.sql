@@ -58,17 +58,7 @@ create table if not exists ORDINE(
 	FOREIGN KEY (idUtente) REFERENCES UTENTE(email)
 );
 
-create table if not exists PRODOTTO_IN_ORDINE(
-	idProdInOrdine INT NOT NULL AUTO_INCREMENT,
-	idOrdine INT NOT NULL,
-    idProdotto INT NOT NULL ,
-    qnt int NOT NULL ,
-	idConfigurazione int,
-    PRIMARY KEY (idProdInOrdine),
-    FOREIGN KEY (idOrdine) REFERENCES ORDINE(idOrdine),
-	FOREIGN KEY (idConfigurazione) REFERENCES CONFIGURAZIONE(idConfigurazione),
-	FOREIGN KEY (idProdotto) REFERENCES PRODOTTO(idProdotto)
-);
+
 
 create table if not exists COLORE_CAMPER(
 	idColore INT NOT NULL AUTO_INCREMENT,
@@ -99,6 +89,18 @@ create table if not exists CONFIGURAZIONE(
 	FOREIGN KEY (idColore) REFERENCES COLORE_CAMPER(idColore),
 	FOREIGN KEY (idMotore) REFERENCES MOTORE_CAMPER(idMotore),
 	FOREIGN KEY (idOptional) REFERENCES OPTIONAL_CAMPER(idOptional)
+);
+
+create table if not exists PRODOTTO_IN_ORDINE(
+	idProdInOrdine INT NOT NULL AUTO_INCREMENT,
+	idOrdine INT NOT NULL,
+    idProdotto INT NOT NULL ,
+    qnt int NOT NULL ,
+	idConfigurazione int,
+    PRIMARY KEY (idProdInOrdine),
+    FOREIGN KEY (idOrdine) REFERENCES ORDINE(idOrdine),
+	FOREIGN KEY (idConfigurazione) REFERENCES CONFIGURAZIONE(idConfigurazione),
+	FOREIGN KEY (idProdotto) REFERENCES PRODOTTO(idProdotto)
 );
 
 create table if not exists PRODOTTO_IN_CARRELLO(
