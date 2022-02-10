@@ -47,6 +47,11 @@ if(isset($_POST["marca"])){
 
 }
 
+if(isset($_POST["spedisciOrdine"])){
+    $message = $_POST["idOrdine"];
+    echo "<script type='text/javascript'>alert('$message');</script>";
+}
+
 
 
 if(!isUserLoggedIn()){

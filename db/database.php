@@ -223,7 +223,7 @@
         }
 
         public function creaOrdine($email){
-            $query = "INSERT INTO `ORDINE`(`idOrdine`, `idUtente`, `dataOrdine`, `isConsegnato`) VALUES (idOrdine,?,now(),false);";
+            $query = "INSERT INTO `ORDINE`(`idOrdine`, `idUtente`, `dataOrdine`, `stato`) VALUES (idOrdine,?,now(),'In lavorazione');";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('s',$email);
             $stmt->execute();
@@ -309,6 +309,24 @@
         public function getOptional(){
             $query = "SELECT * FROM OPTIONAL_CAMPER";
             $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getProdOnOrder($idOrdine){
+            $query = "SELECT PRODOTTO.nome, PRODOTTO.img, PRODOTTO_IN_ORDINE.qnt FROM (PRODOTTO_IN_ORDINE JOIN ORDINE ON PRODOTTO_IN_ORDINE.idOrdine = ORDINE.idOrdine) JOIN PRODOTTO ON PRODOTTO.idProdotto = PRODOTTO_IN_ORDINE.idProdotto WHERE ORDINE.idOrdine = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i',$idOrdine);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getOrder(){
+            $stmt = $this->db->prepare("SELECT * FROM ORDINE  ORDER BY dataOrdine desc; ");
             $stmt->execute();
             $result = $stmt->get_result();
 

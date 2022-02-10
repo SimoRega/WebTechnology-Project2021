@@ -28,7 +28,9 @@
                                 <a class="list-group-item list-group-item-action" id="list-ordini-list" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini">Ordini</a>
                                 <a class="list-group-item list-group-item-action" id="list-password-list" data-bs-toggle="list" href="#list-password" role="tab" aria-controls="list-password">Modifica profilo</a>
                                 <?php if($dbh->checkIsAdmin($_SESSION["email"])):?>
+                                    <a class="list-group-item list-group-item-action" id="list-order-list" data-bs-toggle="list" href="#list-order" role="tab" aria-controls="list-order">Gestisci ordini</a>
                                     <a class="list-group-item list-group-item-action" id="list-product-list" data-bs-toggle="list" href="#list-product" role="tab" aria-controls="list-product">Aggiungi prodotti</a>
+
                                     <?php endif; ?>
                                 <a class="list-group-item list-group-item-action text-danger" id="list-logout-list" data-bs-toggle="list" href="#list-logout" role="tab" aria-controls="list-logout">Logout</a>
 
@@ -47,7 +49,7 @@
     <div class="col-lg-8 mt-3" >
         <div class="row">
             <div class="col-lg-12 col-md-6  accTab " >
-                <div class="col-12">
+                <div class="col-12 ">
                     <div class="tab-content " id="nav-tabContent">
                     <?php $allNotify=$dbh->getNotification($_SESSION["email"])  ?>
 
@@ -66,11 +68,25 @@
                     <div class="tab-pane fade" id="list-ordini" role="tabpanel" aria-labelledby="list-ordini-list">
                         <?php $allOrder=$dbh->getAllOrder($_SESSION["email"])?>
                         <div class="tab-pane fade show active text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
-                            <?php foreach($allOrder as $not): ?>
-                                <div class="card m-1 text-center">
-                                    <p> <?php echo "Ordine # ".$not["idOrdine"] ?></p>
-                                    <p> <?php echo "Ordine effettuato il: ".$not["dataOrdine"] ?></p>
-                                    <p> <?php if($not["isConsegnato"] ){echo "L'ordine è stato consegnato";}else{echo "L'ordine è ancora in transito";} ?></p>
+                            <?php foreach($allOrder as $order): ?>
+                                <div class="card m-1 text-center p-2">
+                                    <h3> <?php echo "Ordine # ".$order["idOrdine"] ?></h3>
+                                    <p> <?php echo "Ordine effettuato il: ".$order["dataOrdine"] ?></p>
+                                    <p> <?php echo "Stato ordine: ".$order["stato"] ?></p>
+                                    <?php
+                                        $prodInOrder = $dbh->getProdOnOrder($order["idOrdine"]);
+                                        foreach($prodInOrder as $prod):
+                                    ?>
+                                        <hr>
+                                        <div class="text-center">
+                                            <p class="fw-bold"><?php echo $prod["nome"]." x ".$prod["qnt"]?></p>
+                                            <img class="w-25" src="<?php echo UPLOAD_DIR.$prod["img"]?>" class="img-thumbnail rounded " alt="..." style="max-width:100px;">
+                                        </div>
+                                        
+
+                                    <?php
+                                        endforeach;
+                                    ?>
 
                                 </div>
                             <?php endforeach?>
@@ -115,6 +131,40 @@
                         <form action="account.php" method="GET">
                             <button class="m-2 w-100 btn btn-light" type="submit" name="l" value="1">Logout</button>
                         </form>
+                    </div>
+
+
+                    <div class="tab-pane fade text-dark" id="list-order" role="tabpanel" aria-labelledby="list-order-list">
+                        <?php 
+                            $allOrder = $dbh->getOrder();
+                            foreach($allOrder as $o):
+                        ?>
+                            <div class="card p-2 m-1">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <p> <?php echo "Ordine # ".$o["idOrdine"]; ?> </p>
+                                    <p> <?php echo "Stato corrente: ".$o["stato"]; ?> </p>
+
+                                    <form action="account.php" method="POST">
+                                        <input type="text" class="toast" name="idOrdine" value="<?php echo $o["idOrdine"] ?>">
+                                        <input type="submit" class="btn btn-primary" name="spedisciOrdine" value="Spedisci">
+                                        <input type="submit" class="btn btn-danger" name="cancecllaOrdine" value="Cancella">
+
+                                    </form>
+                                </div>
+                                <?php
+                                    $prodInOrder = $dbh->getProdOnOrder($o["idOrdine"]);
+                                    foreach($prodInOrder as $prod):
+                                ?>
+                                    <hr class="dropdown-divider">
+                                    <p class=""><?php echo $prod["qnt"]." x ".$prod["nome"]?></p>
+                                    
+                                <?php
+                                    endforeach;
+                                ?>
+                            </div>
+                        <?php 
+                            endforeach;
+                        ?>
                     </div>
 
 
