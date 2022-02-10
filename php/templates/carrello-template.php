@@ -14,6 +14,11 @@
                         <div class="d-flex flex-column">
                             <small class="text-muted"><?php echo $i["marca"]?></small>
                             <h5 class="mb-1 pe-1"><?php echo $i["nome"]?></h5>
+                            <?php if(($dbh->getTipologia($i["idProdotto"])=="camper") || (isset($_GET["color"]) && isset($_GET["motor"]) && isset($_GET["package"])) ): ?>
+                              <p><?php echo $_GET["color"]; ?></p>  
+                              <p><?php echo $_GET["motor"]; ?></p> 
+                              <p><?php echo $_GET["optional"]; ?></p> 
+                            <?php endif;?>
                         </div>
                         <div class="d-flex flex-column">
                           <p>Prezzo: € <span class="fw-bold prezzo"><?php echo $i["prezzo"]?></span></p>

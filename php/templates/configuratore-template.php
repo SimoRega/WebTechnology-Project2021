@@ -27,82 +27,46 @@
             <div class="d-flex flex-wrap">
 
               <form action="carrello.php" method="GET">
+              <input class="toast" type="num" value=" <?php  echo $templateParams["camper"]["idProdotto"]; ?>" name="id" >
+              <input class="toast" type="num" value=" 1" name="qnt" >
                 <div class="container-fluid sceltaConfiguratore" style="width: 60%; min-width:400px;">
                     <div class="list-group mx-0 my-5">
-                        <label class="list-group-item d-flex gap-2">
-                        <input class="form-check-input flex-shrink-0" type="radio" name="color" id="listGroupRadios1" value="red" checked="">
-                        <span>
-                            Rosso
-                            <small class="d-block text-muted">700</small>
-                        </span>
-                        </label>
-                        <label class="list-group-item d-flex gap-2">
-                        <input class="form-check-input flex-shrink-0" type="radio" name="color" id="listGroupRadios2" value="green">
-                        <span>
-                            Verde
-                            <small class="d-block text-muted">700</small>
-                        </span>
-                        </label>
-                        <label class="list-group-item d-flex gap-2">
-                        <input class="form-check-input flex-shrink-0" type="radio" name="color" id="listGroupRadios3" value="blue">
-                        <span>
-                            Blu
-                            <small class="d-block text-muted">700</small>
-                        </span>
-                        </label>
+                        
+                            <?php foreach ($templateParams["colore"] as $colori):?>
+                                <label class="list-group-item d-flex gap-2">
+                                    <input class="form-check-input flex-shrink-0" type="radio" name="color" value="<?php echo $colori["idColore"]?>" checked="">
+                                    <span>
+                                        <?php echo $colori["nome"]?>
+                                        <small class="d-block text-muted"><?php echo $colori["costo"]?></small>
+                                        </span>
+                                    </label>
+                            <?php endforeach; ?> 
                     </div>                           
                 </div>
                 <div class="container-fluid sceltaConfiguratore" style="width: 60%; min-width:400px;">                  
                     <div class="list-group mx-0 my-5">
-                            <label class="list-group-item d-flex gap-2">
-                            <input class="form-check-input flex-shrink-0" type="radio" name="motor" id="listGroupRadios1" value="120" checked="">
-                            <span>
-                                Motore 120 cavalli
-                                <small class="d-block text-muted">700</small>
-                            </span>
-                            </label>
-                            <label class="list-group-item d-flex gap-2">
-                            <input class="form-check-input flex-shrink-0" type="radio" name="motor" id="listGroupRadios2" value="140">
-                            <span>
-                                Motore 140 cavalli
-                                <small class="d-block text-muted">700</small>
-                            </span>
-                            </label>
-                            <label class="list-group-item d-flex gap-2">
-                            <input class="form-check-input flex-shrink-0" type="radio" name="motor" id="listGroupRadios3" value="180">
-                            <span>
-                                Motore 180 cavalli
-                                <small class="d-block text-muted">700</small>
-                            </span>
-                            </label>
+                    <?php foreach ($templateParams["motore"] as $motori):?>
+                                <label class="list-group-item d-flex gap-2">
+                                    <input class="form-check-input flex-shrink-0" type="radio" name="motor" value="<?php echo $motori["idMotore"]?>" checked="">
+                                    <span>
+                                        <?php echo $motori["nome"]?>
+                                        <small class="d-block text-muted"><?php echo $motori["costo"]?></small>
+                                        </span>
+                                    </label>
+                            <?php endforeach; ?> 
                         </div> 
                     </div>
                 <div class="container-fluid sceltaConfiguratore" style="width: 60%; min-width:400px;">
                     <div class="list-group mx-0 my-5">
-                        <label class="list-group-item d-flex gap-2">
-                        <input class="form-check-input flex-shrink-0" type="radio" name="package" id="listGroupRadios1" value="comfort" checked="">
-                        <span>
-                            Pacchetto Comfort
-                            <small class="d-block text-muted">Descrizione di cosa c'è nel pacchetto</small>
-                            <small class="d-block text-muted">700</small>
-                        </span>
-                        </label>
-                        <label class="list-group-item d-flex gap-2">
-                        <input class="form-check-input flex-shrink-0" type="radio" name="package" id="listGroupRadios2" value="assistenza">
-                        <span>
-                            Pacchetto Assistenza alla Guida
-                            <small class="d-block text-muted">Descrizione di cosa c'è nel pacchetto</small>
-                            <small class="d-block text-muted">700</small>
-                        </span>
-                        </label>
-                        <label class="list-group-item d-flex gap-2">
-                        <input class="form-check-input flex-shrink-0" type="radio" name="package" id="listGroupRadios3" value="style">
-                        <span>
-                            Pacchetto Style
-                            <small class="d-block text-muted">Descrizione di cosa c'è nel pacchetto</small>
-                            <small class="d-block text-muted">700</small>
-                        </span>
-                        </label>
+                    <?php foreach ($templateParams["optional"] as $optional):?>
+                                <label class="list-group-item d-flex gap-2">
+                                    <input class="form-check-input flex-shrink-0" type="radio" name="optional" value="<?php echo $optional["idOptional"]?>" checked="">
+                                    <span>
+                                        <?php echo $optional["nome"]?>
+                                        <small class="d-block text-muted"><?php echo $optional["costo"]?></small>
+                                        </span>
+                                    </label>
+                            <?php endforeach; ?>
                     </div>                    
                 </div>
                 <a type="button" class="btn btn-danger" name="invia" href="carrello.php?id=<?php echo $templateParams["camper"]["idProdotto"] ?>&qnt=1">Invia</a>

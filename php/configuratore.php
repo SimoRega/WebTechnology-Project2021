@@ -18,7 +18,9 @@ if(isset($_GET["id"])){
     exit;
 }
 
-
+$templateParams["colore"] = $dbh->getColor();
+$templateParams["motore"] = $dbh->getMotore();
+$templateParams["optional"] = $dbh->getOptional();
 
 require("./templates/base.php");
 ?>

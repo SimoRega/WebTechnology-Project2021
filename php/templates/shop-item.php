@@ -28,7 +28,7 @@
 
             <p class=" lead"><?php  echo $item["descrizione"]; ?></p>
             <form action="carrello.php" method="GET">
-                <input class="toast" type="text" value=" <?php  echo $item["idProdotto"]; ?>" name="id" >
+                <input class="toast" type="num" value=" <?php  echo $item["idProdotto"]; ?>" name="id" >
                 <div class="d-flex">
                     <input class="form-control text-center me-3" id="inputQuantity" name="qnt" type="num" value="1" style="max-width: 3rem">
                     <input class=" btn btn-primary btn-lg" type="submit">

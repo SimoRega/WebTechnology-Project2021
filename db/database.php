@@ -265,7 +265,7 @@
         }
 
         public function getAllOrder($email){
-            $stmt = $this->db->prepare("SELECT * FROM ORDINE WHERE idUtente= ?  ORDER BY dataOrdine desc ");
+            $stmt = $this->db->prepare("SELECT * FROM ORDINE WHERE idUtente= ?  ORDER BY dataOrdine desc; ");
             $stmt->bind_param('s',$email);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -273,6 +273,47 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function getTipologia($id){
+            $stmt = $this->db->prepare("SELECT tipo FROM PRODOTTO WHERE idProdotto= ?; ");
+            $stmt->bind_param('i',$id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $res=$result->fetch_all(MYSQLI_ASSOC);
+
+            if($res[0]["tipo"]=="sedia" || $res[0]["tipo"]=="tavolo" || $res[0]["tipo"]=="frigorifero"){
+                return "accessorio";
+            }
+
+            return "camper";
+
+        }
+
+        public function getColor(){
+            $query = "SELECT * FROM COLORE_CAMPER";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getMotore(){
+            $query = "SELECT * FROM MOTORE_CAMPER";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getOptional(){
+            $query = "SELECT * FROM OPTIONAL_CAMPER";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
 
     }
 ?>
