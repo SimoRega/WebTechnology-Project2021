@@ -59,11 +59,14 @@ create table if not exists ORDINE(
 );
 
 create table if not exists PRODOTTO_IN_ORDINE(
+	idProdInOrdine INT NOT NULL AUTO_INCREMENT,
 	idOrdine INT NOT NULL,
     idProdotto INT NOT NULL ,
     qnt int NOT NULL ,
-    PRIMARY KEY (idOrdine,idProdotto),
+	idConfigurazione int,
+    PRIMARY KEY (idProdInOrdine),
     FOREIGN KEY (idOrdine) REFERENCES ORDINE(idOrdine),
+	FOREIGN KEY (idConfigurazione) REFERENCES CONFIGURAZIONE(idConfigurazione),
 	FOREIGN KEY (idProdotto) REFERENCES PRODOTTO(idProdotto)
 );
 
@@ -99,11 +102,12 @@ create table if not exists CONFIGURAZIONE(
 );
 
 create table if not exists PRODOTTO_IN_CARRELLO(
+	idProdCarrello INT NOT NULL AUTO_INCREMENT,
 	idUtente VARCHAR(100) NOT NULL,
     idProdotto INT NOT NULL ,
     qnt int NOT NULL ,
 	idConfigurazione int,
-    PRIMARY KEY (idUtente,idProdotto),
+    PRIMARY KEY (idProdCarrello),
     FOREIGN KEY (idProdotto) REFERENCES PRODOTTO(idProdotto),
 	FOREIGN KEY (idConfigurazione) REFERENCES CONFIGURAZIONE(idConfigurazione),
 	FOREIGN KEY (idUtente) REFERENCES UTENTE(email)

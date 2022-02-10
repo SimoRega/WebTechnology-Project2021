@@ -14,7 +14,8 @@
                         <div class="d-flex flex-column">
                             <small class="text-muted"><?php echo $i["marca"]?></small>
                             <h5 class="mb-1 pe-1"><?php echo $i["nome"]?></h5>
-                            <?php if(($dbh->getTipologia($i["idProdotto"])=="camper") || (isset($_GET["color"]) && isset($_GET["motor"]) && isset($_GET["package"])) ): ?>
+                            <?php if(($dbh->getTipologia($i["idProdotto"])=="camper")): ?>
+                              <?php $conf=$dbh->getConfigurazioneCamper($_SESSION["email"],$_GET["id"]) ;?>
                               <p><?php echo $_GET["color"]; ?></p>  
                               <p><?php echo $_GET["motor"]; ?></p> 
                               <p><?php echo $_GET["optional"]; ?></p> 

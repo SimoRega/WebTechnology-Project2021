@@ -10,8 +10,15 @@ if(isset($_GET["id"]) && isset($_GET["qnt"])){
     if(isUserLoggedIn()){
         $checkItem=$dbh->checkItemInCart($_SESSION["email"],$id);
 
+
         if(empty($checkItem[0]["idProdotto"])){
-            $dbh->addToCart($_SESSION["email"],$id,$qnt);
+            if($dbh->getTipologia($id)=="camper"){
+                $dbh->salvaConfigurazione($_GET["color"],$_GET["motor"],$_GET["optional"]);
+                $lastID=$dbh->getLastConfId()[0]["idConfigurazione"];
+                $dbh->addToCart($_SESSION["email"],$id,$qnt,$lastID);    
+            }else{
+                $dbh->addToCart($_SESSION["email"],$id,$qnt,NULL);
+            }
         }else if($qnt==0){
             $dbh->removeItemCart($_SESSION["email"],$id);
             $item= $dbh->getCartItems($_SESSION["email"]);
@@ -22,9 +29,15 @@ if(isset($_GET["id"]) && isset($_GET["qnt"])){
             }
         }else if($checkItem[0]["qnt"]!=0){
             #update, aggiungere quantità
-            $q=$qnt+$checkItem[0]["qnt"];
-            $dbh->updateCart($_SESSION["email"],$id,$q);
-        }
+            if($dbh->getTipologia($id)=="camper"){
+                $dbh->salvaConfigurazione($_GET["color"],$_GET["motor"],$_GET["optional"]);
+                $lastID=$dbh->getLastConfId()[0]["idConfigurazione"];
+                $dbh->addToCart($_SESSION["email"],$id,$qnt,$lastID);
+            }else{
+                $q=$qnt+$checkItem[0]["qnt"];
+                $dbh->updateCart($_SESSION["email"],$id,$q);
+            }
+        } 
     }else{
         header('Location: login.php');
         exit;

@@ -189,10 +189,10 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
-        public function addToCart($u,$id,$q){
-            $query = "INSERT INTO PRODOTTO_IN_CARRELLO (idUtente,idProdotto,qnt) VALUES (?,?,?);";
+        public function addToCart($u,$id,$q,$conf){
+            $query = "INSERT INTO PRODOTTO_IN_CARRELLO (idProdCarrello,idUtente,idProdotto,qnt,idConfigurazione) VALUES (idProdCarrello,?,?,?,?);";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('sii',$u,$id,$q);
+            $stmt->bind_param('siii',$u,$id,$q,$conf);
             $stmt->execute();
         }
         public function getCartItems($u){
@@ -250,10 +250,18 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
-        public function aggiungiProdInOrdine($idOrdine,$idProdotto,$qnt){
-            $query = "INSERT INTO PRODOTTO_IN_ORDINE (idOrdine,idProdotto,qnt) VALUES (?,?,?);";
+        public function getLastConfId(){
+            $stmt = $this->db->prepare("SELECT idConfigurazione FROM CONFIGURAZIONE ORDER BY idConfigurazione desc limit 1;");
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function aggiungiProdInOrdine($idOrdine,$idProdotto,$qnt,$idConf){
+            $query = "INSERT INTO PRODOTTO_IN_ORDINE (idProdInOrdine,idOrdine,idProdotto,qnt,idConfigurazione) VALUES (idProdInOrdine,?,?,?,?);";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('iii',$idOrdine,$idProdotto,$qnt);
+            $stmt->bind_param('iiii',$idOrdine,$idProdotto,$qnt,$idConf);
             $stmt->execute();
         }
 
@@ -315,5 +323,29 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function getConfigurazioneCamper($u,$id){
+            $query = "SELECT * FROM CONFIGURAZIONE;";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function salvaConfigurazione($color,$motor,$optional){
+            $query = "INSERT INTO CONFIGURAZIONE(idConfigurazione,idColore,idMotore,idOptional,costoConf) VALUES (idConfigurazione,?,?,?,3000);";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('iii',$color,$motor,$optional);
+            $stmt->execute();
+        }
+
+        public function getDatiConfigurazione(){
+            $query = "SELECT * FROM CONFIGURAZIONE;";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
     }
 ?>
