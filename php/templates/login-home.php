@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="<?php echo UPLOAD_DIR.$dbh->getPropic($_SESSION["email"])[0]["propic"]?>" alt="Propic" class="rounded-circle" width="150">
+                            <img src="<?php echo UPLOAD_DIR.$dbh->getPropic($_SESSION["email"])[0]["propic"]?>" alt="user Propic" class="rounded-circle" width="150">
                             <div class="mt-3">
                             <h3 class="text-secondary mb-1"><?php echo $_SESSION["nome"]?></h3>
                             <p class="text-muted font-size-sm"><?php echo $_SESSION["email"]?></p>
@@ -72,7 +72,7 @@
                             <hr>
                             <div class="text-center">
                                 <p class="fw-bold"><?php echo $prod["nome"]." x ".$prod["qnt"]?></p>
-                                <img  src="<?php echo UPLOAD_DIR.$prod["img"]?>" class="w-25 img-thumbnail rounded " alt="..." style="max-width:100px;">
+                                <img  src="<?php echo UPLOAD_DIR.$prod["img"]?>" class="w-25 img-thumbnail rounded " alt="image <?php echo $prod["nome"]?>" style="max-width:100px;">
                             </div>
                             <?php
                                 endforeach;
@@ -124,12 +124,12 @@
                                 <div class="card m-2 text-dark">
                                     <form action="account.php" class="d-flex" method="POST">
                                         <input type="hidden" name="idProdottoToEdit" value="<?php echo $singleProd["idProdotto"] ?>">
-                                        <label for="nomeProdotto"> Nome</label><br>
-                                        <input type="text" class="w-25 mx-2" id="nomeProdotto" name="newName" value="<?php echo $singleProd["nome"] ?>">
-                                        <label for="prezzoProdotto"> Prezzo</label><br>
-                                        <input type="text" class="w-25 mx-2" id="prezzoProdotto" name="newPrice" value="<?php echo $singleProd["prezzo"] ?>">
-                                        <label for="qntProdotto"> Quantità</label><br>
-                                        <input type="text" class="w-25 mx-2" id="qntProdotto" name="newQnt" value="<?php echo $singleProd["qnt"] ?>">
+                                        <label for="name<?php echo $singleProd["idProdotto"]?>"> Nome</label>
+                                        <input type="text" class="w-25 mx-2" id="name<?php echo $singleProd["idProdotto"]?>" name="newName" value="<?php echo $singleProd["nome"] ?>">
+                                        <label for="prezzo<?php echo $singleProd["idProdotto"]?>"> Prezzo</label>
+                                        <input type="text" class="w-25 mx-2" id="prezzo<?php echo $singleProd["idProdotto"]?>" name="newPrice" value="<?php echo $singleProd["prezzo"] ?>">
+                                        <label for="qnt<?php echo $singleProd["idProdotto"]?>"> Quantità</label>
+                                        <input type="text" class="w-25 mx-2" id="qnt<?php echo $singleProd["idProdotto"]?>" name="newQnt" value="<?php echo $singleProd["qnt"] ?>">
                                         <input type="submit" class=" btn btn-primary mx-1" name="editProdButton" value="Modifica">
                                         <input type="submit" class=" btn btn-danger mx-1"  name="delProdButton" value="Elimina">
                                     </form>
