@@ -26,13 +26,13 @@
                         <li class="nav-item"><a class="nav-link fw-bold" href="./index.php">HOME</a></li>
                         <li class="nav-item dropdown">
                            <a class="nav-link dropdown-toggle fw-bold" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">SHOP</a>
-                           <ul class="dropdown-menu mx-0 border-0 shadow" style="width: 220px;" aria-labelledby="navbarDropdown">
+                           <ul class="dropdown-menu mx-0 border-0 shadow" style="width: 220px;" >
                               <li><a class="dropdown-item " href="./shop.php?tipo=accessori">SHOP ACCESSORI</a></li>
                               <li><a class="dropdown-item" href="./shop.php?tipo=camper">SHOP CAMPER</a></li>
                            </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link fw-bold" href="carrello.php">CARRELLO</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="">CHI SIAMO</a></li>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="chisiamo.php">CHI SIAMO</a></li>
                      </ul>
                   </div>
                   <div class="text-end row" >
@@ -40,22 +40,12 @@
                         <a class=" btn btn-outline-danger me-2 fw-bold dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">LOGIN</a>
                         <ul class="dropdown-menu shadow">
                            <li>
-                              <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                              <a class="dropdown-item d-flex gap-2 align-items-center" href="account.php">
                               PROFILO
                               </a>
                            </li>
                            <li>
-                              <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                              CARRELLO
-                              </a>
-                           </li>
-                           <li>
-                              <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                              ORDINI
-                              </a>
-                           </li>
-                           <li>
-                              <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                              <a class="dropdown-item d-flex gap-2 align-items-center" href="login.php">
                               LOGIN
                               </a>
                            </li>
@@ -79,5 +69,11 @@
       <script src="../js/script.js" ></script>
       <script src="../js/configuratore.js" ></script>
       <script src="../js/carrello.js" ></script>
+
+   <footer class="bg-dark fixed-bottom text-center text-lg-start">
+     <div class="text-center p-3" >
+        <span>© 2020 Copyright: CamperRomagna</span>
+     </div>
+   </footer>
    </body>
 </html>
