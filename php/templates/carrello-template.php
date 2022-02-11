@@ -2,13 +2,13 @@
     $item= $dbh->getCartItems($_SESSION["email"]);
 ?>
 <section id="listaArticoli" class=" container-fluid rounded-3 bg-light p-2 mt-5 text-dark">
-            <h3 class="ps-3">I miei articoli</h3>
+            <p class="fs-3 ps-3">I miei articoli</p>
             <div class="container ">
                 <div class="list-group">
 
                 <?php foreach($item as $i): ?>
                   <!-- se metti i pulsanti per quantità cambia 'a' in div-->
-                    <div href="item.php?id=<?php echo $i["idProdotto"]?>" class="list-group-item list-group-item-action " aria-current="true"> 
+                    <div class="list-group-item list-group-item-action " aria-current="true"> 
                       <div class="d-flex w-100 justify-content-between align-items-center flex-wrap">
                         <img src="<?php echo UPLOAD_DIR.$i["img"]?>" class="img-thumbnail rounded " alt="..." style="max-width:200px;">
                         <div class="d-flex flex-column">
@@ -38,8 +38,8 @@
                 </div>
             </div>
         </section>
-        <aside id="totale" class="mt-5">
-            <div class="container-fluid">
+        <aside id="totale" class="mt-5 sticky-sm-top">
+            <div class="">
                 <div class="card" >
                     <div class="card-body d-flex flex-column mb-3">
                         
