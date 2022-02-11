@@ -121,17 +121,26 @@
                                 $AllProd = $dbh->getAllProdotti();
                                 foreach($AllProd as $singleProd):
                             ?>
-                                <div class="card m-2 text-dark">
-                                    <form action="account.php" class="d-flex" method="POST">
+                                <div class="card m-2 p-1 text-dark">
+                                    <form action="account.php" class="d-flex flex-wrap justify-content-around" method="POST">
                                         <input type="hidden" name="idProdottoToEdit" value="<?php echo $singleProd["idProdotto"] ?>">
-                                        <label for="name<?php echo $singleProd["idProdotto"]?>"> Nome</label>
-                                        <input type="text" class="w-25 mx-2" id="name<?php echo $singleProd["idProdotto"]?>" name="newName" value="<?php echo $singleProd["nome"] ?>">
-                                        <label for="prezzo<?php echo $singleProd["idProdotto"]?>"> Prezzo</label>
-                                        <input type="text" class="w-25 mx-2" id="prezzo<?php echo $singleProd["idProdotto"]?>" name="newPrice" value="<?php echo $singleProd["prezzo"] ?>">
-                                        <label for="qnt<?php echo $singleProd["idProdotto"]?>"> Quantità</label>
-                                        <input type="text" class="w-25 mx-2" id="qnt<?php echo $singleProd["idProdotto"]?>" name="newQnt" value="<?php echo $singleProd["qnt"] ?>">
-                                        <input type="submit" class=" btn btn-primary mx-1" name="editProdButton" value="Modifica">
-                                        <input type="submit" class=" btn btn-danger mx-1"  name="delProdButton" value="Elimina">
+                                        <div class="">
+
+                                            <label for="name<?php echo $singleProd["idProdotto"]?>"> Nome</label>
+                                            <input type="text" class=" mx-2" id="name<?php echo $singleProd["idProdotto"]?>" name="newName" value="<?php echo $singleProd["nome"] ?>">
+                                        </div>
+                                        <div class="my-1">
+                                            <label for="prezzo<?php echo $singleProd["idProdotto"]?>"> Prezzo</label>
+                                            <input type="text" class=" mx-2" id="prezzo<?php echo $singleProd["idProdotto"]?>" name="newPrice" value="<?php echo $singleProd["prezzo"] ?>">
+                                        </div>
+                                        <div class="">
+                                            <label for="qnt<?php echo $singleProd["idProdotto"]?>"> Quantità</label>
+                                            <input type="text" class=" mx-2" id="qnt<?php echo $singleProd["idProdotto"]?>" name="newQnt" value="<?php echo $singleProd["qnt"] ?>">
+                                        </div>
+                                        <div class="mt-2">
+                                            <input type="submit" class=" btn btn-primary mx-1" name="editProdButton" value="Modifica">
+                                            <input type="submit" class=" btn btn-danger mx-1"  name="delProdButton" value="Elimina">
+                                        </div>
                                     </form>
                                 </div>
                             <?php 
