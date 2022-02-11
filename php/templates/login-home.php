@@ -24,15 +24,15 @@
                         <div class="row ">
                             <div class="col-12">
                                 <div class="list-group" id="list-tab" role="tablist">
-                                <a class="list-group-item list-group-item-action active" id="list-notifiche-list" data-bs-toggle="list" href="#list-notifiche" role="tab" aria-controls="list-notifiche">Notifiche</a>
-                                <a class="list-group-item list-group-item-action" id="list-ordini-list" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini">Ordini</a>
-                                <a class="list-group-item list-group-item-action" id="list-password-list" data-bs-toggle="list" href="#list-password" role="tab" aria-controls="list-password">Modifica profilo</a>
+                                <a class="list-group-item list-group-item-action active" id="list-notifiche-list" data-bs-toggle="list" href="#list-notifiche" role="tab" aria-controls="list-notifiche" >Notifiche</a>
+                                <a class="list-group-item list-group-item-action" id="list-ordini-list" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini" onclick="$('.activeOrdine').removeClass('bg-warning');">Ordini</a>
+                                <a class="list-group-item list-group-item-action" id="list-password-list" data-bs-toggle="list" href="#list-password" role="tab" aria-controls="list-password" onclick="$('.activeOrdine').removeClass('bg-warning');">Modifica profilo</a>
                                 <?php if($dbh->checkIsAdmin($_SESSION["email"])):?>
-                                    <a class="list-group-item list-group-item-action" id="list-order-list" data-bs-toggle="list" href="#list-order" role="tab" aria-controls="list-order">Gestisci ordini</a>
-                                    <a class="list-group-item list-group-item-action" id="list-product-list" data-bs-toggle="list" href="#list-product" role="tab" aria-controls="list-product">Aggiungi prodotti</a>
+                                    <a class="list-group-item list-group-item-action" id="list-order-list" data-bs-toggle="list" href="#list-order" role="tab" aria-controls="list-order" onclick="$('.activeOrdine').removeClass('bg-warning');">Gestisci ordini</a>
+                                    <a class="list-group-item list-group-item-action" id="list-product-list" data-bs-toggle="list" href="#list-product" role="tab" aria-controls="list-product" onclick="$('.activeOrdine').removeClass('bg-warning');">Aggiungi prodotti</a>
 
                                     <?php endif; ?>
-                                <a class="list-group-item list-group-item-action text-danger" id="list-logout-list" data-bs-toggle="list" href="#list-logout" role="tab" aria-controls="list-logout">Logout</a>
+                                <a class="list-group-item list-group-item-action text-danger" id="list-logout-list" data-bs-toggle="list" href="#list-logout" role="tab" aria-controls="list-logout" onclick="$('.activeOrdine').removeClass('bg-warning');">Logout</a>
 
                                 </div>
                             </div>
@@ -50,18 +50,23 @@
         <div class="row">
             <div class="col-lg-12 col-md-6  accTab " >
                 <div class="col-12 ">
+
+                    
                     <div class="tab-content " id="nav-tabContent">
-                    <?php $allNotify=$dbh->getNotification($_SESSION["email"])  ?>
-
-                    <div class="tab-pane fade show active text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
-                        <a class="list-group-item list-group-item-action" id="list-ordini-list" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini">Ordini</a>
-
-                        <?php foreach($allNotify as $not): ?>
-                            <div class="card m-1 text-center">
-                                <p> <?php echo $not["descrizione"] ?></p>
-                                <hr>
-                                <p> <?php echo $not["dataNotifica"] ?></p>
-                            </div>
+                        <?php $allNotify=$dbh->getNotification($_SESSION["email"])  ?>
+                        
+                        <div class="tab-pane fade show active text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
+                            <?php foreach($allNotify as $not): ?>
+                                <div class="card text-center my-2">
+                                    <p> <?php echo $not["descrizione"] ?></p>
+                                    <hr>
+                                    <p> <?php echo $not["dataNotifica"] ?></p>
+                                    <div class="list-group " id="myList" role="tablist">
+                                        <button class="w-25 m-auto my-1 btn btn-warning" id="list-ordini-list" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini" onclick="$('#<?php echo $not['idOrdine']?>').addClass('bg-warning');$(this).removeClass('active');">
+                                            Visualizza Ordine
+                                        </button>
+                                    </div>
+                                </div>
                         <?php endforeach?>
                     </div>
 
@@ -69,9 +74,9 @@
 
                     <div class="tab-pane fade" id="list-ordini" role="tabpanel" aria-labelledby="list-ordini-list">
                         <?php $allOrder=$dbh->getAllOrder($_SESSION["email"])?>
-                        <div class="tab-pane fade show active text-dark"  role="tabpanel" aria-labelledby="list-notifiche-list">
+                        <div class="tab-pane fade show active text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
                             <?php foreach($allOrder as $order): ?>
-                                <div class="card m-1 text-center p-2">
+                                <div class="card m-1 text-center p-2 activeOrdine" id="<?php echo $order["idOrdine"];?>">
                                     <h3> <?php echo "Ordine # ".$order["idOrdine"] ?></h3>
                                     <p> <?php echo "Ordine effettuato il: ".$order["dataOrdine"] ?></p>
                                     <p> <?php echo "Stato ordine: ".$order["stato"] ?></p>

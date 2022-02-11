@@ -50,15 +50,12 @@ if(isset($_POST["marca"])){
 if(isset($_POST["spedisciOrdine"])){
     $dbh->setStatoOrdine($_POST["idOrdine"],"Spedito");
     $email=$dbh->getEmailOrder($_POST["idOrdine"])[0]["idUtente"];
-    echo "<script type='text/javascript'>alert('$email');</script>";
     $dbh->creaNotifica($_POST["idOrdine"],$email,"Il tuo ordine è stato spedito");
 
 }
 if(isset($_POST["cancecllaOrdine"])){
     $dbh->setStatoOrdine($_POST["idOrdine"],"Cancellato");
     $email=$dbh->getEmailOrder($_POST["idOrdine"])[0]["idUtente"];
-    echo "<script type='text/javascript'>alert('$email');</script>";
-
     $dbh->creaNotifica($_POST["idOrdine"],$email,"Il tuo ordine è stato cancellato");
 }
 
