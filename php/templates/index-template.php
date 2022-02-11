@@ -117,7 +117,7 @@
     </div>
     <div class="album py-5 preview_modelli">
       <div class="container">
-      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
+      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3">
       <?php foreach($templateParams["randomCamper"] as $rndCamper): ?>
         <div class="col">
           <div class="card">
@@ -146,24 +146,28 @@
   <!-- MARCHE CAMPER -->
   <section class="container pb-5 mb-md-4 marche">
     <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2 ">
-      <h2 class="h3 text-light mb-2 mb-sm-0">Marche Camper</h2><a class="btn btn-link  fw-normal px-0" href="car-finder-catalog-grid.html">Guarda tutti →</a>
+      <h2 class="h3 text-light mb-2 mb-sm-0">Marche Camper</h2><a class="btn btn-link  fw-normal px-0" href="shop.php?tipo=camper">Guarda tutti →</a>
     </div>
-    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-2 g-md-4 align-items-center" >
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-3 align-items-center" >
       <!-- Item-->
       <div class="col">
-        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/laika_logo.png" width="180" alt="Laika"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html"></a></div>
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center">
+          <img class="d-block mx-auto mb-3" src="../res/laika_logo.png" width="180"  height="auto" alt="Laika ">
+          <a class="nav-link-light stretched-link fw-bold" href="shop.php?tipo=camper&marca=laika">
+          </a>
+        </div>
       </div>
       <!-- Item-->
       <div class="col">
-        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/arca_logo.png" width="180" alt="Arca"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html"></a></div>
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center">
+          <img class="d-block mx-auto mb-3" src="../res/adria_logo.png" width="180" height="auto" alt="Arca">
+          <a class="nav-link-light stretched-link fw-bold" href="shop.php?tipo=camper&marca=adria"></a></div>
       </div>
       <!-- Item-->
       <div class="col">
-        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/knaus_logo.png" width="180" alt="Knaus"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html"></a></div>
-      </div>
-      <!-- Item-->
-      <div class="col">
-        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/malibu_logo.jpg" width="180" alt="malibu"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.html"></a></div>
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center">
+          <img class="d-block mx-auto mb-3" src="../res/knaus_logo.png" width="180" height="auto" alt="Knaus">
+          <a class="nav-link-light stretched-link fw-bold" href="shop.php?tipo=camper&marca=knaus"></a></div>
       </div>
     </div>
   </section>
@@ -174,14 +178,23 @@
       <div class="row align-items-center py-3 py-sm-0">
         <div class="col-md-4 col-xl-3 mb-4 pb-3 mb-md-0 pb-md-0 text-center text-md-start">
           <h2 class="text-light">Negozio Accessori</h2>
-          <p class="fs-lg text-light opacity-70 pb-md-4">Choose the best for your car!</p><a class="btn btn-primary" href="car-finder-catalog-grid.html">Vai allo Shop<i class="fi-chevron-right fs-sm ms-2"></i></a>
+          <p class="fs-lg text-light opacity-70 pb-md-4">Dai un occhiata ai nostri accessori per camper!</p>
+          <a class="btn btn-primary" href="shop.php?tipo=accessori">Vai allo Shop</a>
         </div>
         <div class="col-md-8 col-xl-9">
-          <div class="row row-cols-2 row-cols-lg-4 gy-4 gx-3 gx-sm-4"><a class="col text-light text-decoration-none" href="#"><img class="d-block mb-2 mx-auto tns-complete" src="https://finder.createx.studio/img/car-finder/categories/01.png" width="168" alt="Seat Covers">
-              <div class="fw-bold text-center pt-1">Seat Covers</div></a><a class="col text-light text-decoration-none" href="#"><img class="d-block mb-2 mx-auto tns-complete" src="https://finder.createx.studio/img/car-finder/categories/02.png" width="168" alt="Tires">
-              <div class="fw-bold text-center pt-1">Tires</div></a><a class="col text-light text-decoration-none" href="#"><img class="d-block mb-2 mx-auto loaded tns-complete" src="https://finder.createx.studio/img/car-finder/categories/03.png" width="168" alt="Disks">
-              <div class="fw-bold text-center pt-1">Disks</div></a><a class="col text-light text-decoration-none" href="#"><img class="d-block mb-2 mx-auto tns-complete" src="https://finder.createx.studio/img/car-finder/categories/04.png" width="168" alt="Child Seats">
-              <div class="fw-bold text-center pt-1">Child Seats</div></a></div>
+          <div class="row row-cols-1 row-cols-lg-3 gy-4 gx-3 gx-sm-4">
+            <a class="col text-light text-decoration-none" href="#">
+              <img class="d-block mb-2 mx-auto tns-complete" src="./upload/dometic_chair180.png" width="168" alt="Seat Covers">
+              <div class="fw-bold text-center pt-1">Tavoli da Campeggio</div>
+            </a>
+            <a class="col text-light text-decoration-none" href="#">
+              <img class="d-block mb-2 mx-auto tns-complete" src="./upload/dometic_cff35.png" width="168" alt="Tires">
+              <div class="fw-bold text-center pt-1">Frigoriferi</div>
+            </a>
+            <a class="col text-light text-decoration-none" href="#">
+              <img class="d-block mb-2 mx-auto loaded tns-complete" src="./upload/dometic_zero.png" width="168" alt="Disks">
+              <div class="fw-bold text-center pt-1">Sedie Pieghevoli</div>
+            </a>
         </div>
       </div>
     </div>

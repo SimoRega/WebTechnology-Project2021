@@ -159,6 +159,7 @@ footer .form-group button {
 }
 
 
+
 /* ============== */
 /* === SHOP === */
 /* ============== */
@@ -216,7 +217,7 @@ footer .form-group button {
 
 
 #totale {
-    width: 30%;
+    width: 28%;
     float: right;
     margin-right: var(--margin-side-noCollapse);
 }
@@ -334,18 +335,16 @@ footer .form-group button {
         display:inline-block;
     }
     
-    #listaArticoli{
+    #listaArticoli, #totale{
         width:80%;
         margin: 0 10%;
-        position: absolute;
-        z-index: -1;
+
     }
 
-    #totale{
+    #totale .card, #totale .card-body{
         width: 100%;
-        position: fixed;
-        bottom: 0;
     }
+
 
     #infoAcquisto,
     #totaleAcquisto {

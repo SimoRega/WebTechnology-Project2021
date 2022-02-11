@@ -38,8 +38,8 @@
                 </div>
             </div>
         </section>
-        <aside id="totale" class="mt-5">
-            <div class="container-fluid">
+        <aside id="totale" class="mt-5 sticky-sm-top">
+            <div class="">
                 <div class="card" >
                     <div class="card-body d-flex flex-column mb-3">
                         
