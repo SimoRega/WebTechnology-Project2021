@@ -317,6 +317,9 @@ footer .form-group button {
 }
 
 @media screen and (max-width: 991px) {
+    main{
+        margin-bottom: 20% !important;
+    }
     nav .navbar-brand {
         margin-left: var(--margin-side-collapse);
     }
@@ -336,8 +339,8 @@ footer .form-group button {
     }
     
     #listaArticoli, #totale{
-        width:80%;
-        margin: 0 10%;
+        width:90%;
+        margin: 0 5%;
 
     }
 

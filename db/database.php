@@ -46,6 +46,64 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function findItem($marca,$prod,$tipo){
+            switch($prod){
+                case "camper":
+                    if($tipo!="furgonato" || $tipo!="profilato" || $tipo!="mansardato" || $tipo!="motorhome" ){
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ? AND (tipo='furgonato' OR tipo='profilato' OR tipo='mansardato' OR tipo='motorhome');");
+                        $stmt->bind_param('s',$marca);
+                    }else{
+                        if($tipo==NULL){
+                            $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ? ;");
+                            $stmt->bind_param('s',$marca);
+                        }else{
+                            $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ? OR tipo=?;");
+                            $stmt->bind_param('ss',$marca,$tipo);
+                        }
+                        break;
+                    }
+                    break;
+                case "accessori":
+                    if($tipo!="tavolo" || $tipo!="sedia" || $tipo!="frigorifero"){
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ? AND (tipo='tavolo' OR tipo='sedia' OR tipo='frigorifero');");
+                        $stmt->bind_param('s',$marca);
+                    }else{
+                        if($tipo==NULL){
+                            $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ? ;");
+                            $stmt->bind_param('s',$marca);
+                        }else{
+                            $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ? OR tipo=?;");
+                            $stmt->bind_param('ss',$marca,$tipo);
+                        }
+                        break;
+                    }
+                    break;
+                default:
+                if($tipo==NULL){
+                    $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ? ;");
+                    $stmt->bind_param('s',$marca);
+                }else{
+                    $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ? OR tipo=?;");
+                    $stmt->bind_param('ss',$marca,$tipo);
+                }
+                break;
+            }
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function findByText($t){
+            $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE nome= ? OR marca=? OR tipo=?;");
+            $stmt->bind_param('sss',$t,$t,$t);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+
+        }
+
         public function getAllInfoCamper($id){
             $stmt = $this->db->prepare("SELECT * FROM PRODOTTO JOIN SPECIFICHE_CAMPER ON PRODOTTO.idProdotto=SPECIFICHE_CAMPER.idProdotto WHERE SPECIFICHE_CAMPER.idProdotto= ?;");
             $stmt->bind_param('i',$id);
@@ -416,5 +474,14 @@
 
             return $result->fetch_all(MYSQLI_ASSOC);
         }
+
+        public function getAllTipologie(){
+            $stmt = $this->db->prepare("SELECT DISTINCT tipo FROM PRODOTTO ");
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
     }
 ?>

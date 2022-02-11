@@ -18,65 +18,52 @@
 
   <!-- BARRA RICERCA VELOCE -->
   <div class="container mt-4 mt-sm-3 mt-lg-n3 p-3 mb-md-4 barra_ricerca ">
-    <form class="form-group d-block">
+    <form class="form-group d-block" action="ricerca.php" method="GET">
       <div class="row g-0 ms-lg-n2 align-items-center">
-        <div class="col-lg-3 ">
+        <div class="col-lg-3 border-light">
           <div class="input-group border-end-lg"><span class="input-group-text  ps-2 ps-sm-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
           </svg>
-            <input class="form-control" type="text" name="keywords" placeholder="Ricerca Veloce">
+            <input class="form-control text-white " type="text" name="testoRicerca" placeholder="Ricerca Veloce">
+            </input>
           </div>
         </div>
         <hr class="hr-light d-lg-none my-2">
         <div class="col-lg-2 col-md-4 col-sm-6">
           <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
-            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-list me-2"></i><span class="dropdown-toggle-label">MARCA</span></button>
-            <input type="hidden" name="make">
-            <ul class="dropdown-menu dropdown-menu-dark" style="">
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Acura</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">BMW</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Citroen</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Lexus</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Mercedes-Benz</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Nissan</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Toyota</span></a></li>
-            </ul>
+          <select class="form-select bg-transparent text-white" aria-label="Default select example" name="ddMarca">
+            <option selected value="default" class="text-black">MARCA</option>
+            <?php $brand=$dbh->getAllMarche(); ?>
+              <?php foreach($brand as $b): ?>
+                <option class="text-black" value="<?php echo $b["marca"]; ?>"><?php echo $b["marca"]; ?></option>
+                <?php endforeach; ?>
+          </select>
           </div>
         </div>
         <hr class="hr-light d-md-none my-2">
         <div class="col-lg-2 col-md-4 col-sm-6">
           <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
-            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-car fs-lg me-2"></i><span class="dropdown-toggle-label">TIPOLOGIA</span></button>
-            <input type="hidden" name="type">
-            <ul class="dropdown-menu dropdown-menu-dark" style="">
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Compact</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Crossover</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Coupe</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Family MPV</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Pickup</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Sedan</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">SUV</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Wagon</span></a></li>
-            </ul>
+          <select class="form-select bg-transparent text-white" aria-label="Default select example" name="ddProdotto">
+            <option selected value="default" class="text-black">PRODOTTO</option>
+            <option class="text-black" value="camper">Camper</option>
+            <option class="text-black" value="accessori">Accessori</option>
+          </select>
           </div>
         </div>
         <hr class="hr-light d-sm-none my-2">
-        <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="col-lg-2 col-md-4 col-sm-6">
           <div class="dropdown" data-bs-toggle="select">
-            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-map-pin me-2"></i><span class="dropdown-toggle-label">CITTÀ</span></button>
-            <input type="hidden" name="location">
-            <ul class="dropdown-menu dropdown-menu-dark" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(0px, -44px);" data-popper-placement="top-start">
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Dallas</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Chicago</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Houston</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Las Vegas</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Los Angeles</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">New York</span></a></li>
-              <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">San Francisco</span></a></li>
-            </ul>
+          <select class="form-select bg-transparent text-white" aria-label="Default select example" name="ddTipo">
+            <option selected value="default" class="text-black">TIPOLOGIA</option>
+            <?php $tipologie=$dbh->getAllTipologie(); ?>
+              <?php foreach($tipologie as $t): ?>
+                <option class="text-black" value="<?php echo $t["tipo"]; ?>"><?php echo $t["tipo"]; ?></option>
+                <?php endforeach; ?>
+          </select>
           </div>
         </div>
-        <hr class="hr-light d-lg-none my-2">
+        <div class="col-lg-1"></div>
+        <hr class="hr-light d-lg-none m-2">
         <div class="col-lg-2">     
           <button class="btn w-100" type="submit">CERCA</button>
         </div>
@@ -113,7 +100,7 @@
   <!-- PREVIEW ULTIMI CAMPER AGGIUNTI -->
   <section class="container mb-md-4 ultimi_arrivi">
     <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2 ">
-      <h2 class="h3 text-light mb-2 mb-sm-0">Ultimi Arrivi</h2><a class="btn btn-link  fw-normal px-0" href="car-finder-catalog-grid.html">Guarda tutti →</a>
+      <h2 class="h3 text-light mb-2 mb-sm-0">Ultimi Arrivi</h2><a class="btn btn-link  fw-normal px-0" href="shop.php?tipo=camper">Guarda tutti →</a>
     </div>
     <div class="album py-5 preview_modelli">
       <div class="container">
@@ -183,15 +170,15 @@
         </div>
         <div class="col-md-8 col-xl-9">
           <div class="row row-cols-1 row-cols-lg-3 gy-4 gx-3 gx-sm-4">
-            <a class="col text-light text-decoration-none" href="#">
+            <a class="col text-light text-decoration-none" href="shop.php?tipo=tavolo">
               <img class="d-block mb-2 mx-auto tns-complete" src="./upload/dometic_chair180.png" width="168" alt="Seat Covers">
               <div class="fw-bold text-center pt-1">Tavoli da Campeggio</div>
             </a>
-            <a class="col text-light text-decoration-none" href="#">
+            <a class="col text-light text-decoration-none" href="shop.php?tipo=frigorifero">
               <img class="d-block mb-2 mx-auto tns-complete" src="./upload/dometic_cff35.png" width="168" alt="Tires">
               <div class="fw-bold text-center pt-1">Frigoriferi</div>
             </a>
-            <a class="col text-light text-decoration-none" href="#">
+            <a class="col text-light text-decoration-none" href="shop.php?tipo=sedia">
               <img class="d-block mb-2 mx-auto loaded tns-complete" src="./upload/dometic_zero.png" width="168" alt="Disks">
               <div class="fw-bold text-center pt-1">Sedie Pieghevoli</div>
             </a>
