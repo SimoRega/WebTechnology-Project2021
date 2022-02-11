@@ -20,7 +20,8 @@ function inizializeConfiguratore(){
 }
 
 $("button[name=avanti]").click(function(){
-    if(currentPage!==totPag){
+    aggiungiPrezzo();
+    if(currentPage+1!==totPag){
         $("#"+currentPage).hide();
         currentPage++;
         $("#"+currentPage).show();

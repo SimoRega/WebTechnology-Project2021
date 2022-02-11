@@ -42,3 +42,7 @@ INSERT INTO OPTIONAL_CAMPER(idOptional,nome,costo) VALUES (idOptional,"guida ass
 INSERT INTO MOTORE_CAMPER(idMotore,nome,costo) VALUES (idMotore,"120 cavalli",0);
 INSERT INTO MOTORE_CAMPER(idMotore,nome,costo) VALUES (idMotore,"250 cavalli",500);
 INSERT INTO MOTORE_CAMPER(idMotore,nome,costo) VALUES (idMotore,"60 tori",1000);
+
+INSERT INTO STAFF(idStaff, nome, cognome, ruolo, descrizione, img) VALUES (idStaff,"Simone","Rega", "il clown", "mi piacciono i nasi rossi, chrchrazoooooo", 'clown.jpg');
+INSERT INTO STAFF(idStaff, nome, cognome, ruolo, descrizione, img) VALUES (idStaff,"Federico","Raffoni", "il CEO dei ceppi", "simo, il carrello non va", 'ceppo.jpg');
+INSERT INTO STAFF(idStaff, nome, cognome, ruolo, descrizione, img) VALUES (idStaff,"Linda","Fabbri", "La Ceppa", "non so fare niente", 'linda.jpeg');

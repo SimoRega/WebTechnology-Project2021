@@ -32,7 +32,7 @@
                            </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link fw-bold" href="carrello.php">CARRELLO</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="">CHI SIAMO</a></li>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="chisiamo.php">CHI SIAMO</a></li>
                      </ul>
                   </div>
                   <div class="text-end row" >
@@ -40,22 +40,12 @@
                         <a class=" btn btn-outline-danger me-2 fw-bold dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">LOGIN</a>
                         <ul class="dropdown-menu shadow">
                            <li>
-                              <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                              <a class="dropdown-item d-flex gap-2 align-items-center" href="account.php">
                               PROFILO
                               </a>
                            </li>
                            <li>
-                              <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                              CARRELLO
-                              </a>
-                           </li>
-                           <li>
-                              <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                              ORDINI
-                              </a>
-                           </li>
-                           <li>
-                              <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                              <a class="dropdown-item d-flex gap-2 align-items-center" href="login.php">
                               LOGIN
                               </a>
                            </li>

@@ -126,3 +126,13 @@ create table if not exists NOTIFICA(
 	FOREIGN KEY (email) REFERENCES UTENTE(email)
 
 );
+
+create table if not exists STAFF(
+	idStaff INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL ,
+    cognome VARCHAR(100) NOT NULL ,
+	ruolo VARCHAR(100) NOT NULL ,
+	descrizione MEDIUMTEXT NOT NULL,
+	img VARCHAR(100) NOT NULL,
+    PRIMARY KEY (idStaff)
+);
