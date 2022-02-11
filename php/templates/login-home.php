@@ -18,14 +18,15 @@
                     <div class="row ">
                         <div class="col-12">
                             <div class="list-group" id="list-tab" role="tablist">
-                            <a class="list-group-item list-group-item-action active" id="list-notifiche-list" data-bs-toggle="list" href="#list-notifiche" role="tab" aria-controls="list-notifiche" >Notifiche</a>
-                            <a class="list-group-item list-group-item-action" id="list-ordini-list" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini" onclick="$('.activeOrdine').removeClass('bg-warning');">Ordini</a>
-                            <a class="list-group-item list-group-item-action" id="list-password-list" data-bs-toggle="list" href="#list-password" role="tab" aria-controls="list-password" onclick="$('.activeOrdine').removeClass('bg-warning');">Modifica profilo</a>
-                            <?php if($dbh->checkIsAdmin($_SESSION["email"])):?>
-                            <a class="list-group-item list-group-item-action" id="list-order-list" data-bs-toggle="list" href="#list-order" role="tab" aria-controls="list-order" onclick="$('.activeOrdine').removeClass('bg-warning');">Gestisci ordini</a>
-                            <a class="list-group-item list-group-item-action" id="list-product-list" data-bs-toggle="list" href="#list-product" role="tab" aria-controls="list-product" onclick="$('.activeOrdine').removeClass('bg-warning');">Aggiungi prodotti</a>
-                            <?php endif; ?>
-                            <a class="list-group-item list-group-item-action text-danger" id="list-logout-list" data-bs-toggle="list" href="#list-logout" role="tab" aria-controls="list-logout" onclick="$('.activeOrdine').removeClass('bg-warning');">Logout</a>
+                                <?php if($dbh->checkIsAdmin($_SESSION["email"])):?>
+                                    <a class="list-group-item list-group-item-action active" id="list-order-list" data-bs-toggle="list" href="#list-order" role="tab" aria-controls="list-order" onclick="$('.activeOrdine').removeClass('bg-warning');">Gestisci ordini</a>
+                                    <a class="list-group-item list-group-item-action  " id="list-product-list" data-bs-toggle="list" href="#list-product" role="tab" aria-controls="list-product" onclick="$('.activeOrdine').removeClass('bg-warning');">Aggiungi prodotti</a>
+                                    <a class="list-group-item list-group-item-action  " id="list-editproduct-list" data-bs-toggle="list" href="#list-editproduct" role="tab" aria-controls="list-editproduct" onclick="$('.activeOrdine').removeClass('bg-warning');">Modifica prodotti</a>
+                                <?php endif; ?>
+                                <a class="list-group-item list-group-item-action <?php if(!$dbh->checkIsAdmin($_SESSION["email"])){echo "active";}?> " id="list-notifiche-list" data-bs-toggle="list" href="#list-notifiche" role="tab" aria-controls="list-notifiche" >Le mie notifiche</a>
+                                <a class="list-group-item list-group-item-action" id="list-ordini-list" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini" onclick="$('.activeOrdine').removeClass('bg-warning');">I miei ordini</a>
+                                <a class="list-group-item list-group-item-action" id="list-password-list" data-bs-toggle="list" href="#list-password" role="tab" aria-controls="list-password" onclick="$('.activeOrdine').removeClass('bg-warning');">Modifica profilo</a>
+                                <a class="list-group-item list-group-item-action text-danger" id="list-logout-list" data-bs-toggle="list" href="#list-logout" role="tab" aria-controls="list-logout" onclick="$('.activeOrdine').removeClass('bg-warning');">Logout</a>
                             </div>
                         </div>
                     </div>
@@ -38,8 +39,10 @@
                 <div class="col-lg-12 col-md-6  accTab " >
                 <div class="col-12 ">
                     <div class="tab-content " id="nav-tabContent">
-                        <?php $allNotify=$dbh->getNotification($_SESSION["email"])  ?>
-                        <div class="tab-pane fade show active text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
+                        
+
+                        <div class="tab-pane fade <?php if(!$dbh->checkIsAdmin($_SESSION["email"])){echo "show active";}?> text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
+                            <?php $allNotify=$dbh->getNotification($_SESSION["email"])  ?>
                             <?php foreach($allNotify as $not): ?>
                             <div class="card text-center my-2">
                             <p> <?php echo $not["descrizione"] ?></p>
@@ -53,6 +56,8 @@
                             </div>
                             <?php endforeach?>
                         </div>
+
+
                         <div class="tab-pane fade  text-dark" id="list-ordini" role="tabpanel" aria-labelledby="list-ordini-list">
                             <?php $allOrder=$dbh->getAllOrder($_SESSION["email"])?>
                             <?php foreach($allOrder as $order): ?>
@@ -75,6 +80,8 @@
                             </div>
                             <?php endforeach?>
                         </div>
+
+
                         <div class="tab-pane fade" id="list-password" role="tabpanel" aria-labelledby="list-password-list">
                             <div class=" form-container ">
                             <form action="account.php" enctype="multipart/form-data" method="POST">
@@ -98,12 +105,42 @@
                             </form>
                             </div>
                         </div>
+
+
                         <div class="tab-pane fade" id="list-logout" role="tabpanel" aria-labelledby="list-logout-list">
                             <form action="account.php" method="GET">
                             <button class="m-2 w-100 btn btn-light" type="submit" name="l" value="1">Logout</button>
                             </form>
                         </div>
-                        <div class="tab-pane fade text-dark" id="list-order" role="tabpanel" aria-labelledby="list-order-list">
+
+
+
+                        <div class="tab-pane fade " id="list-editproduct" role="tabpanel" aria-labelledby="list-editproduct-list">
+                            <h2>Modifica prodotti</h2>
+                            <?php 
+                                $AllProd = $dbh->getAllProdotti();
+                                foreach($AllProd as $singleProd):
+                            ?>
+                                <div class="card m-2 text-dark">
+                                    <form action="account.php" class="d-flex" method="POST">
+                                        <input type="hidden" name="idProdottoToEdit" value="<?php echo $singleProd["idProdotto"] ?>">
+                                        <label for="nomeProdotto"> Nome</label><br>
+                                        <input type="text" class="w-25 mx-2" id="nomeProdotto" name="newName" value="<?php echo $singleProd["nome"] ?>">
+                                        <label for="prezzoProdotto"> Prezzo</label><br>
+                                        <input type="text" class="w-25 mx-2" id="prezzoProdotto" name="newPrice" value="<?php echo $singleProd["prezzo"] ?>">
+                                        <label for="qntProdotto"> Quantità</label><br>
+                                        <input type="text" class="w-25 mx-2" id="qntProdotto" name="newQnt" value="<?php echo $singleProd["qnt"] ?>">
+                                        <input type="submit" class=" btn btn-primary mx-1" name="editProdButton" value="Modifica">
+                                        <input type="submit" class=" btn btn-danger mx-1"  name="delProdButton" value="Elimina">
+                                    </form>
+                                </div>
+                            <?php 
+                                endforeach;
+                            ?>
+                        </div>
+
+
+                        <div class="tab-pane fade text-dark <?php if($dbh->checkIsAdmin($_SESSION["email"])){echo "show active";}?>" id="list-order" role="tabpanel" aria-labelledby="list-order-list">
                             <?php 
                             $allOrder = $dbh->getOrder();
                             foreach($allOrder as $o):
@@ -113,7 +150,7 @@
                                 <p> <?php echo "Ordine # ".$o["idOrdine"]; ?> </p>
                                 <p> <?php echo "Stato corrente: ".$o["stato"]; ?> </p>
                                 <form action="account.php" method="POST">
-                                    <input type="hidden" class="toast" name="idOrdine" value="<?php echo $o["idOrdine"] ?>">
+                                    <input type="hidden"  name="idOrdine" value="<?php echo $o["idOrdine"] ?>">
                                     <?php 
                                         if($o["stato"] == "Cancellato"):
                                         ?>
@@ -148,6 +185,8 @@
                             endforeach;
                             ?>
                         </div>
+
+
                         <div class="tab-pane fade" id="list-product" role="tabpanel" aria-labelledby="list-product-list">
                             <form action="account.php" enctype="multipart/form-data" method="POST">
                             <label for="img">Inserisci l'immagine del prodotto</label>
@@ -167,6 +206,7 @@
                             <input type="submit" class="m-2 w-100 btn btn-light" value="Aggiungi prodotto">
                             </form>
                         </div>
+
                     </div>
                 </div>
                 </div>

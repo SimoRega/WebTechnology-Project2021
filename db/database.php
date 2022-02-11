@@ -10,8 +10,8 @@
             }
         }
 
-        public function getAccessori(){
-            $stmt = $this->db->prepare("SELECT * FROM accessori");
+        public function getAllProdotti(){
+            $stmt = $this->db->prepare("SELECT * FROM PRODOTTO");
             $stmt->execute();
             $result = $stmt->get_result();
 
@@ -392,7 +392,18 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
-     
+        public function editProd($idProdotto,$nome,$prezzo,$qnt){
+            $stmt = $this->db->prepare("UPDATE  PRODOTTO SET nome=?, prezzo=?,qnt=? WHERE idProdotto= ?");
+            $stmt->bind_param('siii',$nome,$prezzo,$qnt,$idProdotto);
+            $stmt->execute();
+        }
 
+        public function getAllMarche(){
+            $stmt = $this->db->prepare("SELECT DISTINCT marca FROM PRODOTTO ");
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
     }
 ?>

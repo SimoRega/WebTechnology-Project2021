@@ -60,9 +60,19 @@ if(isset($_POST["cancecllaOrdine"])){
 }
 
 
+if(isset($_POST["delProdButton"])){
+    $dbh->editProd($_POST["idProdottoToEdit"],$_POST["newName"],$_POST["newPrice"],0);
+}
+
+if(isset($_POST["editProdButton"])){
+    $dbh->editProd($_POST["idProdottoToEdit"],$_POST["newName"],$_POST["newPrice"],$_POST["newQnt"]);
+}
+
+
 if(!isUserLoggedIn()){
     header('Location: login.php');
 }
+
 
 require("./templates/base.php");
 
