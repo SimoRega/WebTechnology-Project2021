@@ -177,7 +177,7 @@
                                 <div class="col-6">
                                     <span> <?php echo "Stato corrente: ".$o["stato"]; ?> </span>
                                 </div>
-                                <div class="col ">
+                                <div class="mx-auto ">
 
                                     <form action="account.php"  method="POST">
                                         <input type="hidden"  name="idOrdine" value="<?php echo $o["idOrdine"] ?>">
