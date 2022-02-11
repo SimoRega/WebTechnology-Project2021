@@ -96,11 +96,11 @@
                             <form action="account.php" method="POST">
                                 <h2>Modifica password</h2>
                                 <label for="oldPass"> Inserisci la password corrente</label><br>
-                                <input type="password" id="oldPass"  name="oldPass"/><br>
+                                <input type="password" class="form-control" id="oldPass"  name="oldPass"/><br>
                                 <label for="pass1"> Inserisci la nuova password</label><br>
-                                <input type="password" id="pass1" name="newpass1"/><br>
+                                <input type="password" class="form-control" id="pass1" name="newpass1"/><br>
                                 <label for="pass2"> Ripeti la password</label><br>
-                                <input type="password" id="pass2"  name="newpass2"/><br><br>
+                                <input type="password" class="form-control" id="pass2"  name="newpass2"/><br><br>
                                 <input type="submit" class=" btn btn-light"  value="Cambia password">
                             </form>
                             </div>
@@ -122,24 +122,39 @@
                                 foreach($AllProd as $singleProd):
                             ?>
                                 <div class="card m-2 p-1 text-dark">
-                                    <form action="account.php" class="d-flex flex-wrap justify-content-around" method="POST">
+                                    <form action="account.php" class="row row-col-auto" method="POST">
                                         <input type="hidden" name="idProdottoToEdit" value="<?php echo $singleProd["idProdotto"] ?>">
-                                        <div class="">
-
-                                            <label for="name<?php echo $singleProd["idProdotto"]?>"> Nome</label>
-                                            <input type="text" class=" mx-2" id="name<?php echo $singleProd["idProdotto"]?>" name="newName" value="<?php echo $singleProd["nome"] ?>">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <label class="form-label" for="name<?php echo $singleProd["idProdotto"]?>"> Nome</label>
+                                            </div>
+                                            <div class="col-8">
+                                                <input type="text" class="form-control" id="name<?php echo $singleProd["idProdotto"]?>" name="newName" value="<?php echo $singleProd["nome"] ?>">
+                                            </div>
                                         </div>
-                                        <div class="my-1">
-                                            <label for="prezzo<?php echo $singleProd["idProdotto"]?>"> Prezzo</label>
-                                            <input type="text" class=" mx-2" id="prezzo<?php echo $singleProd["idProdotto"]?>" name="newPrice" value="<?php echo $singleProd["prezzo"] ?>">
+                                        <div class="row">
+                                            <div class="col-4">
+                                            <label class="form-label" for="prezzo<?php echo $singleProd["idProdotto"]?>"> Prezzo</label>
+                                            </div>
+                                            <div class="col-8">
+                                            <input type="text" class=" form-control" id="prezzo<?php echo $singleProd["idProdotto"]?>" name="newPrice" value="<?php echo $singleProd["prezzo"] ?>">
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <label for="qnt<?php echo $singleProd["idProdotto"]?>"> Quantità</label>
-                                            <input type="text" class=" mx-2" id="qnt<?php echo $singleProd["idProdotto"]?>" name="newQnt" value="<?php echo $singleProd["qnt"] ?>">
+                                        <div class="row">
+                                            <div class="col-4">
+                                            <label class="form-label" for="qnt<?php echo $singleProd["idProdotto"]?>"> Quantità</label>
+                                            </div>
+                                            <div class="col-8">
+                                            <input type="text" class="form-control" id="qnt<?php echo $singleProd["idProdotto"]?>" name="newQnt" value="<?php echo $singleProd["qnt"] ?>">
+                                            </div>
                                         </div>
-                                        <div class="mt-2">
-                                            <input type="submit" class=" btn btn-primary mx-1" name="editProdButton" value="Modifica">
-                                            <input type="submit" class=" btn btn-danger mx-1"  name="delProdButton" value="Elimina">
+                                        <div class="row">
+                                            <div class="col-4">
+                                            <input type="submit" class=" btn btn-primary " name="editProdButton" value="Modifica">
+                                            </div>
+                                            <div class="col">
+                                            <input type="submit" class=" btn btn-danger "  name="delProdButton" value="Elimina">
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -155,30 +170,37 @@
                             foreach($allOrder as $o):
                             ?>
                             <div class="card p-2 m-1">
-                            <div class="d-flex w-100 justify-content-between">
-                                <p> <?php echo "Ordine # ".$o["idOrdine"]; ?> </p>
-                                <p> <?php echo "Stato corrente: ".$o["stato"]; ?> </p>
-                                <form action="account.php" method="POST">
-                                    <input type="hidden"  name="idOrdine" value="<?php echo $o["idOrdine"] ?>">
+                            <div class="row row-col-auto ">
+                                <div class="col-6">
+                                    <span> <?php echo "Ordine # ".$o["idOrdine"]; ?> </span>
+                                </div>
+                                <div class="col-6">
+                                    <span> <?php echo "Stato corrente: ".$o["stato"]; ?> </span>
+                                </div>
+                                <div class="col ">
+
+                                    <form action="account.php"  method="POST">
+                                        <input type="hidden"  name="idOrdine" value="<?php echo $o["idOrdine"] ?>">
                                     <?php 
                                         if($o["stato"] == "Cancellato"):
-                                        ?>
-                                    <input type="submit" disabled class="btn btn-primary" name="spedisciOrdine" value="Spedisci">
-                                    <input type="submit" disabled class="btn btn-danger" name="cancecllaOrdine" value="Cancella">
-                                    <?php
+                                            ?>
+                                        <input type="submit" disabled class="btn btn-primary" name="spedisciOrdine" value="Spedisci">
+                                        <input type="submit" disabled class="btn btn-danger" name="cancecllaOrdine" value="Cancella">
+                                        <?php
                                         elseif($o["stato"] == "Spedito"):
-                                        ?>
-                                    <input type="submit" disabled class="btn btn-primary" name="spedisciOrdine" value="Spedisci">
-                                    <input type="submit"  class="btn btn-danger" name="cancecllaOrdine" value="Cancella">
-                                    <?php
+                                            ?>
+                                        <input type="submit" disabled class="btn btn-primary" name="spedisciOrdine" value="Spedisci">
+                                        <input type="submit"  class="btn btn-danger" name="cancecllaOrdine" value="Cancella">
+                                        <?php
                                         else:
-                                        ?>
-                                    <input type="submit"  class="btn btn-primary" name="spedisciOrdine" value="Spedisci">
-                                    <input type="submit"  class="btn btn-danger" name="cancecllaOrdine" value="Cancella">
-                                    <?php
+                                            ?>
+                                        <input type="submit"  class="btn btn-primary" name="spedisciOrdine" value="Spedisci">
+                                        <input type="submit"  class="btn btn-danger" name="cancecllaOrdine" value="Cancella">
+                                        <?php
                                         endif;
                                         ?>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                             <?php
                                 $prodInOrder = $dbh->getProdOnOrder($o["idOrdine"]);
