@@ -20,7 +20,7 @@ if(isset($_GET["id"]) && isset($_GET["qnt"])){
                 $dbh->addToCart($_SESSION["email"],$id,$qnt,NULL);
             }
         }else if($qnt==0){
-            $dbh->removeItemCart($_SESSION["email"],$id);
+            $dbh->removeItemCart($_SESSION["email"],$id,$_GET["idConfigurazione"]);
             $item= $dbh->getCartItems($_SESSION["email"]);
             if(empty($item[0]["idProdotto"])){
                 $templateParams["template"] = "carrello-vuoto-template.php";

@@ -229,9 +229,14 @@
             $stmt->execute();
         }
 
-        public function removeItemCart($u,$id){
-            $stmt = $this->db->prepare("DELETE FROM PRODOTTO_IN_CARRELLO WHERE idUtente=? AND idProdotto=? ;");
-            $stmt->bind_param('si',$u,$id);
+        public function removeItemCart($u,$id,$idConf){
+            if($idConf==NULL){
+                $stmt = $this->db->prepare("DELETE FROM PRODOTTO_IN_CARRELLO WHERE idUtente=? AND idProdotto=? ;");
+                $stmt->bind_param('si',$u,$id);
+            }else{
+                $stmt = $this->db->prepare("DELETE FROM PRODOTTO_IN_CARRELLO WHERE idUtente=? AND idProdotto=? AND idConfigurazione=?;");
+                $stmt->bind_param('sii',$u,$id,$idConf);
+            }
             $stmt->execute();
         }
         
@@ -352,9 +357,10 @@
             $stmt->execute();
         }
 
-        public function getDatiConfigurazione(){
-            $query = "SELECT * FROM CONFIGURAZIONE;";
+        public function getDatiConfigurazione($id){
+            $query = "SELECT configurazione.idConfigurazione as idConfigurazione, configurazione.costoConf,prodotto_in_carrello.idUtente,prodotto_in_carrello.idProdotto, colore_camper.nome as colore, motore_camper.nome as motore, optional_camper.nome as optional, colore_camper.costo as costoColore, motore_camper.costo as costoMotore, optional_camper.costo as costoOptional FROM (((configurazione JOIN prodotto_in_carrello on configurazione.idConfigurazione=prodotto_in_carrello.idConfigurazione) JOIN colore_camper ON configurazione.idColore=colore_camper.idColore)JOIN motore_camper ON configurazione.idMotore=motore_camper.idMotore)JOIN optional_camper ON configurazione.idOptional=optional_camper.idOptional WHERE configurazione.idConfigurazione=?;";
             $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i',$id);
             $stmt->execute();
             $result = $stmt->get_result();
 
