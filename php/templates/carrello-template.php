@@ -15,10 +15,11 @@
                             <small class="text-muted"><?php echo $i["marca"]?></small>
                             <h5 class="mb-1 pe-1"><?php echo $i["nome"]?></h5>
                             <?php if(($dbh->getTipologia($i["idProdotto"])=="camper")): ?>
-                              <?php $conf=$dbh->getConfigurazioneCamper($_SESSION["email"],$_GET["id"]) ;?>
-                              <p><?php echo $_GET["color"]; ?></p>  
-                              <p><?php echo $_GET["motor"]; ?></p> 
-                              <p><?php echo $_GET["optional"]; ?></p> 
+                              <?php $conf=$dbh->getDatiConfigurazione($i["idConfigurazione"])[0] ;?>
+                              
+                              <p><?php echo $conf["colore"]; ?></p>  
+                              <p><?php echo $conf["motore"]; ?></p> 
+                              <p><?php echo $conf["optional"]; ?></p> 
                             <?php endif;?>
                         </div>
                         <div class="d-flex flex-column">
@@ -29,7 +30,7 @@
                             <span class="ps-1 pe-1 quantity"><?php echo $i["qntCart"]?></span>
                            <!-- <button type="button" class="btn btn-primary btn-sm" name="plus" onclick="aumentaQ()">+</button>-->
                           </div>
-                          <a class="btn btn-danger" href="carrello.php?id=<?php echo $i["idProdotto"]?>&qnt=0" role="button">Rimuovi</a>
+                          <a class="btn btn-danger" href="carrello.php?id=<?php echo $i["idProdotto"]?>&qnt=0&idConfigurazione=<?php echo $i["idConfigurazione"]?>" role="button">Rimuovi</a>
                         </div>
                       </div>
                     </div>
