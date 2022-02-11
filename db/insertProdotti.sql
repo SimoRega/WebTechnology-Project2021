@@ -22,6 +22,13 @@ INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiL
 INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiLetto,lunghezza,larghezza,altezza,massaVuoto,massaPieno,cerchiLega,luciLed,adas) VALUES (idSpecifica,11,"Fiat Ducato 35 Light",5,"4+1",725,233,314,3015,3500,true,false,false);
 INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiLetto,lunghezza,larghezza,altezza,massaVuoto,massaPieno,cerchiLega,luciLed,adas) VALUES (idSpecifica,12,"Fiat Ducato 45 heavy",4,"2+2",789,230,219,3810,4500,true,true,true);
 
+INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiLetto,lunghezza,larghezza,altezza,massaVuoto,massaPieno,cerchiLega,luciLed,adas) VALUES (idSpecifica,13,"Fiat Ducato 35 Light",5,"4+1",659,225,296,2184,3500,false,true,true);
+INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiLetto,lunghezza,larghezza,altezza,massaVuoto,massaPieno,cerchiLega,luciLed,adas) VALUES (idSpecifica,14,"MAN TurboGasEngine 35",4,"4",598,204,172,3010,3500,false,true,false);
+INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiLetto,lunghezza,larghezza,altezza,massaVuoto,massaPieno,cerchiLega,luciLed,adas) VALUES (idSpecifica,15,"Fiat Ducato 35 Light",4,"2",644,234,218,2743,3500,false,false,true);
+INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiLetto,lunghezza,larghezza,altezza,massaVuoto,massaPieno,cerchiLega,luciLed,adas) VALUES (idSpecifica,16,"Fiat Ducato 45 heavy",4,"4",765,234,218,3638,4500,true,false,true);
+INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiLetto,lunghezza,larghezza,altezza,massaVuoto,massaPieno,cerchiLega,luciLed,adas) VALUES (idSpecifica,17,"Fiat Ducato 35 Light",4,"4+1",599,205,258,3638,4500,false,false,false);
+INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiLetto,lunghezza,larghezza,altezza,massaVuoto,massaPieno,cerchiLega,luciLed,adas) VALUES (idSpecifica,18,"Fiat Ducato 45 heavy",6,"5+2",699,229,258,2930,3500,false,true,true);
+
 INSERT INTO UTENTE(email, nome, cognome,password,propic, isadmin) VALUES
 ("a@a.com","federico","raffoni","0cc175b9c0f1b6a831c399e269772661","defaultPropic.jpg",false);
 INSERT INTO UTENTE(email, nome, cognome,password,propic,  isadmin) VALUES
