@@ -61,10 +61,10 @@
                                     <p> <?php echo $not["descrizione"] ?></p>
                                     <hr>
                                     <p> <?php echo $not["dataNotifica"] ?></p>
-                                    <div class="list-group " id="myList" role="tablist">
-                                        <button class="w-25 m-auto my-1 btn btn-warning" id="list-ordini-list" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini" onclick="$('#<?php echo $not['idOrdine']?>').addClass('bg-warning');$(this).removeClass('active');">
+                                    <div class="list-group " role="tablist">
+                                        <a class="w-25 m-auto my-1 btn btn-warning" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini" onclick="$('#<?php echo $not['idOrdine']?>').addClass('bg-warning');$(this).removeClass('active');">
                                             Visualizza Ordine
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                         <?php endforeach?>
@@ -72,9 +72,8 @@
 
 
 
-                    <div class="tab-pane fade" id="list-ordini" role="tabpanel" aria-labelledby="list-ordini-list">
+                    <div class="tab-pane fade  text-dark" id="list-ordini" role="tabpanel" aria-labelledby="list-ordini-list">
                         <?php $allOrder=$dbh->getAllOrder($_SESSION["email"])?>
-                        <div class="tab-pane fade show active text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
                             <?php foreach($allOrder as $order): ?>
                                 <div class="card m-1 text-center p-2 activeOrdine" id="<?php echo $order["idOrdine"];?>">
                                     <h3> <?php echo "Ordine # ".$order["idOrdine"] ?></h3>
@@ -87,7 +86,7 @@
                                         <hr>
                                         <div class="text-center">
                                             <p class="fw-bold"><?php echo $prod["nome"]." x ".$prod["qnt"]?></p>
-                                            <img class="w-25" src="<?php echo UPLOAD_DIR.$prod["img"]?>" class="img-thumbnail rounded " alt="..." style="max-width:100px;">
+                                            <img  src="<?php echo UPLOAD_DIR.$prod["img"]?>" class="w-25 img-thumbnail rounded " alt="..." style="max-width:100px;">
                                         </div>
                                         
 
@@ -97,7 +96,6 @@
 
                                 </div>
                             <?php endforeach?>
-                        </div>
                     </div>
 
 
@@ -106,7 +104,7 @@
                             <form action="account.php" enctype="multipart/form-data" method="POST">
 
                                 <h2>Modifica immagine di profilo</h2>
-                                <label for="side-photo">Carica l'immagine</label>
+                                <label for="propic">Carica l'immagine</label>
                                 <input type="file" id="propic" name="propic" class="form-control text-dark" required><br>
 
                                 <input type="submit" class=" btn btn-light"  value="Carica immagine">
@@ -120,11 +118,11 @@
                             <form action="account.php" method="POST">
                                 <h2>Modifica password</h2>
                                 <label for="oldPass"> Inserisci la password corrente</label><br>
-                                <input type="password"  name="oldPass"/><br>
+                                <input type="password" id="oldPass"  name="oldPass"/><br>
                                 <label for="pass1"> Inserisci la nuova password</label><br>
-                                <input type="password" name="newpass1"/><br>
+                                <input type="password" id="pass1" name="newpass1"/><br>
                                 <label for="pass2"> Ripeti la password</label><br>
-                                <input type="password"  name="newpass2"/><br><br>
+                                <input type="password" id="pass2"  name="newpass2"/><br><br>
 
                                 <input type="submit" class=" btn btn-light"  value="Cambia password">
 
@@ -152,7 +150,7 @@
                                     <p> <?php echo "Stato corrente: ".$o["stato"]; ?> </p>
 
                                     <form action="account.php" method="POST">
-                                        <input type="text" class="toast" name="idOrdine" value="<?php echo $o["idOrdine"] ?>">
+                                        <input type="hidden" class="toast" name="idOrdine" value="<?php echo $o["idOrdine"] ?>">
                                         <?php 
                                             if($o["stato"] == "Cancellato"):
                                         ?>
@@ -193,34 +191,34 @@
 
 
                     <div class="tab-pane fade" id="list-product" role="tabpanel" aria-labelledby="list-product-list">
-                        <form action="" enctype="multipart/form-data" method="POST">
+                        <form action="account.php" enctype="multipart/form-data" method="POST">
 
-                            <label for="side-photo">Inserisci l'immagine del prodotto</label>
-                            <input type="file" id="photo" name="img" class="form-control m-2 text-dark" required>
+                            <label for="img">Inserisci l'immagine del prodotto</label>
+                            <input type="file" id="img" name="img" class="form-control m-2 text-dark" required>
 
-                            <label for="side-photo">Titolo</label>
-                            <input type="text" id="nome-articolo" name="nome" class="form-control m-2 text-dark" required>
+                            <label for="nome">Titolo</label>
+                            <input type="text" id="nome" name="nome" class="form-control m-2 text-dark" required>
 
-                            <label for="side-photo">Marca</label>
+                            <label for="marca">Marca</label>
                             <input type="text" id="marca" name="marca" class="form-control m-2 text-dark" required>
 
-                            <label for="side-photo">Prezzo</label>
-                            <input type="numeric" id="price" name="prezzo" class="form-control m-2 text-dark" required>
+                            <label for="prezzo">Prezzo</label>
+                            <input type="number" id="prezzo" name="prezzo" class="form-control m-2 text-dark" required>
 
-                            <label for="side-photo">Inserisci una categoria</label>
-                            <input type="text" id="category" name="tipo" class="form-control m-2 text-dark" required>
+                            <label for="tipo">Inserisci una categoria</label>
+                            <input type="text" id="tipo" name="tipo" class="form-control m-2 text-dark" required>
 
-                            <label for="side-photo">Inserisci una descrizione</label>
-                            <input type="text" id="desc" name="descr" class="form-control m-2 text-dark" required>
+                            <label for="descr">Inserisci una descrizione</label>
+                            <input type="text" id="descr" name="descr" class="form-control m-2 text-dark" required>
 
-                            <label for="side-photo">Inserisci la quantità in magazzino</label>
-                            <input type="numeric" id="qnt" name="qnt" class="form-control m-2 text-dark" required>
+                            <label for="qnt">Inserisci la quantità in magazzino</label>
+                            <input type="number" id="qnt" name="qnt" class="form-control m-2 text-dark" required>
 
                             <input type="submit" class="m-2 w-100 btn btn-light" value="Aggiungi prodotto">
                         </form>
                     </div>
-
-
+                        </div>
+                        </div>
                 </div>
             </div>
         </div>
