@@ -214,7 +214,7 @@
         }
 
         public function getNotification($email){
-            $stmt = $this->db->prepare("SELECT * FROM NOTIFICA WHERE email= ? ;");
+            $stmt = $this->db->prepare("SELECT * FROM NOTIFICA WHERE email= ? ORDER BY dataNotifica desc;");
             $stmt->bind_param('s',$email);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -368,6 +368,25 @@
 
             return $result->fetch_all(MYSQLI_ASSOC);
         }
+
+
+        public function setStatoOrdine($idOrdine,$stato){
+            $stmt = $this->db->prepare("UPDATE  ORDINE SET stato=? WHERE idOrdine= ?  ");
+            $stmt->bind_param('si',$stato,$idOrdine);
+            $stmt->execute();
+        }
+
+
+        public function getEmailOrder($idOrdine){
+            $stmt = $this->db->prepare("SELECT idUtente FROM ORDINE  WHERE idOrdine=?");
+            $stmt->bind_param('s',$idOrdine);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+     
 
     }
 ?>

@@ -54,6 +54,8 @@
                     <?php $allNotify=$dbh->getNotification($_SESSION["email"])  ?>
 
                     <div class="tab-pane fade show active text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
+                        <a class="list-group-item list-group-item-action" id="list-ordini-list" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini">Ordini</a>
+
                         <?php foreach($allNotify as $not): ?>
                             <div class="card m-1 text-center">
                                 <p> <?php echo $not["descrizione"] ?></p>
@@ -67,7 +69,7 @@
 
                     <div class="tab-pane fade" id="list-ordini" role="tabpanel" aria-labelledby="list-ordini-list">
                         <?php $allOrder=$dbh->getAllOrder($_SESSION["email"])?>
-                        <div class="tab-pane fade show active text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
+                        <div class="tab-pane fade show active text-dark"  role="tabpanel" aria-labelledby="list-notifiche-list">
                             <?php foreach($allOrder as $order): ?>
                                 <div class="card m-1 text-center p-2">
                                     <h3> <?php echo "Ordine # ".$order["idOrdine"] ?></h3>
@@ -146,8 +148,24 @@
 
                                     <form action="account.php" method="POST">
                                         <input type="text" class="toast" name="idOrdine" value="<?php echo $o["idOrdine"] ?>">
-                                        <input type="submit" class="btn btn-primary" name="spedisciOrdine" value="Spedisci">
-                                        <input type="submit" class="btn btn-danger" name="cancecllaOrdine" value="Cancella">
+                                        <?php 
+                                            if($o["stato"] == "Cancellato"):
+                                        ?>
+                                            <input type="submit" disabled class="btn btn-primary" name="spedisciOrdine" value="Spedisci">
+                                            <input type="submit" disabled class="btn btn-danger" name="cancecllaOrdine" value="Cancella">
+                                        <?php
+                                            elseif($o["stato"] == "Spedito"):
+                                        ?>
+                                            <input type="submit" disabled class="btn btn-primary" name="spedisciOrdine" value="Spedisci">
+                                            <input type="submit"  class="btn btn-danger" name="cancecllaOrdine" value="Cancella">
+                                        <?php
+                                            else:
+                                        ?>
+                                            <input type="submit"  class="btn btn-primary" name="spedisciOrdine" value="Spedisci">
+                                            <input type="submit"  class="btn btn-danger" name="cancecllaOrdine" value="Cancella">
+                                        <?php
+                                            endif;
+                                        ?>
 
                                     </form>
                                 </div>
