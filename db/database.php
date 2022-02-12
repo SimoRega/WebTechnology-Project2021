@@ -132,6 +132,8 @@
                     }else{
                         $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE (tipo='furgonato' OR tipo='profilato' OR tipo='mansardato' OR tipo='motorhome') AND (prezzo > ? AND prezzo <= ?)");
                     }
+                        $stmt->bind_param('ii',$min,$max);
+
                         break;
                 case "accessori":
                     if($onlyDisp){
@@ -139,11 +141,22 @@
                     }else {
                         $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE (tipo='tavolo' OR tipo='sedia' OR tipo='frigorifero') AND (prezzo > ? AND prezzo <= ?)");
                     }
+                        $stmt->bind_param('ii',$min,$max);
+
                     break;
+                default:
+                    if($onlyDisp){
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE (tipo=? ) AND (prezzo > ? AND prezzo <= ? AND qnt > 0)");
+                    }else {
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE (tipo=? ) AND (prezzo > ? AND prezzo <= ?)");
+                    }
+                    $stmt->bind_param('sii',$tipo,$min,$max);
+
+                    break;
+                    
             }
 
 
-            $stmt->bind_param('ii',$min,$max);
 
             $stmt->execute();
             $result = $stmt->get_result();
