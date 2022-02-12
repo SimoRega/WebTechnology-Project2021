@@ -69,7 +69,7 @@
       <script src="../js/script.js" ></script>
       <script src="../js/configuratore.js" ></script>
       <script src="../js/carrello.js" ></script>
-   <div class="div" style="min-height:30px;">
+   <div class="div" style="min-height:60px;">
 
    </div>
    <footer class="bg-dark fixed-bottom text-center text-lg-start ">

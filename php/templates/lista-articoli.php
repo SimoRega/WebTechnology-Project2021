@@ -60,7 +60,7 @@
                     
                 foreach($tmp as $accessorio):
                 ?>
-                    <?php if($tipo=="camper"){
+                    <?php if($tipo=="camper" || $tipo=="furgonato" || $tipo=="motorhome" || $tipo=="mansardato" || $tipo=="profilato"){
 
                         $redirect="camper.php?id=";
 

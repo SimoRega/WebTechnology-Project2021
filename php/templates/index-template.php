@@ -16,63 +16,6 @@
     </div>
   </section>
 
-  <!-- BARRA RICERCA VELOCE -->
-  <div class="container mt-4 mt-sm-3 mt-lg-n3 p-3 mb-md-4 barra_ricerca ">
-    <form class="form-group d-block" action="ricerca.php" method="GET">
-      <div class="row g-0 ms-lg-n2 align-items-center">
-        <div class="col-lg-3 border-light">
-          <div class="input-group border-end-lg"><span class="input-group-text  ps-2 ps-sm-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-          </svg>
-          </span>
-            <label for="testoRicerca" class="toast">Ricerca</label>
-            <input class="form-control text-white " id="testoRicerca" type="text" name="testoRicerca" placeholder="Ricerca Veloce">
-          </div>
-        </div>
-        <hr class="hr-light d-lg-none my-2">
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
-
-          <select class="form-select bg-transparent text-white" title="select-Marca"  name="ddMarca">
-            <option selected value="default" class="text-black">MARCA</option>
-            <?php $brand=$dbh->getAllMarche(); ?>
-              <?php foreach($brand as $b): ?>
-                <option class="text-black" value="<?php echo $b["marca"]; ?>"><?php echo $b["marca"]; ?></option>
-                <?php endforeach; ?>
-          </select>
-          </div>
-        </div>
-        <hr class="hr-light d-md-none my-2">
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
-          <select class="form-select bg-transparent text-white" title="select-prodotto" name="ddProdotto">
-            <option selected value="default" class="text-black">PRODOTTO</option>
-            <option class="text-black" value="camper">Camper</option>
-            <option class="text-black" value="accessori">Accessori</option>
-          </select>
-          </div>
-        </div>
-        <hr class="hr-light d-sm-none my-2">
-        <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="dropdown" data-bs-toggle="select">
-          <select class="form-select bg-transparent text-white" title="select-tipo"  name="ddTipo">
-            <option selected value="default" class="text-black">TIPOLOGIA</option>
-            <?php $tipologie=$dbh->getAllTipologie(); ?>
-              <?php foreach($tipologie as $t): ?>
-                <option class="text-black" value="<?php echo $t["tipo"]; ?>"><?php echo $t["tipo"]; ?></option>
-                <?php endforeach; ?>
-          </select>
-          </div>
-        </div>
-        <div class="col-lg-1"></div>
-        <hr class="hr-light d-lg-none m-2">
-        <div class="col-lg-2">     
-          <button class="btn w-100" type="submit">CERCA</button>
-        </div>
-      </div>
-    </form>
-  </div>
-
 
   <!-- TIPOLOGIE CAMPER -->
   <section class="container pb-5 mb-md-4 tipologie">
