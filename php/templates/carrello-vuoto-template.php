@@ -1,9 +1,9 @@
 <section id="listaArticoli" class=" container-fluid rounded-3 bg-light p-2 mt-5 text-dark">
             <h3 class="ps-3">I miei articoli</h3>
             <div class="container ">
-                <div class="list-group rounded-3 bg-warning d-flex flex-column align-items-center p-4">
-                    <h4 class="fw-2 fs-2 pt-4">IL TUO CARRELLO È  VUOTO!</h4> 
-                    <p>Vai nella sezione Shop e aggiungi accessori e camper al carrello</p>
+                <div class="list-group rounded-3 bg-light d-flex flex-column align-items-center p-4">
+                    <h4 class="fw-2 fs-2 pt-4 text-danger">IL TUO CARRELLO È  VUOTO!</h4> 
+                    <p>Vai nella sezione Shop e aggiungi accessori o camper al carrello</p>
                     <a class="btn btn-outline-primary m-1" role="button" href="shop.php?tipo=camper">Shop sezione camper</a>
                     <a class="btn btn-outline-primary m-1" role="button" href="shop.php?tipo=accessori">Shop sezione accessori</a>
                 </div>

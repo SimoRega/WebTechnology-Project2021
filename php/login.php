@@ -1,7 +1,6 @@
 <?php
 require_once("bootstrap.php");
 
-
 $templateParams["title"] = "CamperRomagna - Login";
 $templateParams["template"] = "login-form.php";
 

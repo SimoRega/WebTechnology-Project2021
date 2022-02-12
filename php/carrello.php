@@ -4,23 +4,30 @@ require_once("utils/functions.php");
 $templateParams["title"] = "CamperRomagna - Carrello";
 
 
-if(isset($_GET["id"]) && isset($_GET["qnt"])){
-    $id=$_GET["id"];
-    $qnt=$_GET["qnt"];
+if(isset($_POST["id"]) && isset($_POST["qnt"])){
+    $id=$_POST["id"];
+    $qnt=$_POST["qnt"];
     if(isUserLoggedIn()){
         $checkItem=$dbh->checkItemInCart($_SESSION["email"],$id);
 
 
         if(empty($checkItem[0]["idProdotto"])){
             if($dbh->getTipologia($id)=="camper"){
-                $dbh->salvaConfigurazione($_GET["color"],$_GET["motor"],$_GET["optional"], $_GET["prezzo"]);
+                $dbh->salvaConfigurazione($_POST["color"],$_POST["motor"],$_POST["optional"], $_POST["prezzo"]);
                 $lastID=$dbh->getLastConfId()[0]["idConfigurazione"];
                 $dbh->addToCart($_SESSION["email"],$id,$qnt,$lastID);    
             }else{
                 $dbh->addToCart($_SESSION["email"],$id,$qnt,NULL);
             }
         }else if($qnt==0){
-            $dbh->removeItemCart($_SESSION["email"],$id,$_GET["idConfigurazione"]);
+            
+            if(isset($_POST["idConfigurazione"])){
+                $dbh->removeItemCart($_SESSION["email"],$id,$_POST["idConfigurazione"]);
+                header('Location: carrello.php');
+            }else{
+                $dbh->removeItemCart($_SESSION["email"],$id,NULL);
+                header('Location: carrello.php');
+            }
             $item= $dbh->getCartItems($_SESSION["email"]);
             if(empty($item[0]["idProdotto"])){
                 $templateParams["template"] = "carrello-vuoto-template.php";
@@ -30,7 +37,7 @@ if(isset($_GET["id"]) && isset($_GET["qnt"])){
         }else if($checkItem[0]["qnt"]!=0){
             #update, aggiungere quantità
             if($dbh->getTipologia($id)=="camper"){
-                $dbh->salvaConfigurazione($_GET["color"],$_GET["motor"],$_GET["optional"], $_GET["prezzo"]);
+                $dbh->salvaConfigurazione($_POST["color"],$_POST["motor"],$_POST["optional"], $_POST["prezzo"]);
                 $lastID=$dbh->getLastConfId()[0]["idConfigurazione"];
                 $dbh->addToCart($_SESSION["email"],$id,$qnt,$lastID);
             }else{
@@ -38,6 +45,7 @@ if(isset($_GET["id"]) && isset($_GET["qnt"])){
                 $dbh->updateCart($_SESSION["email"],$id,$q);
             }
         } 
+        header('Location: carrello.php');
     }else{
         header('Location: login.php');
         exit;

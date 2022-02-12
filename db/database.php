@@ -424,6 +424,8 @@
             $stmt->execute();
         }
 
+        
+
         public function getDatiConfigurazione($id){
             $query = "SELECT configurazione.idConfigurazione as idConfigurazione, configurazione.costoConf,prodotto_in_carrello.idUtente,prodotto_in_carrello.idProdotto, colore_camper.nome as colore, motore_camper.nome as motore, optional_camper.nome as optional, colore_camper.costo as costoColore, motore_camper.costo as costoMotore, optional_camper.costo as costoOptional FROM (((configurazione JOIN prodotto_in_carrello on configurazione.idConfigurazione=prodotto_in_carrello.idConfigurazione) JOIN colore_camper ON configurazione.idColore=colore_camper.idColore)JOIN motore_camper ON configurazione.idMotore=motore_camper.idMotore)JOIN optional_camper ON configurazione.idOptional=optional_camper.idOptional WHERE configurazione.idConfigurazione=?;";
             $stmt = $this->db->prepare($query);

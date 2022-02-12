@@ -29,7 +29,7 @@
             <p class=" lead"><?php  echo $item["descrizione"]; ?></p>
             <div class="container-fluid">
 
-                <form action="carrello.php" method="GET">
+                <form action="carrello.php" method="POST">
                     <input class="toast" type="numeric" value=" <?php  echo $item["idProdotto"]; ?>" name="id" >
                     <div class="d-flex">
                         <input class="form-control text-center me-3 px-4" id="inputQuantity" name="qnt" type="number" min="1" max="<?php echo $item["qnt"];?>" value="1" >

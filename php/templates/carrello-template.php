@@ -17,20 +17,29 @@
                             <?php if(($dbh->getTipologia($i["idProdotto"])=="camper")): ?>
                               <?php $conf=$dbh->getDatiConfigurazione($i["idConfigurazione"])[0] ;?>
                               
-                              <p><?php echo $conf["colore"]; ?></p>  
-                              <p><?php echo $conf["motore"]; ?></p> 
-                              <p><?php echo $conf["optional"]; ?></p> 
+                              <p>Colore: <?php echo $conf["colore"]; ?></p>  
+                              <p>Motore: <?php echo $conf["motore"]; ?></p> 
+                              <p>Optional: <?php echo $conf["optional"]; ?></p> 
                             <?php endif;?>
                         </div>
                         <div class="d-flex flex-column">
-                          <p>Prezzo: € <span class="fw-bold prezzo"><?php echo $conf["costoConf"]?></span></p>
+                          <?php if(isset($conf["costoConf"])): ?>
+                            <p>Prezzo: € <span class="fw-bold prezzo"><?php echo $conf["costoConf"]?></span></p>
+                          <?php else: ?>
+                            <p>Prezzo: € <span class="fw-bold prezzo"><?php echo $i["prezzo"]?></span></p>
+                          <?php endif; ?>
                           <div class="d-flex justify-content-end align-items-center">
                             <span class="pe-3">Quantità :</span>
                            <!-- <button type="button" name="minus" class="btn btn-primary btn-sm" onclick="diminuisciQ()">-</button>-->
                             <span class="ps-1 pe-1 quantity"><?php echo $i["qntCart"]?></span>
                            <!-- <button type="button" class="btn btn-primary btn-sm" name="plus" onclick="aumentaQ()">+</button>-->
                           </div>
-                          <a class="btn btn-danger" href="carrello.php?id=<?php echo $i["idProdotto"]?>&qnt=0&idConfigurazione=<?php echo $i["idConfigurazione"]?>" role="button">Rimuovi</a>
+                          <form action="carrello.php" method="POST">
+                            <input class="toast" type="num" value=" <?php  echo $i["idProdotto"]; ?>" name="id" >
+                            <input class="toast" type="num" value="0" name="qnt" >
+                            <input class="btn btn-danger" href="carrello.php?id=<?php echo $i["idProdotto"]?>&qnt=0&idConfigurazione=<?php echo $i["idConfigurazione"]?>" role="button" type="submit" value="Rimuovi">
+
+                          </form>
                         </div>
                       </div>
                     </div>

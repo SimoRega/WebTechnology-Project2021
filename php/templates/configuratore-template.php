@@ -2,16 +2,16 @@
 
 
 <div class="d-flex justify-content-evenly  flex-wrap">
-            <section id="configuraModello" class=" rounded-3 bg-light  text-dark ">
+            <section id="configuraModello" class=" rounded-3 bg-light  text-dark my-1">
                 <div class="d-flex flex-column align-items-center pt-3">
                     <p>Stai configurando:</p>                      
                     <h2><?php echo $templateParams["camper"]["nome"]?></h2>
                 </div>
     
-            </section><section id="configuraImgModello"  class="  rounded-3 bg-light text-dark ">
+            </section><section id="configuraImgModello"  class="  rounded-3 bg-light text-dark my-1">
                 <img src="<?php echo UPLOAD_DIR.$templateParams["camper"]["img"]?>" alt="" class="rounded mx-auto d-block">
             </section>
-            <section id="configuraPrezzoModello"  class=" rounded-3 bg-light text-dark ">
+            <section id="configuraPrezzoModello"  class=" rounded-3 bg-light text-dark my-1">
                 <div class="d-flex flex-column align-items-center pt-3">
                     <p>Prezzo totale provvisorio:</p>                      
                     <h5 id="prezzo"><?php echo $templateParams["camper"]["prezzo"]?></h5>
@@ -21,13 +21,13 @@
 
         <section id="configuraOpzioni"  class="container rounded-3 bg-light p-2 mt-5 text-dark ">
             <div class="d-flex justify-content-between pb-2">
-                <button type="button" class="btn btn-primary" name="indietro" >&lt Indietro</button>
+                <!--<button type="button" class="btn btn-primary" name="indietro" >&lt Indietro</button>-->
                 <button type="button" class="btn btn-primary" name="avanti" >Avanti &gt</button>
             </div>
 
             <div class="d-flex flex-wrap">
 
-              <form action="carrello.php" method="GET">
+              <form action="carrello.php" method="POST">
               <input class="toast" type="num" value=" <?php  echo $templateParams["camper"]["idProdotto"]; ?>" name="id" >
               <input class="toast" type="num" value=" 1" name="qnt" >
               <input class="toast" id="ip" type="num" value="<?php  echo $templateParams["camper"]["prezzo"]; ?>" name="prezzo" >
@@ -71,7 +71,7 @@
                             <?php endforeach; ?>
                     </div>                    
                 </div>
-                <button class="btn btn-danger disabled" name="invia" type="submit" value="inviaaaa">Inviacacca</button>
+                <button class="btn btn-danger disabled" name="invia" type="submit" value="inviaaaa">Aggiungi al Carrello</button>
               </form>
 
 

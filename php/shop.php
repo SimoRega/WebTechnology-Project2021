@@ -1,6 +1,7 @@
 <?php
 require_once("bootstrap.php");
 
+
 $tipo = $_GET["tipo"];
 if(isset($_GET["marca"])){
     $marca = $_GET["marca"];

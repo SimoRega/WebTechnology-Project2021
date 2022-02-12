@@ -54,7 +54,7 @@ if(isset($_POST["spedisciOrdine"])){
 
     $subject = "Aggiornamento ordine";
     $message = "Il tuo ordine è stato spedito!";
-    mail($_SESSION["email"], $subject, $message);
+    mail($email, $subject, $message);
 
 }
 if(isset($_POST["cancecllaOrdine"])){
@@ -64,7 +64,7 @@ if(isset($_POST["cancecllaOrdine"])){
 
     $subject = "Aggiornamento ordine";
     $message = "Il tuo ordine è stato cancellato!";
-    mail($_SESSION["email"], $subject, $message);
+    mail($email, $subject, $message);
 }
 
 
