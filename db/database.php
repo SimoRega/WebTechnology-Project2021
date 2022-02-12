@@ -290,10 +290,10 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
-        public function creaOrdine($email){
-            $query = "INSERT INTO `ORDINE`(`idOrdine`, `idUtente`, `dataOrdine`, `stato`) VALUES (idOrdine,?,now(),'In lavorazione');";
+        public function creaOrdine($email,$citta,$via,$cap){
+            $query = "INSERT INTO `ORDINE`(`idOrdine`, `idUtente`, `dataOrdine`, `stato`,citta,via,cap) VALUES (idOrdine,?,now(),'In lavorazione',?,?,?);";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('s',$email);
+            $stmt->bind_param('ssss',$email,$citta,$via,$cap);
             $stmt->execute();
         }
 

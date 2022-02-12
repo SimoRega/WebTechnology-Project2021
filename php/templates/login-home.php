@@ -23,8 +23,8 @@
                                     <a class="list-group-item list-group-item-action  " id="list-product-list" data-bs-toggle="list" href="#list-product" role="tab" aria-controls="list-product" onclick="$('.activeOrdine').removeClass('bg-warning');">Aggiungi prodotti</a>
                                     <a class="list-group-item list-group-item-action  " id="list-editproduct-list" data-bs-toggle="list" href="#list-editproduct" role="tab" aria-controls="list-editproduct" onclick="$('.activeOrdine').removeClass('bg-warning');">Modifica prodotti</a>
                                 <?php endif; ?>
-                                <a class="list-group-item list-group-item-action <?php if(!$dbh->checkIsAdmin($_SESSION["email"])){echo "active";}?> " id="list-notifiche-list" data-bs-toggle="list" href="#list-notifiche" role="tab" aria-controls="list-notifiche" >Le mie notifiche</a>
-                                <a class="list-group-item list-group-item-action" id="list-ordini-list" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini" onclick="$('.activeOrdine').removeClass('bg-warning');">I miei ordini</a>
+                                <a class="list-group-item list-group-item-action <?php if(!$dbh->checkIsAdmin($_SESSION["email"])){echo "active";}?> " id="list-ordini-list" data-bs-toggle="list" href="#list-ordini" role="tab" aria-controls="list-ordini" onclick="$('.activeOrdine').removeClass('bg-warning');">I miei ordini</a>
+                                <a class="list-group-item list-group-item-action " id="list-notifiche-list" data-bs-toggle="list" href="#list-notifiche" role="tab" aria-controls="list-notifiche" >Le mie notifiche</a>
                                 <a class="list-group-item list-group-item-action" id="list-password-list" data-bs-toggle="list" href="#list-password" role="tab" aria-controls="list-password" onclick="$('.activeOrdine').removeClass('bg-warning');">Modifica profilo</a>
                                 <a class="list-group-item list-group-item-action text-danger" id="list-logout-list" data-bs-toggle="list" href="#list-logout" role="tab" aria-controls="list-logout" onclick="$('.activeOrdine').removeClass('bg-warning');">Logout</a>
                             </div>
@@ -41,8 +41,15 @@
                     <div class="tab-content " id="nav-tabContent">
                         
 
-                        <div class="tab-pane fade <?php if(!$dbh->checkIsAdmin($_SESSION["email"])){echo "show active";}?> text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
+                        <div class="tab-pane fade  text-dark" id="list-notifiche" role="tabpanel" aria-labelledby="list-notifiche-list">
                             <?php $allNotify=$dbh->getNotification($_SESSION["email"])  ?>
+                            <?php 
+                                if(empty($allNotify)):
+                            ?>
+                                <p class="card">Non ci sono notifiche</p>
+                            <?php
+                                endif;
+                            ?>
                             <?php foreach($allNotify as $not): ?>
                             <div class="card text-center my-2">
                             <p> <?php echo $not["descrizione"] ?></p>
@@ -58,8 +65,14 @@
                         </div>
 
 
-                        <div class="tab-pane fade  text-dark" id="list-ordini" role="tabpanel" aria-labelledby="list-ordini-list">
-                            <?php $allOrder=$dbh->getAllOrder($_SESSION["email"])?>
+                        <div class="tab-pane fade  text-dark <?php if(!$dbh->checkIsAdmin($_SESSION["email"])){echo "show active";}?>" id="list-ordini" role="tabpanel" aria-labelledby="list-ordini-list">
+                            <?php $allOrder=$dbh->getAllOrder($_SESSION["email"]);
+                                if(empty($allOrder)):
+                            ?>
+                                <p class="card">Non ci sono ordini</p>
+                            <?php
+                                endif;
+                            ?>
                             <?php foreach($allOrder as $order): ?>
                             <div class="card m-1 text-center p-2 activeOrdine" id="<?php echo $order["idOrdine"];?>">
                             <h3> <?php echo "Ordine # ".$order["idOrdine"] ?></h3>
@@ -183,6 +196,12 @@
                                 </div>
                                 <div class="col-6">
                                     <span> <?php echo "Stato corrente: ".$o["stato"]; ?> </span>
+                                </div>
+                                <div class="col-12">
+                                    <span> <?php echo "Città: ".$o["citta"]; ?> </span>
+                                    <span> <?php echo "Via: ".$o["via"]; ?> </span>
+                                    <span> <?php echo "Cap: ".$o["cap"]; ?> </span>
+
                                 </div>
                                 <div class="mx-auto ">
 
