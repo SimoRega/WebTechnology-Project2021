@@ -30,9 +30,11 @@ INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiL
 INSERT INTO SPECIFICHE_CAMPER (idSpecifica,idProdotto,telaio,postiViaggio,postiLetto,lunghezza,larghezza,altezza,massaVuoto,massaPieno,cerchiLega,luciLed,adas) VALUES (idSpecifica,18,"Fiat Ducato 45 heavy",6,"5+2",699,229,258,2930,3500,false,true,true);
 
 INSERT INTO UTENTE(email, nome, cognome,password,propic, isadmin) VALUES
-("a@a.com","federico","raffoni","0cc175b9c0f1b6a831c399e269772661","defaultPropic.jpg",false);
+("user@camper.com","utente","generico","0cc175b9c0f1b6a831c399e269772661","defaultPropic.jpg",false);
 INSERT INTO UTENTE(email, nome, cognome,password,propic,  isadmin) VALUES
-("b@b.com","adminFiero","Gigaadmin","0cc175b9c0f1b6a831c399e269772661","defaultPropic.jpg",true);
+("romagna.camper@gmail.com","Admin","Admin","0cc175b9c0f1b6a831c399e269772661","defaultPropic.jpg",true);
+INSERT INTO UTENTE(email, nome, cognome,password,propic,  isadmin) VALUES
+("fede.raffoni00@gmail.com","fede","raffo","0cc175b9c0f1b6a831c399e269772661","defaultPropic.jpg",true);
 
 
 INSERT INTO COLORE_CAMPER(idColore,nome,costo) VALUES (idColore,"Verde",10);
@@ -52,6 +54,6 @@ INSERT INTO MOTORE_CAMPER(idMotore,nome,costo) VALUES (idMotore,"180 cavalli",10
 INSERT INTO MOTORE_CAMPER(idMotore,nome,costo) VALUES (idMotore,"140 cavalli",500);
 INSERT INTO MOTORE_CAMPER(idMotore,nome,costo) VALUES (idMotore,"120 cavalli",0);
 
-INSERT INTO STAFF(idStaff, nome, cognome, ruolo, descrizione, img) VALUES (idStaff,"Simone","Rega", "il clown", "mi piacciono i nasi rossi, chrchrazoooooo", 'clown.jpg');
-INSERT INTO STAFF(idStaff, nome, cognome, ruolo, descrizione, img) VALUES (idStaff,"Federico","Raffoni", "il CEO dei ceppi", "simo, il carrello non va", 'ceppo.jpg');
-INSERT INTO STAFF(idStaff, nome, cognome, ruolo, descrizione, img) VALUES (idStaff,"Linda","Fabbri", "La Ceppa", "non so fare niente", 'linda.jpeg');
+INSERT INTO STAFF(idStaff, nome, cognome, ruolo, descrizione, img) VALUES (idStaff,"Simone","Rega", "Arredatore", "Ho sempre avuto una passione innata per gli arredamenti e i camper", 'a.jpg');
+INSERT INTO STAFF(idStaff, nome, cognome, ruolo, descrizione, img) VALUES (idStaff,"Federico","Raffoni", "Editore", "Amo il mio territorio e i camper", 'a.jpg');
+INSERT INTO STAFF(idStaff, nome, cognome, ruolo, descrizione, img) VALUES (idStaff,"Linda","Fabbri", "Il commerciale", "Amo la matematica e un weekend in camper è d'obbligo", 'a.jpg');

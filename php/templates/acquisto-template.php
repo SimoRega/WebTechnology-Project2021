@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <div class="bg-light ">
-    <h3 class="ps-3">Il mio Ordine</h3>
+    <p class="ps-3 fs-3">Il mio Ordine</p>
     <form action="ordine.php" method="POST">
 
 
@@ -62,7 +62,7 @@
       </div>
 
       <div class="card m-3 p-2">
-        <input type="submit" class="btn btn-primary"  required value="Acquista ora">
+        <input type="submit" class="btn btn-primary"  value="Acquista ora">
       </div>
 
     </form>

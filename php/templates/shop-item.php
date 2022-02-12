@@ -30,8 +30,9 @@
             <div class="container-fluid">
 
                 <form action="carrello.php" method="POST">
-                    <input class="toast" type="numeric" value=" <?php  echo $item["idProdotto"]; ?>" name="id" >
+                    <input  type="hidden" value=" <?php  echo $item["idProdotto"]; ?>" name="id" >
                     <div class="d-flex">
+                        <label class="toast" for="inputQuantity">Quantità: </label>
                         <input class="form-control text-center me-3 px-4" id="inputQuantity" name="qnt" type="number" min="1" max="<?php echo $item["qnt"];?>" value="1" >
                         
                         <?php if($item["qnt"]!=0):?>

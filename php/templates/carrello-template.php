@@ -35,9 +35,9 @@
                            <!-- <button type="button" class="btn btn-primary btn-sm" name="plus" onclick="aumentaQ()">+</button>-->
                           </div>
                           <form action="carrello.php" method="POST">
-                            <input class="toast" type="num" value=" <?php  echo $i["idProdotto"]; ?>" name="id" >
-                            <input class="toast" type="num" value="0" name="qnt" >
-                            <input class="btn btn-danger" href="carrello.php?id=<?php echo $i["idProdotto"]?>&qnt=0&idConfigurazione=<?php echo $i["idConfigurazione"]?>" role="button" type="submit" value="Rimuovi">
+                            <input type="hidden" value=" <?php  echo $i["idProdotto"]; ?>" name="id" >
+                            <input type="hidden" value="0" name="qnt" >
+                            <input class="btn btn-danger" type="submit" value="Rimuovi">
 
                           </form>
                         </div>

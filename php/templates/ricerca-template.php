@@ -9,7 +9,7 @@
                 <div class="col-lg-4">
                     <div class="single-product prod">
                         <a href="<?php echo $a["idProdotto"]; ?>">
-                            <img class="img-fluid "  src="<?php echo UPLOAD_DIR.$a["img"]; ?>" alt="" >
+                            <img class="img-fluid "  src="<?php echo UPLOAD_DIR.$a["img"]; ?>" alt="<?php echo $a["nome"]; ?>" >
                         </a>
                         <div class="product-details">
                             <a href="<?php echo $a["idProdotto"]; ?>" style="text-decoration: none;">
@@ -19,7 +19,7 @@
                             <div class="price">
                                 <h5 class="fw-bold"><?php echo $a["prezzo"]; ?>€</h5>
                             </div>
-                            <a href="<?php echo $a["idProdotto"]; ?>" class="btn btn-primary btn-lg " tabindex="-1" role="button" aria-disabled="true">Compra</a>
+                            <a href="<?php echo $a["idProdotto"]; ?>" class="btn btn-primary btn-lg " tabindex="-1" role="button" >Compra</a>
                         </div>
                     </div>
                 </div>

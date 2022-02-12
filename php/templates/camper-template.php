@@ -16,14 +16,14 @@
 <section id="infogeneralicamper" class='rounded-3 bg-light p-2 mt-5 text-dark'>
     <div class="d-flex flex-column align-items-center
     pt-5">
-    <h2 class="px-5"><?php echo $item["nome"]; ?></h2>
+    <p class="px-5 fs-2"><?php echo $item["nome"]; ?></p>
     <small class="px-5 pb-3" ><?php echo $item["marca"]; ?></small>
     <p class="px-5"><?php echo $item["descrizione"]; ?></p>
     <p class="px-5"><?php echo $specifiche['postiViaggio']?> Posti, <?php echo $specifiche['postiLetto']?> Letti</p>
     <p class="px-5">Prezzo a partire da : <span class="fw-bold fs-3"><?php echo $item["prezzo"]; ?></span></p>
     
     <?php if($item["qnt"]>0):?>
-        <a role="button" type="button" class="btn btn-dark" href="./configuratore.php?id=<?php echo $idProdotto ?>">Configura</a>
+        <a role="button" class="btn btn-dark" href="./configuratore.php?id=<?php echo $idProdotto ?>">Configura</a>
     <?php else:?>
         <button type="button" disabled class="btn btn-dark" href="./configuratore.php?id=<?php echo $idProdotto ?>">Non disponibile</a>
     <?php endif;?>
