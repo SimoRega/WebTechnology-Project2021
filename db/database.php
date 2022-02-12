@@ -78,6 +78,15 @@
                         break;
                     }
                     break;
+                case NULL:
+                    if($tipo==NULL){
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ? ;");
+                        $stmt->bind_param('s',$marca);
+                    }else{
+                        $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ? OR tipo=?;");
+                        $stmt->bind_param('ss',$marca,$tipo);
+                    }
+                    break;
                 default:
                 if($tipo==NULL){
                     $stmt = $this->db->prepare("SELECT * FROM PRODOTTO WHERE marca= ? ;");

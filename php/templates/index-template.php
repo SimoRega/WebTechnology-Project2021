@@ -172,7 +172,7 @@
           <div class="row row-cols-1 row-cols-lg-3 gy-4 gx-3 gx-sm-4">
             <a class="col text-light text-decoration-none" href="shop.php?tipo=tavolo">
               <img class="d-block mb-2 mx-auto tns-complete" src="./upload/dometic_chair180.png" width="168" alt="Seat Covers">
-              <div class="fw-bold text-center pt-1">Tavoli da Campeggio</div>
+              <div class="fw-bold text-center pt-1">Sedie Pieghevoli</div>
             </a>
             <a class="col text-light text-decoration-none" href="shop.php?tipo=frigorifero">
               <img class="d-block mb-2 mx-auto tns-complete" src="./upload/dometic_cff35.png" width="168" alt="Tires">
@@ -180,7 +180,7 @@
             </a>
             <a class="col text-light text-decoration-none" href="shop.php?tipo=sedia">
               <img class="d-block mb-2 mx-auto loaded tns-complete" src="./upload/dometic_zero.png" width="168" alt="Disks">
-              <div class="fw-bold text-center pt-1">Sedie Pieghevoli</div>
+              <div class="fw-bold text-center pt-1">Tavoli da Campeggio</div>
             </a>
         </div>
       </div>

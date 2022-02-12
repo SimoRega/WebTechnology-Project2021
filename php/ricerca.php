@@ -12,10 +12,16 @@ if(isset($_GET["ddTipo"]) && $_GET["ddTipo"]!="default"){$tipo=$_GET["ddTipo"];}
 
 if($testo!=NULL){
     $templateParams["itemFound"]=$dbh->findByText($testo);
-
-}else{
-
+}
+if($testo==NULL || $templateParams["itemFound"]==NULL){
     $templateParams["itemFound"]=$dbh->findItem($marca,$prod,$tipo);
+    if($marca==NULL && $prod=="camper"){
+        header('Location: shop.php?tipo=camper');
+        exit;
+    }else{
+        header('Location: shop.php?tipo=accessori');
+        exit;
+    }
 }
 
 require("./templates/base.php");
