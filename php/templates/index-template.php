@@ -5,7 +5,7 @@
         <div class="row " style="margin: 0% 10%;">
             <div class="col-lg-5 col-md-5 pt-3 pt-md-4 pt-lg-5 d-flex flex-column align-self-center ">
                 <h1 class="display-4 text-light ">TROVA IL CAMPER PERFETTO PER TE</h1>
-                <p class="fs-lg text-light opacity-70">Finder is a leading digital marketplace for the automotive industry that connects car shoppers with sellers.</p>
+                <p class="fs-lg text-light opacity-70">Noi di Romagna Camper riusciamo sempre a trovare il camper perfetto per voi!</p>
             </div>
             <div class="col-lg-7 col-md-7 pt-3 pt-md-5 " >
                 <img class="d-block mt-4 ms-auto" src="../res/camper_png.png" alt="" style="max-width: 100%;
@@ -75,7 +75,7 @@
   <!-- TIPOLOGIE CAMPER -->
   <section class="container pb-5 mb-md-4 tipologie">
     <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2 ">
-      <h2 class="h3 text-light mb-2 mb-sm-0">Tipologie Camper</h2><a class="btn btn-link  fw-normal px-0" href="car-finder-catalog-grid.html">Guarda tutti →</a>
+      <h2 class="h3 text-light mb-2 mb-sm-0">Tipologie Camper</h2><a class="btn btn-link  fw-normal px-0" href="./shop.php?tipo=camper">Guarda tutti →</a>
     </div>
     <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-2 g-md-4">
       <!-- Item-->
@@ -115,11 +115,8 @@
               <div class="card-body">
                 <p class="card-text"><?php echo $rndCamper["marca"]; ?></p>
                 <h5 class="card-title"><?php echo $rndCamper["nome"]; ?></h5>
-                <p class="card-text">costo</p>
-                <div class="d-flex justify-content-between align-items-between">
-                  <small class="text-muted">roma</small>
-                  <small class="text-muted">9 mins</small>
-              </div>
+                <p class="card-text">€ <?php echo $rndCamper["prezzo"]; ?></p>
+
             </a>
             </div>
           </div>
@@ -170,7 +167,7 @@
         </div>
         <div class="col-md-8 col-xl-9">
           <div class="row row-cols-1 row-cols-lg-3 gy-4 gx-3 gx-sm-4">
-            <a class="col text-light text-decoration-none" href="shop.php?tipo=tavolo">
+            <a class="col text-light text-decoration-none" href="shop.php?tipo=sedia">
               <img class="d-block mb-2 mx-auto tns-complete" src="./upload/dometic_chair180.png" width="168" alt="Seat Covers">
               <div class="fw-bold text-center pt-1">Sedie Pieghevoli</div>
             </a>
@@ -178,7 +175,7 @@
               <img class="d-block mb-2 mx-auto tns-complete" src="./upload/dometic_cff35.png" width="168" alt="Tires">
               <div class="fw-bold text-center pt-1">Frigoriferi</div>
             </a>
-            <a class="col text-light text-decoration-none" href="shop.php?tipo=sedia">
+            <a class="col text-light text-decoration-none" href="shop.php?tipo=tavolo">
               <img class="d-block mb-2 mx-auto loaded tns-complete" src="./upload/dometic_zero.png" width="168" alt="Disks">
               <div class="fw-bold text-center pt-1">Tavoli da Campeggio</div>
             </a>

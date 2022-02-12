@@ -59,7 +59,7 @@
             </div>
          </nav>
       </header>
-      <main style="margin-bottom:10%;">
+      <main >
          <?php
             require($templateParams["template"]);
             ?>
@@ -69,8 +69,10 @@
       <script src="../js/script.js" ></script>
       <script src="../js/configuratore.js" ></script>
       <script src="../js/carrello.js" ></script>
+   <div class="div" style="min-height:30px;">
 
-   <footer class="bg-dark  text-center text-lg-start ">
+   </div>
+   <footer class="bg-dark fixed-bottom text-center text-lg-start ">
      <div class="text-center p-3" >
         <span>© 2020 Copyright: CamperRomagna</span>
      </div>

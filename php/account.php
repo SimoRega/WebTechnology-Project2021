@@ -66,6 +66,10 @@ if(isset($_POST["cancecllaOrdine"])){
     $message = "Il tuo ordine è stato cancellato!";
     mail($email, $subject, $message);
 }
+if(isset($_POST["ordineArrivato"])){
+    $dbh->setStatoOrdine($_POST["idOrdine"],"Consegnato");
+}
+
 
 
 if(isset($_POST["delProdButton"])){
