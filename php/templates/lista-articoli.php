@@ -12,18 +12,18 @@
             ?>
 
             <div class="row">
-                <div class="col-lg-12 col-md-6  filter " >
-                    <form action="shop.php?tipo=<?php echo $_GET["tipo"] ?>" style="color:white" method="POST">
+                <div class="col-lg-12 col-md-6  filter text-white" >
+                    <form action="shop.php?tipo=<?php echo $_GET["tipo"] ?>"  method="POST">
                         <input <?php if(isset($_POST["disponibile"])){echo "checked='checked'";} ?> type="checkbox" id="disponibile" name="disponibile" value="true">
                         <label for="disponibile"> Solo disponibili</label><br><br>
 
-                        <label for="minPrice">Prezzo minimo</label>
+                        <label for="rangeMin">Prezzo minimo</label>
                         <input type="range" name="min" id="rangeMin" value="<?php if(isset($_POST["min"])){echo $_POST["min"];}else{echo "0";}?>" min="0" max="<?php echo $prezzoMax  ?>" oninput="this.nextElementSibling.value = this.value">
                         <output >
                             <?php if(isset($_POST["min"])){echo $_POST["min"];}else{echo "0";}?>
                         </output><br>
 
-                        <label for="minPrice">Prezzo massimo</label>
+                        <label for="rangeMax">Prezzo massimo</label>
                         <input type="range" name="max" id="rangeMax" value="<?php if(isset($_POST["max"])){echo $_POST["max"];}else{echo $prezzoMax ;}?>" min="0" max="<?php echo $prezzoMax  ?>" oninput="this.nextElementSibling.value = this.value">
                         <output >
                             <?php if(isset($_POST["max"])){echo $_POST["max"];}else{echo $prezzoMax ;}?>
@@ -72,7 +72,7 @@
                     <div class="col-lg-4 col-md-6 ">
                         <div class="single-product prod">
                             <a href="<?php echo $redirect.$accessorio["idProdotto"]; ?>">
-                                <img class="img-fluid "  src="<?php echo UPLOAD_DIR.$accessorio["img"]; ?>" alt="" >
+                                <img class="img-fluid "  src="<?php echo UPLOAD_DIR.$accessorio["img"]; ?>" alt="<?php echo $redirect.$accessorio["nome"]; ?>" >
                             </a>
                             <div class="product-details">
                                 <a href="<?php echo $redirect.$accessorio["idProdotto"]; ?>" style="text-decoration: none;">
@@ -85,11 +85,9 @@
 
                                 <?php
                                     if($accessorio["qnt"] <= 0):?>
-                                            <a href="<?php echo $redirect.$accessorio["idProdotto"]; ?>" class="btn btn-secondary btn-lg " tabindex="-1" role="button"
-                                            aria-disabled="true">Non disponibile</a>
+                                            <a href="<?php echo $redirect.$accessorio["idProdotto"]; ?>" class="btn btn-secondary btn-lg " tabindex="-1" role="button">Non disponibile</a>
                                     <?php else: ?>
-                                        <a href="<?php echo $redirect.$accessorio["idProdotto"]; ?>" class="btn btn-primary btn-lg " tabindex="-1" role="button"
-                                            aria-disabled="true">Compra</a>
+                                        <a href="<?php echo $redirect.$accessorio["idProdotto"]; ?>" class="btn btn-primary btn-lg " tabindex="-1" role="button">Compra</a>
                                     <?php endif; ?>
 
                             </div>

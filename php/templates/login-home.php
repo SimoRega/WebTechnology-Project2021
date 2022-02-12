@@ -255,7 +255,7 @@
                             <label for="prezzo">Prezzo</label>
                             <input type="number" id="prezzo" name="prezzo" class="form-control m-2 text-dark" required>
                             <label for="tipo">Inserisci una categoria</label>
-                            <select type="text" class="form-select bg-white m-2 text-dark"  name="tipo" id="tipo">
+                            <select  class="form-select bg-white m-2 text-dark"  name="tipo" id="tipo">
                                 <?php $tipologie=$dbh->getAllTipologie(); ?>
                                 <?php foreach($tipologie as $t): ?>
                                 <option class="text-black" value="<?php echo $t["tipo"];?>"><?php echo $t["tipo"]; ?></option>
