@@ -1,6 +1,8 @@
 var totPag=0;
 var currentPage=0;
+var lastPage=0;
 var lastPrice=0;
+var prezzoTot=0;
 $(document).ready(inizializeConfiguratore());
 
 
@@ -17,43 +19,50 @@ function inizializeConfiguratore(){
     $( "#stepConfigurazione li" ).eq( currentPage ).addClass("text-danger");
     $("button[name=invia]").addClass("disabled");
     $("button[name=indietro]").addClass("disabled");
+    prezzoTot=parseInt($("#prezzo").text());
+    console.log(prezzoTot);
 }
 
 $("button[name=avanti]").click(function(){
-    aggiungiPrezzo();
-    if(currentPage+1!==totPag){
-        $("#"+currentPage).hide();
-        currentPage++;
-        $("#"+currentPage).show();
-        $("button[name=indietro]").removeClass("disabled");
-
-        $( "#stepConfigurazione li" ).removeClass("text-danger");
-        $( "#stepConfigurazione li" ).eq( currentPage ).addClass("text-danger");
-    }else{
+    currentPage++;
+    $("#"+lastPage).hide();
+    lastPage++;
+    $("#"+currentPage).show();
+    $("button[name=indietro]").removeClass("disabled");
+    $( "#stepConfigurazione li" ).removeClass("text-danger");
+    $( "#stepConfigurazione li" ).eq( currentPage ).addClass("text-danger");
+    lastPrice=0;
+    console.log("avanti "+prezzoTot);
+    if(currentPage+1>=totPag){
         $("button[name=invia]").removeClass("disabled");
         $(this).addClass("disabled");
-    
     }
 });
 
 $("button[name=indietro]").click(function(){
-    if(currentPage>0){
-        $("#"+currentPage).hide();
-        currentPage--;
-        $("#"+currentPage).show();
-        $("button[name=avanti]").removeClass("disabled");
+    currentPage--;
+    $("#"+lastPage).hide();
+    lastPage--;
+    $("#"+currentPage).show();
+    $("button[name=avanti]").removeClass("disabled");
 
-        $( "#stepConfigurazione li" ).removeClass("text-danger");
-        $( "#stepConfigurazione li" ).eq( currentPage ).addClass("text-danger");
-        $("button[name=invia]").addClass("disabled");
-    }else{
+    $( "#stepConfigurazione li" ).removeClass("text-danger");
+    $( "#stepConfigurazione li" ).eq( currentPage ).addClass("text-danger");
+    $("button[name=invia]").addClass("disabled");
+
+    if(currentPage==0){
         $(this).addClass("disabled");
     }
 });
 
+$('.inputprezzo').click(function(){
+    prezzoTot-=lastPrice;
+    var costo= parseInt($(this).next().find('small').text());
+    lastPrice=costo;
 
-function aggiungiPrezzo(){
-    var costo= $('input[name="color"]:checked small').text();
-    alert(costo);
+    prezzoTot+=costo;
+    $("#prezzo").text(prezzoTot);
+    
+    $("#ip").val(""+prezzoTot);
 
-}
+});

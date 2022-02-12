@@ -22,7 +22,12 @@
     <p class="px-5"><?php echo $specifiche['postiViaggio']?> Posti, <?php echo $specifiche['postiLetto']?> Letti</p>
     <p class="px-5">Prezzo a partire da : <span class="fw-bold fs-3"><?php echo $item["prezzo"]; ?></span></p>
     
-    <a role="button" type="button" class="btn btn-dark" href="./configuratore.php?id=<?php echo $idProdotto ?>">Configura</a>
+    <?php if($item["qnt"]>0):?>
+        <a role="button" type="button" class="btn btn-dark" href="./configuratore.php?id=<?php echo $idProdotto ?>">Configura</a>
+    <?php else:?>
+        <button type="button" disabled class="btn btn-dark" href="./configuratore.php?id=<?php echo $idProdotto ?>">Non disponibile</a>
+    <?php endif;?>
+
     </div>
 </section>
 <section id="galleriacampersingolo" class='rounded-3 bg-light p-2 mt-5 text-dark'>

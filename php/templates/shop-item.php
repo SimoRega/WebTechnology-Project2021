@@ -14,7 +14,7 @@
 <div class="container px-4 px-lg-5 my-5">
     <div class="row gx-4 gx-lg-5 align-items-center white">
         <div class="col-md-6 bg-light rounded-3">
-            <img class="card-img-top mb-5 mb-md-0" src="<?php echo UPLOAD_DIR.$item["img"]; ?>" alt="...">
+            <img class="card-img-top mb-5 mb-md-0" src="<?php echo UPLOAD_DIR.$item["img"]; ?>" alt="<?php echo $item["nome"]; ?>">
         </div>
         <div class="col-md-6">
 
@@ -33,7 +33,12 @@
                     <input class="toast" type="numeric" value=" <?php  echo $item["idProdotto"]; ?>" name="id" >
                     <div class="d-flex">
                         <input class="form-control text-center me-3 px-4" id="inputQuantity" name="qnt" type="number" min="1" max="<?php echo $item["qnt"];?>" value="1" >
-                        <input class=" btn btn-primary btn-lg" type="submit">
+                        
+                        <?php if($item["qnt"]!=0):?>
+                        <input class=" btn btn-primary btn-lg" type="submit" value="Aggiungi al carrello">
+                        <?php else:?>
+                        <input class=" btn btn-secondary btn-lg" disabled type="submit" value="Non Disponibile">
+                        <?php endif;?>
                     </div>
                 </form>
             </div>

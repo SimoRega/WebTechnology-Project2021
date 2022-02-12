@@ -15,6 +15,11 @@ if(isset($_POST["nome"]) && isset($_POST["citta"]) && isset($_POST["via"])){
     #echo $idOrdine;
     foreach($cart as $prod):
         $dbh->aggiungiProdInOrdine($idOrdine,$prod["idProdotto"],$prod["qntCart"],$prod["idConfigurazione"]);
+        $tmpQnt=$dbh->getProdottoSingolo($prod["idProdotto"])[0]["qnt"];
+        $newQnt=$tmpQnt-$prod["qntCart"];
+        #echo "Qnt prima".$tmpQnt." pezzi";
+        #echo "Qnt dopo".$newQnt." pezzi";
+        $dbh->editQntProd($prod["idProdotto"],$newQnt);
     endforeach;
     $dbh->removeAllCart($_SESSION["email"]);
     $dbh->creaNotifica($idOrdine,$_SESSION["email"],"Il tuo ordine è stato ricevuto");

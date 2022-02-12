@@ -417,10 +417,10 @@
         }
 
 
-        public function salvaConfigurazione($color,$motor,$optional){
-            $query = "INSERT INTO CONFIGURAZIONE(idConfigurazione,idColore,idMotore,idOptional,costoConf) VALUES (idConfigurazione,?,?,?,3000);";
+        public function salvaConfigurazione($color,$motor,$optional,$costo){
+            $query = "INSERT INTO CONFIGURAZIONE(idConfigurazione,idColore,idMotore,idOptional,costoConf) VALUES (idConfigurazione,?,?,?,?);";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('iii',$color,$motor,$optional);
+            $stmt->bind_param('iiii',$color,$motor,$optional, $costo);
             $stmt->execute();
         }
 
@@ -475,6 +475,12 @@
             $stmt->execute();
 
         }
+        public function editQntProd($idProdotto,$qnt){
+            $stmt = $this->db->prepare("UPDATE  PRODOTTO SET qnt=? WHERE idProdotto= ?;");
+            $stmt->bind_param('ii',$qnt,$idProdotto);
+            $stmt->execute();
+
+        }
 
         public function getAllMarche(){
             $stmt = $this->db->prepare("SELECT DISTINCT marca FROM PRODOTTO ");
@@ -490,6 +496,12 @@
             $result = $stmt->get_result();
 
             return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function updatePrice($id, $price){
+            $stmt = $this->db->prepare("UPDATE  CONFIGURAZIONE SET costoConf=? WHERE idConfigurazione= ?;");
+            $stmt->bind_param('si',$price,$id);
+            $stmt->execute();
         }
 
     }

@@ -23,7 +23,7 @@
                             <?php endif;?>
                         </div>
                         <div class="d-flex flex-column">
-                          <p>Prezzo: € <span class="fw-bold prezzo"><?php echo $i["prezzo"]?></span></p>
+                          <p>Prezzo: € <span class="fw-bold prezzo"><?php echo $conf["costoConf"]?></span></p>
                           <div class="d-flex justify-content-end align-items-center">
                             <span class="pe-3">Quantità :</span>
                            <!-- <button type="button" name="minus" class="btn btn-primary btn-sm" onclick="diminuisciQ()">-</button>-->
