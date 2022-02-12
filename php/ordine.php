@@ -20,6 +20,17 @@ if(isset($_POST["nome"]) && isset($_POST["citta"]) && isset($_POST["via"])){
         #echo "Qnt prima".$tmpQnt." pezzi";
         #echo "Qnt dopo".$newQnt." pezzi";
         $dbh->editQntProd($prod["idProdotto"],$newQnt);
+
+        if($newQnt==0){
+            $admins=$dbh->getAllAdmins();
+            foreach($admins as $a){
+
+                $subject = "Articolo esaurito";
+                $message =  "Il tuo prodotto:".$prod["nome"]." è terminato.";
+                mail($a["email"], $subject, $message);
+                
+            }
+        }
     endforeach;
     $dbh->removeAllCart($_SESSION["email"]);
     $dbh->creaNotifica($idOrdine,$_SESSION["email"],"Il tuo ordine è stato ricevuto");
