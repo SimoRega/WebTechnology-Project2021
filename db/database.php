@@ -166,7 +166,8 @@
         public function checkLogin($email, $password){
             $query = "SELECT * FROM UTENTE WHERE  email = ? AND password = ?";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('ss',$email, md5($password));
+            $tmp=md5($password);
+            $stmt->bind_param('ss',$email, $tmp);
             $stmt->execute();
             $result = $stmt->get_result();
 
