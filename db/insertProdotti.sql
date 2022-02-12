@@ -34,21 +34,23 @@ INSERT INTO UTENTE(email, nome, cognome,password,propic, isadmin) VALUES
 INSERT INTO UTENTE(email, nome, cognome,password,propic,  isadmin) VALUES
 ("b@b.com","adminFiero","Gigaadmin","0cc175b9c0f1b6a831c399e269772661","defaultPropic.jpg",true);
 
-INSERT INTO COLORE_CAMPER(idColore,nome,costo) VALUES (idColore,"Rosso",0);
+
 INSERT INTO COLORE_CAMPER(idColore,nome,costo) VALUES (idColore,"Verde",10);
 INSERT INTO COLORE_CAMPER(idColore,nome,costo) VALUES (idColore,"Giallo",120);
 INSERT INTO COLORE_CAMPER(idColore,nome,costo) VALUES (idColore,"Nero",230);
 INSERT INTO COLORE_CAMPER(idColore,nome,costo) VALUES (idColore,"Bianco",340);
+INSERT INTO COLORE_CAMPER(idColore,nome,costo) VALUES (idColore,"Rosso",0);
 
-INSERT INTO OPTIONAL_CAMPER(idOptional,nome,costo) VALUES (idOptional,"pacchetto base",0);
+
 INSERT INTO OPTIONAL_CAMPER(idOptional,nome,costo) VALUES (idOptional,"pacchetto intermedio",300);
 INSERT INTO OPTIONAL_CAMPER(idOptional,nome,costo) VALUES (idOptional,"pacchetto soft",100);
 INSERT INTO OPTIONAL_CAMPER(idOptional,nome,costo) VALUES (idOptional,"pacchetto deluxe",500);
 INSERT INTO OPTIONAL_CAMPER(idOptional,nome,costo) VALUES (idOptional,"guida assistita",0);
+INSERT INTO OPTIONAL_CAMPER(idOptional,nome,costo) VALUES (idOptional,"pacchetto base",0);
 
+INSERT INTO MOTORE_CAMPER(idMotore,nome,costo) VALUES (idMotore,"180 cavalli",1000);
+INSERT INTO MOTORE_CAMPER(idMotore,nome,costo) VALUES (idMotore,"140 cavalli",500);
 INSERT INTO MOTORE_CAMPER(idMotore,nome,costo) VALUES (idMotore,"120 cavalli",0);
-INSERT INTO MOTORE_CAMPER(idMotore,nome,costo) VALUES (idMotore,"250 cavalli",500);
-INSERT INTO MOTORE_CAMPER(idMotore,nome,costo) VALUES (idMotore,"60 tori",1000);
 
 INSERT INTO STAFF(idStaff, nome, cognome, ruolo, descrizione, img) VALUES (idStaff,"Simone","Rega", "il clown", "mi piacciono i nasi rossi, chrchrazoooooo", 'clown.jpg');
 INSERT INTO STAFF(idStaff, nome, cognome, ruolo, descrizione, img) VALUES (idStaff,"Federico","Raffoni", "il CEO dei ceppi", "simo, il carrello non va", 'ceppo.jpg');
