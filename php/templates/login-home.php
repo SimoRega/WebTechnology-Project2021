@@ -65,6 +65,12 @@
                             <h3> <?php echo "Ordine # ".$order["idOrdine"] ?></h3>
                             <p> <?php echo "Ordine effettuato il: ".$order["dataOrdine"] ?></p>
                             <p> <?php echo "Stato ordine: ".$order["stato"] ?></p>
+                            <?php if($order["stato"]=="Spedito"):?>
+                                    <form action="account.php" method="POST">
+                                    <input type="hidden"  name="idOrdine" value="<?php echo $order["idOrdine"] ?>">
+                                    <input type="submit"  class="btn btn-danger" name="ordineArrivato" value="Arrivato">
+                                    </form>
+                                <?php endif; ?>
                             <?php
                                 $prodInOrder = $dbh->getProdOnOrder($order["idOrdine"]);
                                 foreach($prodInOrder as $prod):
@@ -77,6 +83,7 @@
                             <?php
                                 endforeach;
                                 ?>
+                                
                             </div>
                             <?php endforeach?>
                         </div>
@@ -182,7 +189,7 @@
                                     <form action="account.php"  method="POST">
                                         <input type="hidden"  name="idOrdine" value="<?php echo $o["idOrdine"] ?>">
                                     <?php 
-                                        if($o["stato"] == "Cancellato"):
+                                        if($o["stato"] == "Cancellato" || $o["stato"] == "Consegnato"):
                                             ?>
                                         <input type="submit" disabled class="btn btn-primary" name="spedisciOrdine" value="Spedisci">
                                         <input type="submit" disabled class="btn btn-danger" name="cancecllaOrdine" value="Cancella">
