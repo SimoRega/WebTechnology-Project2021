@@ -24,7 +24,6 @@ if(isset($_POST["nome"]) && isset($_POST["citta"]) && isset($_POST["via"])){
         if($newQnt==0){
             $admins=$dbh->getAllAdmins();
             foreach($admins as $a){
-
                 $subject = "Articolo esaurito";
                 $message =  "Il tuo prodotto:".$prod["nome"]." è terminato.";
                 mail($a["email"], $subject, $message);

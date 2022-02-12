@@ -1,10 +1,10 @@
-<main id="homePage">
+<div id="homePage">
   <!-- PRESENTAZIONE HOME -->
   <section class="bg-top-center bg-repeat-0">
     <div class="container-fluid">
         <div class="row " style="margin: 0% 10%;">
             <div class="col-lg-5 col-md-5 pt-3 pt-md-4 pt-lg-5 d-flex flex-column align-self-center ">
-                <h1 class="display-4 text-light ">TROVA IL CAMPER PERFETTO PER TE</h1>
+                <p class="fs-1 display-4 text-light ">TROVA IL CAMPER PERFETTO PER TE</p>
                 <p class="fs-lg text-light opacity-70">Noi di Romagna Camper riusciamo sempre a trovare il camper perfetto per voi!</p>
             </div>
             <div class="col-lg-7 col-md-7 pt-3 pt-md-5 " >
@@ -24,14 +24,16 @@
           <div class="input-group border-end-lg"><span class="input-group-text  ps-2 ps-sm-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
           </svg>
-            <input class="form-control text-white " type="text" name="testoRicerca" placeholder="Ricerca Veloce">
-            </input>
+          </span>
+            <label for="testoRicerca" class="toast">Ricerca</label>
+            <input class="form-control text-white " id="testoRicerca" type="text" name="testoRicerca" placeholder="Ricerca Veloce">
           </div>
         </div>
         <hr class="hr-light d-lg-none my-2">
         <div class="col-lg-2 col-md-4 col-sm-6">
           <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
-          <select class="form-select bg-transparent text-white" aria-label="Default select example" name="ddMarca">
+
+          <select class="form-select bg-transparent text-white" title="select-Marca"  name="ddMarca">
             <option selected value="default" class="text-black">MARCA</option>
             <?php $brand=$dbh->getAllMarche(); ?>
               <?php foreach($brand as $b): ?>
@@ -43,7 +45,7 @@
         <hr class="hr-light d-md-none my-2">
         <div class="col-lg-2 col-md-4 col-sm-6">
           <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
-          <select class="form-select bg-transparent text-white" aria-label="Default select example" name="ddProdotto">
+          <select class="form-select bg-transparent text-white" title="select-prodotto" name="ddProdotto">
             <option selected value="default" class="text-black">PRODOTTO</option>
             <option class="text-black" value="camper">Camper</option>
             <option class="text-black" value="accessori">Accessori</option>
@@ -53,7 +55,7 @@
         <hr class="hr-light d-sm-none my-2">
         <div class="col-lg-2 col-md-4 col-sm-6">
           <div class="dropdown" data-bs-toggle="select">
-          <select class="form-select bg-transparent text-white" aria-label="Default select example" name="ddTipo">
+          <select class="form-select bg-transparent text-white" title="select-tipo"  name="ddTipo">
             <option selected value="default" class="text-black">TIPOLOGIA</option>
             <?php $tipologie=$dbh->getAllTipologie(); ?>
               <?php foreach($tipologie as $t): ?>
@@ -75,24 +77,24 @@
   <!-- TIPOLOGIE CAMPER -->
   <section class="container pb-5 mb-md-4 tipologie">
     <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2 ">
-      <h2 class="h3 text-light mb-2 mb-sm-0">Tipologie Camper</h2><a class="btn btn-link  fw-normal px-0" href="./shop.php?tipo=camper">Guarda tutti →</a>
+      <p class="fs-2 h3 text-light mb-2 mb-sm-0">Tipologie Camper</p><a class="btn btn-link  fw-normal px-0" href="./shop.php?tipo=camper">Guarda tutti →</a>
     </div>
     <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-2 g-md-4">
       <!-- Item-->
       <div class="col">
-        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Campervan_Side_white.png" width="180" alt="Furgonato"><a class="nav-link-light stretched-link fw-bold" href="./shop.php?tipo=furgonato">Furgonato</a></div>
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Campervan_Side_white.png" width="180" alt="Furgonato"><a class="nav-link-light stretched-link fw-bold" title="Furgonato" href="./shop.php?tipo=furgonato">Furgonato</a></div>
       </div>
       <!-- Item-->
       <div class="col">
-        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Over-Cab_Side_white.png" width="180" alt="Mansardato"><a class="nav-link-light stretched-link fw-bold" href="./shop.php?tipo=mansardato">Mansardato</a></div>
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Over-Cab_Side_white.png" width="180" alt="Mansardato"><a class="nav-link-light stretched-link fw-bold" title="Mansardato" href="./shop.php?tipo=mansardato">Mansardato</a></div>
       </div>
       <!-- Item-->
       <div class="col">
-        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Low-Profile_Side_white.png" width="180" alt="Profilato"><a class="nav-link-light stretched-link fw-bold" href="./shop.php?tipo=profilato">Profilato</a></div>
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Low-Profile_Side_white.png" width="180" alt="Profilato"><a class="nav-link-light stretched-link fw-bold" title="Profilato" href="./shop.php?tipo=profilato">Profilato</a></div>
       </div>
       <!-- Item-->
       <div class="col">
-        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Motorhome_Side_white.png" width="180" alt="Motorhome"><a class="nav-link-light stretched-link fw-bold" href="./shop.php?tipo=motorhome">Motorhome</a></div>
+        <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="../res/Laika_Motorhome_Side_white.png" width="180" alt="Motorhome"><a class="nav-link-light stretched-link fw-bold" title="Motorhome" href="./shop.php?tipo=motorhome">Motorhome</a></div>
       </div>
     </div>
   </section>
@@ -100,7 +102,7 @@
   <!-- PREVIEW ULTIMI CAMPER AGGIUNTI -->
   <section class="container mb-md-4 ultimi_arrivi">
     <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2 ">
-      <h2 class="h3 text-light mb-2 mb-sm-0">Ultimi Arrivi</h2><a class="btn btn-link  fw-normal px-0" href="shop.php?tipo=camper">Guarda tutti →</a>
+      <p class=" fs-2 h3 text-light mb-2 mb-sm-0">Ultimi Arrivi</p><a class="btn btn-link  fw-normal px-0" href="shop.php?tipo=camper">Guarda tutti →</a>
     </div>
     <div class="album py-5 preview_modelli">
       <div class="container">
@@ -116,9 +118,8 @@
                 <p class="card-text"><?php echo $rndCamper["marca"]; ?></p>
                 <h5 class="card-title"><?php echo $rndCamper["nome"]; ?></h5>
                 <p class="card-text">€ <?php echo $rndCamper["prezzo"]; ?></p>
-
+              </div>
             </a>
-            </div>
           </div>
         </div>
       <?php endforeach; ?>
@@ -136,22 +137,26 @@
       <!-- Item-->
       <div class="col">
         <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center">
-          <img class="d-block mx-auto mb-3" src="../res/laika_logo.png" width="180"  height="auto" alt="Laika ">
           <a class="nav-link-light stretched-link fw-bold" href="shop.php?tipo=camper&marca=laika">
+          <img class="d-block mx-auto mb-3" src="../res/laika_logo.png" width="180" alt="Laika ">
           </a>
         </div>
       </div>
       <!-- Item-->
       <div class="col">
         <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center">
-          <img class="d-block mx-auto mb-3" src="../res/adria_logo.png" width="180" height="auto" alt="Arca">
-          <a class="nav-link-light stretched-link fw-bold" href="shop.php?tipo=camper&marca=adria"></a></div>
+          <a class="nav-link-light stretched-link fw-bold" href="shop.php?tipo=camper&marca=adria">
+          <img class="d-block mx-auto mb-3" src="../res/adria_logo.png" width="180"  alt="Arca">
+
+          </a></div>
       </div>
       <!-- Item-->
       <div class="col">
         <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center">
-          <img class="d-block mx-auto mb-3" src="../res/knaus_logo.png" width="180" height="auto" alt="Knaus">
-          <a class="nav-link-light stretched-link fw-bold" href="shop.php?tipo=camper&marca=knaus"></a></div>
+          <a class="nav-link-light stretched-link fw-bold" href="shop.php?tipo=camper&marca=knaus">
+          <img class="d-block mx-auto mb-3" src="../res/knaus_logo.png" width="180"  alt="Knaus">
+
+          </a></div>
       </div>
     </div>
   </section>
@@ -184,5 +189,5 @@
     </div>
   </div>
 
-
-</main>
+      </div>
+</div>

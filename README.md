@@ -1,6 +1,32 @@
 # WebTechnology-Project2021
-A Web Technology project for an University class
 
-Brainstorming here https://jamboard.google.com/d/1fQnj-gqQFPebqATBPPRtZtDNJBvpV6JWRnBhynRplQI/edit?usp=sharing
 
-WhiteBoard https://wbd.ms/share/v2/aHR0cHM6Ly93aGl0ZWJvYXJkLm1pY3Jvc29mdC5jb20vYXBpL3YxLjAvd2hpdGVib2FyZHMvcmVkZWVtLzFhODBmZmExODdmNTQyZmZhMTAyMjQ5MTE1NWIyNDkxX2U5OTY0N2RjLTFiMDgtNDU0YS1iZjhjLTY5OTE4MWIzODlhYl84ZmM1OTMxMi1mNjFjLTQ2MmMtODU2NS02OThhMGYyMmMxZjY=
+Mockup: https://balsamiq.cloud/sdfa9r4/pedrbdf/r6008
+
+Progetto: Camper Romagna
+
+Descrizione: sito per la compravendita di camper o accessori per camper
+
+Caratteristiche funzionali:
+1)finestra di login
+2)finestra di registrazione per un nuovo utente
+3)shop per i camper
+  3.1)configuratore per cambiare le specifiche
+4)shop per gli accessori
+5)carrello
+5)pagina di profilo per gestire ordini
+
+Caratteristiche aggiuntive:
+Nei due shop si possono applicare i filtri per fare ricerche più mirate,
+Il venditore può aggiungere, eliminare o modificare i prodotti,
+Traking della spedizione,
+Il venditore può annullare o spedire un ordine, l'acquirente ha un pulsante sul proprio ordine per confermare l'avvenuta ricezione.
+
+Notifiche:
+Il venditore viene notificato nel caso un prodotto venga terminato,
+L'acquirente viene notificato se:
+1) l'ordine è stato fatto,
+2) l'ordine è stato spedito
+3) l'ordine è stato annullato.
+
+
