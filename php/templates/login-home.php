@@ -229,7 +229,12 @@
                             <label for="prezzo">Prezzo</label>
                             <input type="number" id="prezzo" name="prezzo" class="form-control m-2 text-dark" required>
                             <label for="tipo">Inserisci una categoria</label>
-                            <input type="text" id="tipo" name="tipo" class="form-control m-2 text-dark" required>
+                            <select type="text" class="form-select bg-white m-2 text-dark"  name="tipo" id="tipo">
+                                <?php $tipologie=$dbh->getAllTipologie(); ?>
+                                <?php foreach($tipologie as $t): ?>
+                                <option class="text-black" value="<?php echo $t["tipo"];?>"><?php echo $t["tipo"]; ?></option>
+                                <?php endforeach; ?>
+                            </select>
                             <label for="descr">Inserisci una descrizione</label>
                             <input type="text" id="descr" name="descr" class="form-control m-2 text-dark" required>
                             <label for="qnt">Inserisci la quantità in magazzino</label>

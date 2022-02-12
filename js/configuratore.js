@@ -39,7 +39,7 @@ $("button[name=avanti]").click(function(){
     }
 });
 
-$("button[name=indietro]").click(function(){
+/*$("button[name=indietro]").click(function(){
     currentPage--;
     $("#"+lastPage).hide();
     lastPage--;
@@ -53,7 +53,7 @@ $("button[name=indietro]").click(function(){
     if(currentPage==0){
         $(this).addClass("disabled");
     }
-});
+});*/
 
 $('.inputprezzo').click(function(){
     prezzoTot-=lastPrice;
