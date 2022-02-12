@@ -52,11 +52,19 @@ if(isset($_POST["spedisciOrdine"])){
     $email=$dbh->getEmailOrder($_POST["idOrdine"])[0]["idUtente"];
     $dbh->creaNotifica($_POST["idOrdine"],$email,"Il tuo ordine è stato spedito");
 
+    $subject = "Aggiornamento ordine";
+    $message = "Il tuo ordine è stato spedito!";
+    mail($_SESSION["email"], $subject, $message);
+
 }
 if(isset($_POST["cancecllaOrdine"])){
     $dbh->setStatoOrdine($_POST["idOrdine"],"Cancellato");
     $email=$dbh->getEmailOrder($_POST["idOrdine"])[0]["idUtente"];
     $dbh->creaNotifica($_POST["idOrdine"],$email,"Il tuo ordine è stato cancellato");
+
+    $subject = "Aggiornamento ordine";
+    $message = "Il tuo ordine è stato cancellato!";
+    mail($_SESSION["email"], $subject, $message);
 }
 
 

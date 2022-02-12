@@ -20,17 +20,9 @@ if(isset($_POST["nome"]) && isset($_POST["citta"]) && isset($_POST["via"])){
     $dbh->creaNotifica($idOrdine,$_SESSION["email"],"Il tuo ordine è stato ricevuto");
 
     
-    $recipient = 'fede.raffoni00@gmail.com';
-    $subject = "sus";
-    $message = "sei un ceppo";
-
-    if(mail($recipient, $subject, $message)){
-
-        echo   "mail inviata correttamente";
-    }else{
-        echo   "errore mail ";
-
-    }
+    $subject = "Acquisto effettuato";
+    $message = "Il tuo ordine è andato a buon fine, ti manderemo una notifica quando verrà spedito";
+    mail($_SESSION["email"], $subject, $message);
 }
 
 
