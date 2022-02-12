@@ -1,51 +1,44 @@
-<div class="container col-xxl-8 px-4 py-5">
-      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6">
-          <img src="../res/2.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500"
-            loading="lazy">
+<div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row featurette">
+        
+        <div class="col-md-7 text-center d-flex align-items-center flex-column">
+            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
         </div>
-        <div class="col-lg-6 bg-light">
-          <h1 class="display-5 fw-bold lh-1 mb-3">Chi siamo</h1>
-          <p class="lead">Romagna camper nasce dalla volontà di portare Losd ufdw bfisdb isdh isdh hsdiuhsd uifh sdhsd
-            ouhsduio hsduihf huiadsbg iudsbgfiu dsafuisd fuisdagf isdfui sdfiubdsf ibsdafhisdbif asdbiufbsdi sdiuf dsibf
-            diasbsdibfis uoahfiuehwaiu fhib dfib</p>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          </div>
+        <div class="col-md-5">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+            
         </div>
-      </div>
     </div>
+    
+    <!-- START THE FEATURETTES -->
+    
+    <hr class="featurette-divider">
+    
+    <div class="row">
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
+        <h2>Heading</h2>
+        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <h2>Heading</h2>
+        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-    <div class="w-100  justify-content-center d-flex">
-      <h3 class="white">Il nostro team</h3>
-    </div>
+        <h2>Heading</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
 
-    <div class="container">
-
-      <div class="row">
-        <?php foreach ($templateParams["staff"] as $person): ?>
-        <div class="col-lg-4 col-md-6 ">
-          <div class="single-product prod">
-            <img class="img-fluid rounded mx-auto d-block" style="max-width:250px;" src="<?php echo UPLOAD_DIR.$person["img"]; ?>">
-            <div class="product-details">
-              <h5 class="fw-bold"><?php echo $person["nome"]; ?> </h5>
-              <p class="designation"><?php echo $person["ruolo"]; ?></p>
-              <p class="designation"><?php echo $person["descrizione"]; ?></p>
-            </div>
-          </div>
-        </div>
-        <?php endforeach; ?>
-    </div>
-
-    <div class=" my-5 w-100  justify-content-center d-flex flex-column ">
-      <h3 class="m-auto white pb-2"> Dove trovarci</h3>
-
-      <div class="m-auto">
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1WRPurxOlrnI2ivMcUdXIvrWtLsKLkkHD" width="640"
-          height="480"></iframe>
-      </div>
-
-    </div>
-</div>
+  </div>
