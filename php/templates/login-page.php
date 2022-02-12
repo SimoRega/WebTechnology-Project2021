@@ -1,7 +1,14 @@
 <div class="container rounded-3 bg-light p-3">
 
     <div class="row">
-        <div class="col-8">
+        <div class="col-8 m-auto">
+            <?php 
+                if(isset($templateParams["errorelogin"] )):
+            ?>
+                <span class="bg-red-500">Errore, controlla mail e password</span>
+            <?php
+                endif;
+            ?>
             <div class="tab-content m-3  mb-5  list-group list-tab" id="nav-tabContent">
                 <div class="tab-pane fadeIn fade show active "  id="login" role="tabpanel" aria-labelledby="list-home-list">
                     <form action="login.php" method="POST">

@@ -54,6 +54,10 @@ create table if not exists ORDINE(
 	idUtente VARCHAR(100) NOT NULL,
 	dataOrdine DATETIME NOT NULL,
 	stato VARCHAR(50) NOT NULL,
+	citta VARCHAR(100) NOT NULL,
+	via VARCHAR(200) NOT NULL,
+	cap VARCHAR(5) NOT NULL,
+
 	PRIMARY KEY(idOrdine),
 	FOREIGN KEY (idUtente) REFERENCES UTENTE(email)
 );

@@ -7,7 +7,7 @@ $templateParams["template"] = "acquisto-riuscito.php";
 
 
 if(isset($_POST["nome"]) && isset($_POST["citta"]) && isset($_POST["via"])){
-    $dbh->creaOrdine($_SESSION["email"]);
+    $dbh->creaOrdine($_SESSION["email"],$_POST["citta"],$_POST["via"],$_POST["cap"],);
     $idOrdine=$dbh->getLastOrderId($_SESSION["email"])[0]["idOrdine"];
     $cart = $dbh->getCartItems($_SESSION["email"]);
 
